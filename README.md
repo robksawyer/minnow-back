@@ -41,3 +41,4 @@ You can find Sails documentation at <http://sailsjs.org/#/documentation>.
 1. [How To Implement Password Reset In Node.js](http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/)
 1. [Sails.js Documentation > Core Concepts](http://sailsjs.org/#/documentation/concepts/)
 1. [Json Web Tokens: Examples](http://angular-tips.com/blog/2014/05/json-web-tokens-examples/)
+1. [Facebook Developers Documentation](https://developers.facebook.com/)
