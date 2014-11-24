@@ -7,9 +7,9 @@ The backend is built on [Sails](http://sailsjs.org) and depends on [Waterlock](h
 
 # Environment Variables
 
-FACEBOOK_CLIENT_ID:                 [Facebook App ID]
-FACEBOOK_CLIENT_SECRET:             [Facebook App Secret]
-PASS_RESET_AUTH_EMAIL_ADDRESS:      [hellominnow@gmail.com]
-PASS_RESET_AUTH_EMAIL_ADDRESS_PASS: [the email password]
-PASS_RESET_EMAIL_ADDRESS:           [hellominnow@gmail.com]
-WATERLOCK_SECRET:                   [Add your own secret]
+- FACEBOOK_CLIENT_ID:                 [Facebook App ID]
+- FACEBOOK_CLIENT_SECRET:             [Facebook App Secret]
+- PASS_RESET_AUTH_EMAIL_ADDRESS:      [hellominnow@gmail.com]
+- PASS_RESET_AUTH_EMAIL_ADDRESS_PASS: [the email password]
+- PASS_RESET_EMAIL_ADDRESS:           [hellominnow@gmail.com]
+- WATERLOCK_SECRET:                   [Add your own secret]
