@@ -10,14 +10,14 @@
  * in the env/ subfolder.
  *
  * PLEASE NOTE:
- *		local.js is included in your .gitignore, so if you're using git
- *		as a version control solution for your Sails app, keep in mind that
- *		this file won't be committed to your repository!
+ *    local.js is included in your .gitignore, so if you're using git
+ *    as a version control solution for your Sails app, keep in mind that
+ *    this file won't be committed to your repository!
  *
- *		Good news is, that means you can specify configuration for your local
- *		machine in this file without inadvertently committing personal information
- *		(like database passwords) to the repo.  Plus, this prevents other members
- *		of your team from commiting their local configuration changes on top of yours.
+ *    Good news is, that means you can specify configuration for your local
+ *    machine in this file without inadvertently committing personal information
+ *    (like database passwords) to the repo.  Plus, this prevents other members
+ *    of your team from commiting their local configuration changes on top of yours.
  *
  *    In a production environment, you probably want to leave this file out
  *    entirely and leave all your settings in env/production.js
@@ -80,42 +80,61 @@ module.exports = {
    * 'development' environment.                                              *
    ***************************************************************************/
 
-    environment: process.env.NODE_ENV || 'development',
+  environment: process.env.NODE_ENV || 'development',
 
-    /**
-    *
-    * The testing database
-    *
-    **/
-    models: {
-      connection: 'localDiskDb'
+  /**
+  *
+  * The testing database
+  *
+  **/
+  models: {
+    connection: 'localDiskDb'
+  },
+
+
+  /*connections: {
+    herokuRedisServer: {
+      port: 6379,
+      host: 'http://localhost',
+      password: null,
+      database: null
     },
+  },*/
 
-    /**
-    *
-    * Controls the local testing settings for Waterlock Facebook auth
-    *
-    **/
-     waterlock: {
-      authMethod: {
+
+  /**
+  *
+  * Controls the local testing settings for Waterlock Facebook auth
+  *
+  **/
+  waterlock: {
+    authMethod: [
+      {
         passwordReset:{
           mail: {
             options:{
               auth: {
-                user: 'youremail@gmail.com',
-                pass: 'yourGMAILpass'
+                user: 'some_email@domain.com',
+                pass: 'SOME_PASS'
               }
             },
-            from: 'some@domain.com'
-          }
+            from: 'SOME_EMAIL@domain.com'
+          },
         },
-        //waterlock-facebook-auth
-        appId: 'YOUR_FACEBOOK_CLIENT_ID',
-        appSecret: 'YOUR_FACEBOOK_CLIENT_SECRET'
       },
+    ],
 
-      jsonWebTokens:{
-        secret: 'some super secret'
-      }
+    // JSON Web Tokens
+    //
+    // this provides waterlock with basic information to build your tokens, 
+    // these tokens are used for authentication, password reset, 
+    // and anything else you can imagine
+    jsonWebTokens: {
+
+      // CHANGE THIS SECRET
+      secret: 'YOUR_SECRET'
     }
+ }
+
+
 };
