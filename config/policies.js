@@ -33,7 +33,7 @@ module.exports.policies = {
     'find': ['hasJsonWebToken'],
     'populate': ['hasJsonWebToken'],
     'remove': ['hasJsonWebToken'],
-    'findOne': ['hasJsonWebToken']
+    'findOne': ['hasJsonWebToken'],
     '*': false,
   },
   CommentController: {
@@ -41,7 +41,7 @@ module.exports.policies = {
     'find': ['hasJsonWebToken'],
     'populate': ['hasJsonWebToken'],
     'remove': ['hasJsonWebToken'],
-    'findOne': ['hasJsonWebToken']
+    'findOne': ['hasJsonWebToken'],
     '*': false,
   }
 
