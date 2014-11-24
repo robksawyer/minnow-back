@@ -12,15 +12,15 @@ module.exports = {
 
   attributes: require('waterlock').models.user.attributes({
 
-    facebookId: { 
+    email: {
       type: 'string',
       unique: true
     },
-    email: { 
-      type: 'string', 
-      unique: true 
-    },
     phone: {
+      type: 'string',
+      unique: true
+    },
+    facebookId: { 
       type: 'string',
       unique: true
     },
@@ -37,14 +37,18 @@ module.exports = {
       defaultsTo: 0
     },
     comments: {
-      type: 'int',
-      defaultsTo: 0
+      collection: 'comment',
+      via: 'owner'
     },
-
-    /*posts: {
+    posts: {
       collection: 'post',
       via: 'owner'
-    },*/
+    },
+    toJSON: function() {
+      var obj = this.toObject();
+      delete obj.auth.password;
+      return obj;
+    }
     
   }),
   
