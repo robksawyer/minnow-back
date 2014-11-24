@@ -19,7 +19,12 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.connections.html
  */
 
-module.exports.connections = {
+var redisCloudUrl = process.env.REDISCLOUD_URL;
+var redisCloudUrlParsed = 'http://localhost:6379';
+if(redisCloudUrl){
+  redisCloudUrlParsed = require("url").parse(redisCloudUrl);
+}
+module.exports.connections = {  
 
   /***************************************************************************
   *                                                                          *
@@ -56,14 +61,37 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  someMongodbServer: {
+  herokuMongodbServer: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    // user: 'username',
-    // password: 'password',
-    // database: 'your_mongo_db_name_here'
+    url: process.env.MONGOHQ_URL
   },
+
+  /***************************************************************************
+  *                                                                          *
+  * A Sails/Waterline adapter for Redis.                                     *
+  * http://en.wikipedia.org/wiki/Redis                                       *
+  *                                                                          *
+  * Run: npm install sails-redis                                             *
+  *                                                                          *
+  *                                                                          *
+  ***************************************************************************/
+/*  herokuRedisServer: {
+    port: redisCloudUrlParsed.port,
+    host: redisCloudUrlParsed.host.split(":")[0],
+    password: redisCloudUrlParsed.auth.split(":")[1],
+    database: redisCloudUrlParsed.auth.split(":")[0],
+    options: {
+
+      // low-level configuration
+      // (redis driver options)
+      parser: 'hiredis',
+      return_buffers: false,
+      detect_buffers: false,
+      socket_nodelay: true,
+      no_ready_check: false,
+      enable_offline_queue: true
+    }
+  },*/
 
   /***************************************************************************
   *                                                                          *
@@ -74,13 +102,12 @@ module.exports.connections = {
   *                                                                          *
   *                                                                          *
   ***************************************************************************/
-  somePostgresqlServer: {
+  herokuPostgresqlServer: {
     adapter: 'sails-postgresql',
-    host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_POSTGRES_USER',
-    password: 'YOUR_POSTGRES_PASSWORD',
-    database: 'YOUR_POSTGRES_DB'
-  }
+    url: process.env.DATABASE_URL,
+    ssl: true,
+    schema: true
+  },
 
 
   /***************************************************************************

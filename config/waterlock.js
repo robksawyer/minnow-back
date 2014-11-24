@@ -25,7 +25,7 @@ module.exports.waterlock = {
     {
       name:'waterlock-local-auth',
       passwordReset:{
-        tokens: true,
+        tokens: false,
         mail: {
           protocol: 'SMTP',
           options:{
@@ -46,11 +46,11 @@ module.exports.waterlock = {
       },
       createOnNotFound: true
     },
-    {
-      name: "waterlock-facebook-auth",
+  /*{
+      name: 'waterlock-facebook-auth',
       appId: process.env.FACEBOOK_CLIENT_ID,
       appSecret: process.env.FACEBOOK_CLIENT_SECRET
-    }
+    }*/
   ],
 
   // JSON Web Tokens
@@ -58,16 +58,16 @@ module.exports.waterlock = {
   // this provides waterlock with basic information to build your tokens, 
   // these tokens are used for authentication, password reset, 
   // and anything else you can imagine
-  jsonWebTokens:{
+  jsonWebTokens: {
 
     // CHANGE THIS SECRET
-    secret: process.env.WATERLOCK_SECRET,
+    secret: process.env.WATERLOCK_SECRET || '8927389723j23kh2387232jh2jhj2h3',
     expiry:{
       unit: 'days',
       length: '7'
     },
-    audience: 'Minnow',
-    subject: 'Small and curious.',
+    audience: 'minnow',
+    subject: 'small and curious',
 
     // tracks jwt usage if set to true
     trackUsage: true,

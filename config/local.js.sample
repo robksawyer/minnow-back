@@ -80,7 +80,16 @@ module.exports = {
    * 'development' environment.                                              *
    ***************************************************************************/
 
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || 'development',
+
+    /**
+    *
+    * The testing database
+    *
+    **/
+    models: {
+      connection: 'localDiskDb'
+    },
 
     /**
     *
@@ -98,7 +107,9 @@ module.exports = {
               }
             },
             from: 'some@domain.com'
+          }
         },
+        //waterlock-facebook-auth
         appId: 'YOUR_FACEBOOK_CLIENT_ID',
         appSecret: 'YOUR_FACEBOOK_CLIENT_SECRET'
       },

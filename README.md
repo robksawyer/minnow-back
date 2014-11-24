@@ -43,7 +43,15 @@ You can find Sails documentation at <http://sailsjs.org/#/documentation>.
 
 # Further Reading
 
-1. [How To Implement Password Reset In Node.js](http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/)
 1. [Sails.js Documentation > Core Concepts](http://sailsjs.org/#/documentation/concepts/)
+1. [Node.js Documentation](http://nodejs.org/documentation/)
+1. [Waterline Documentation](http://sailsjs.org/#/documentation/reference/waterline) - The Sails default ORM
+1. [_lodash Documentation](http://devdocs.io/lodash/) 
+1. [ExpressJS Documentation](http://expressjs.com/guide/error-handling.html) - Sails is built on ExpressJS
+1. [Embedded Javascript (EJS) Templates](http://www.embeddedjs.com) - This is the default view engine included with SailsJS
+1. [How To Implement Password Reset In Node.js](http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/)
 1. [Json Web Tokens: Examples](http://angular-tips.com/blog/2014/05/json-web-tokens-examples/)
 1. [Facebook Developers Documentation](https://developers.facebook.com/)
+1. [User Authentication with Sails.js](http://sethetter.com/user-authentication-with-sails-js/)
+1. [Promises in Sails JS - Remove Callback Hell](http://maangalabs.com/blog/2014/08/23/promises-in-sails-js-remove-callback-hell/)
+1. [JavaScript Promises ... In Wicked Detail](http://dailyjs.com/2014/02/20/promises-in-detail/)
