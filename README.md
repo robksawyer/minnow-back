@@ -4,6 +4,12 @@
 
 The backend is built on [Sails](http://sailsjs.org) and depends on [Waterlock](http://waterlock.ninja) for API authentication. There are a few other components that have been added as well. These include [waterlock-facebook-auth](https://github.com/davidrivera/waterlock-facebook-auth) that handles Facebook authentication along with the other modules listed below.
 
+# Getting Started
+
+1. clone the repo `git clone https://therepo.com`
+1. cd `therepo`
+1. npm install //Installs the node modules used by the project
+1. sails lift //Launches the sails app
 
 # Environment Variables
 
@@ -20,6 +26,18 @@ The config variables are set via the [Heroku tool belt](https://toolbelt.heroku.
 
 The `config/local.js` file contains important variables that are used during local development. You can read more about the local config file [here](http://sailsjs.org/#/documentation/reference/sails.config/sails.config.local.html). To get started quickly, just rename `local.js.sample` to `local.js` and then change the variables included as you see fit.
 
+
+# Dependencies 
+
+1. [Waterlock NPM](https://www.npmjs.org/package/waterlock)
+1. [waterlock-facebook-auth](https://github.com/davidrivera/waterlock-facebook-auth)
+
 # Documentation
 
 You can find Sails documentation at <http://sailsjs.org/#/documentation>.
+
+# Further Reading
+
+1. [How To Implement Password Reset In Node.js](http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/)
+1. [Sails.js Documentation > Core Concepts](http://sailsjs.org/#/documentation/concepts/)
+1. [Json Web Tokens: Examples](http://angular-tips.com/blog/2014/05/json-web-tokens-examples/)
