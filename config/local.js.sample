@@ -106,6 +106,10 @@ module.exports = {
       jsonWebTokens:{
         secret: 'some super secret'
       }
-    }
+    },
+
+    newrelic: {
+      license_key: 'YOUR_LICENSE_KEY'
+    },
 
 };

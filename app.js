@@ -53,6 +53,17 @@ process.chdir(__dirname);
     }
   }
 
+  //
+  //Startup New Relic
+  //
+  var newrelic;
+  try {
+    newrelic = require('newrelic');
+  } catch (e) {
+    console.error('Could not find dependency: `newrelic`.');
+    console.error('You probably need to run `npm install`');
+    console.error('');
+  } 
 
   // Start server
   sails.lift(rc('sails'));

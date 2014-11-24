@@ -15,6 +15,7 @@ The backend is built on [Sails](http://sailsjs.org) and depends on [Waterlock](h
 
 The config variables are set via the [Heroku tool belt](https://toolbelt.heroku.com) comment `heroku config:add MYVAR='something'`. These are set to ensure that private information isn't added directly to the code. 
 
+## Local Variables
 - FACEBOOK_CLIENT_ID:                 [Facebook App ID]
 - FACEBOOK_CLIENT_SECRET:             [Facebook App Secret]
 - PASS_RESET_AUTH_EMAIL_ADDRESS:      [hellominnow@gmail.com]
@@ -26,11 +27,15 @@ The config variables are set via the [Heroku tool belt](https://toolbelt.heroku.
 
 The `config/local.js` file contains important variables that are used during local development. You can read more about the local config file [here](http://sailsjs.org/#/documentation/reference/sails.config/sails.config.local.html). To get started quickly, just rename `local.js.sample` to `local.js` and then change the variables included as you see fit.
 
-
 # Dependencies 
 
 1. [Waterlock NPM](https://www.npmjs.org/package/waterlock)
 1. [waterlock-facebook-auth](https://github.com/davidrivera/waterlock-facebook-auth)
+1. [RedisCloud](https://devcenter.heroku.com/articles/rediscloud) - Redis is used for application cache.
+1. [MongoHQ](https://devcenter.heroku.com/articles/mongohq) - User records and post contents are held here.
+1. [Postmark](https://addons.heroku.com/postmark) - Email delivery
+1. [Papertrail](https://addons.heroku.com/papertrail) - Logs and logging
+1. [New Relic](https://addons.heroku.com/newrelic) - Monitoring and troubleshooting.
 
 # Documentation
 
