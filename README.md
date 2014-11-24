@@ -7,6 +7,8 @@ The backend is built on [Sails](http://sailsjs.org) and depends on [Waterlock](h
 
 # Environment Variables
 
+The config variables are set via the heroku toolkit comment `heroku config:add MYVAR='something'`.
+
 - FACEBOOK_CLIENT_ID:                 [Facebook App ID]
 - FACEBOOK_CLIENT_SECRET:             [Facebook App Secret]
 - PASS_RESET_AUTH_EMAIL_ADDRESS:      [hellominnow@gmail.com]
