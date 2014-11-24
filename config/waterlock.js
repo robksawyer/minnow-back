@@ -25,17 +25,17 @@ module.exports.waterlock = {
     {
       name:'waterlock-local-auth',
       passwordReset:{
-        tokens: false,
+        tokens: true,
         mail: {
           protocol: 'SMTP',
           options:{
             service: 'Gmail',
             auth: {
-              user: 'gmail.user@gmail.com',
-              pass: 'userpass'
+              user: process.env.PASS_RESET_AUTH_EMAIL_ADDRESS,
+              pass: process.env.PASS_RESET_AUTH_EMAIL_ADDRESS_PASS
             }
           },
-          from: 'no-reply@domain.com',
+          from: process.env.PASS_RESET_EMAIL_ADDRESS,
           subject: 'Your password reset!',
           forwardUrl: 'http://localhost:1337'
         },  
@@ -45,6 +45,11 @@ module.exports.waterlock = {
         }
       },
       createOnNotFound: true
+    },
+    {
+      name: "waterlock-facebook-auth",
+      appId: process.env.FACEBOOK_CLIENT_ID,
+      appSecret: process.env.FACEBOOK_CLIENT_SECRET
     }
   ],
 
@@ -56,13 +61,13 @@ module.exports.waterlock = {
   jsonWebTokens:{
 
     // CHANGE THIS SECRET
-    secret: 'this is my secret',
+    secret: process.env.WATERLOCK_SECRET,
     expiry:{
       unit: 'days',
       length: '7'
     },
-    audience: 'app name',
-    subject: 'subject',
+    audience: 'Minnow',
+    subject: 'Small and curious.',
 
     // tracks jwt usage if set to true
     trackUsage: true,

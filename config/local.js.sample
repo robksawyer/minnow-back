@@ -80,6 +80,32 @@ module.exports = {
    * 'development' environment.                                              *
    ***************************************************************************/
 
-   // environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || 'development'
+
+    /**
+    *
+    * Controls the local testing settings for Waterlock Facebook auth
+    *
+    **/
+     waterlock: {
+      authMethod: {
+        passwordReset:{
+          mail: {
+            options:{
+              auth: {
+                user: 'youremail@gmail.com',
+                pass: 'yourGMAILpass'
+              }
+            },
+            from: 'some@domain.com'
+        },
+        appId: 'YOUR_FACEBOOK_CLIENT_ID',
+        appSecret: 'YOUR_FACEBOOK_CLIENT_SECRET'
+      },
+
+      jsonWebTokens:{
+        secret: 'some super secret'
+      }
+    }
 
 };
