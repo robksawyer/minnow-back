@@ -8,6 +8,23 @@
 module.exports = {
 
   attributes: {
+    content: {
+      type: 'string',
+      required: true
+    },
+    secret: {
+      type: 'string'
+    },
+    price: {
+      type: 'float'
+    },
+    bg_img_url: {
+      type: 'string'
+    },
+    comments: {
+      collection: 'comment',
+      via: 'post'
+    },
     owner:{
       model: 'user'
     }

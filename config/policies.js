@@ -26,22 +26,43 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': true,
-  
+  '*': false,
+
+  AuthController: {
+    'login': true,
+    'logout': true,
+    'register': true,
+    'findOne': ['hasJsonWebToken', 'ownUser'],
+    'populate': ['hasJsonWebToken', 'ownAssociations'],
+    'remove': ['hasJsonWebToken', 'ownAssociations'],
+    'update': ['hasJsonWebToken','ownAssociations'],
+    '*': false
+  },
+  UserController: {
+    'jwt': ['sessionAuth','ownUser'],
+    'findOne': ['hasJsonWebToken', 'ownUser'],
+    'populate': ['hasJsonWebToken', 'ownAssociations'],
+    'remove': ['hasJsonWebToken', 'ownAssociations'],
+    'destroy': ['hasJsonWebToken','ownUser'],
+    'update': ['hasJsonWebToken','ownAssociations'],
+    '*': false
+  },
   PostController: {
     'create': ['hasJsonWebToken'],
     'find': ['hasJsonWebToken'],
-    'populate': ['hasJsonWebToken'],
-    'remove': ['hasJsonWebToken'],
-    'findOne': ['hasJsonWebToken'],
+    'populate': ['hasJsonWebToken','ownAssociations'],
+    'remove': ['hasJsonWebToken','ownUser'],
+    'destroy': ['hasJsonWebToken','ownUser'],
+    'findOne': ['hasJsonWebToken','ownUser'],
     '*': false,
   },
   CommentController: {
     'create': ['hasJsonWebToken'],
     'find': ['hasJsonWebToken'],
-    'populate': ['hasJsonWebToken'],
-    'remove': ['hasJsonWebToken'],
-    'findOne': ['hasJsonWebToken'],
+    'populate': ['hasJsonWebToken','ownAssociations'],
+    'remove': ['hasJsonWebToken','ownUser'],
+    'destroy': ['hasJsonWebToken','ownUser'],
+    'findOne': ['hasJsonWebToken','ownUser'],
     '*': false,
   }
 

@@ -8,7 +8,10 @@
 module.exports = {
 
   attributes: {
-    owner:{
+    post: {
+      model: 'post'
+    },
+    owner: {
       model: 'user'
     }
   }
