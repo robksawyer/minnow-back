@@ -84,6 +84,19 @@ We are using [MochaJS](http://mochajs.org) for unit testing. Visit the `test` fo
 grunt test
 ```
 
+## Testing Dependencies
+- [Sails Guide to Testing](http://sailsjs.org/#/documentation/concepts/Testing)
+- [Supertest](https://github.com/tj/supertest)
+- [Barrels](https://www.npmjs.org/package/barrels) - Fixtures for Sails
+- [ShouldJS](https://github.com/shouldjs/should.js)
+- [Grunt Mocha Test](https://github.com/pghalliday/grunt-mocha-test)
+
+# Test Related Reading
+
+1. [Unit testing Sails JS: How to mock SailsJS Services in Controllers](https://blog.sergiocruz.me/unit-testing-sails-js-how-to-mock-sailsjs-services-in-controllers/)
+1. 
+
+
 # Further Reading
 
 1. [Sails.js Documentation > Core Concepts](http://sailsjs.org/#/documentation/concepts/)
