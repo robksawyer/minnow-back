@@ -77,6 +77,13 @@ The `config/local.js` file contains important variables that are used during loc
 
 You can find Sails documentation at <http://sailsjs.org/#/documentation>.
 
+# Testing
+
+We are using [MochaJS](http://mochajs.org) for unit testing. Visit the `test` folder to see more. You can run the tests via the following command:
+```
+grunt test
+```
+
 # Further Reading
 
 1. [Sails.js Documentation > Core Concepts](http://sailsjs.org/#/documentation/concepts/)

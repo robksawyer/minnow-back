@@ -1,0 +1,31 @@
+[
+  {
+    "email": "test@test.com",
+    "password": "test",
+    "phone": "000-000-0000",
+    "facebookId": "0230823283782732",
+    "emailConfirmationStatus": "confirmed"
+  },
+  {
+    "email": "test1@test.com",
+    "password": "test1",
+    "facebookId": "2328972983798273",
+    "emailConfirmationStatus": "confirmed",
+    "phoneConfirmationStatus": "unconfirmed"
+  },
+  {
+    "email": "test2@test.com",
+    "password": "test2",
+    "phone": "111-111-1111",
+    "facebookId": "239982798728733",
+    "emailConfirmationStatus": "confirmed"
+  },
+  {
+    "email": "test3@test.com",
+    "password": "test3"
+  },
+  {
+    "email": "test4@test.com",
+    "password": "test4"
+  }
+]
