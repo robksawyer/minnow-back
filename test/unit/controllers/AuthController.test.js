@@ -3,7 +3,7 @@ var sinon = require('sinon'),
     request = require('supertest'),
     agent = request.agent('http://localhost:1337');
 
-describe('AuthController', function() {
+/*describe('AuthController', function() {
   describe('GET /auth/login', function(){
     it('should create a new user', function (done) {
       agent.post('/auth/login')
@@ -16,7 +16,6 @@ describe('AuthController', function() {
         });
     });
   });
-
-});
+});*/
 
 

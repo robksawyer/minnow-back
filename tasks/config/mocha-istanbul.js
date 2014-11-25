@@ -17,6 +17,18 @@ module.exports = function(grunt) {
         mask: '**/*.test.js',
         root: '../../api/'
       }
+    },
+    coveralls: {
+        src: 'test', // the folder, not the files
+        options: {
+            coverage: true,
+            check: {
+                lines: 75,
+                statements: 75
+            },
+            root: '../../api', // define where the cover task should consider the root of libraries that are covered by tests
+            reportFormats: ['html']
+        }
     }
   });
 

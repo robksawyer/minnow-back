@@ -1,6 +1,7 @@
 [
   {
     "email": "test@test.com",
+    "password": "test5test",
     "createdAt": "2014-11-25T05:13:38.860Z",
     "updatedAt": "2014-11-25T05:13:38.893Z",
     "id": 1,
@@ -8,6 +9,7 @@
   },
   {
     "email": "test1@test.com",
+    "password": "test5test",
     "createdAt": "2014-11-25T05:13:38.860Z",
     "updatedAt": "2014-11-25T05:13:38.893Z",
     "id": 2,
@@ -15,6 +17,7 @@
   },
   {
     "email": "test2@test.com",
+    "password": "test5test",
     "createdAt": "2014-11-25T05:13:38.860Z",
     "updatedAt": "2014-11-25T05:13:38.893Z",
     "id": 3,
@@ -22,9 +25,18 @@
   },
   {
     "email": "test3@test.com",
+    "password": "test5test",
     "createdAt": "2014-11-25T05:13:38.860Z",
     "updatedAt": "2014-11-25T05:13:38.893Z",
     "id": 4,
     "user": 4
+  },
+  {
+    "email": "test4@test.com",
+    "password": "test5test",
+    "createdAt": "2014-11-25T05:13:38.860Z",
+    "updatedAt": "2014-11-25T05:13:38.893Z",
+    "id": 5,
+    "user": 5
   }
 ]

@@ -9,9 +9,17 @@ before(function (done) {
     log: {
       level: 'error'
     },
+    connections: {
+      test: {
+        adapter: 'sails-disk'
+      }
+    },
     models: {
-      connection: 'localDiskDb',
+      connection: 'test',
       migrate: 'drop'
+    },
+    hooks: {
+      grunt: false
     },
     environment: 'development'
   }, function(err, sails) {
@@ -28,6 +36,7 @@ before(function (done) {
     barrels.populate(function(err) {
       done(err, sails);
     });
+
   });
 });
 

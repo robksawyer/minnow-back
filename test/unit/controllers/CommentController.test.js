@@ -1,3 +1,2 @@
-var CommentController = require('../../../api/controllers/CommentController'),
-    sinon = require('sinon'),
+var sinon = require('sinon'),
     assert = require('assert');

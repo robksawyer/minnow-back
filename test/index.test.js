@@ -1,15 +1,18 @@
 'use strict';
 
-/**
- * Dependencies
+/*
+ * Location: /test/index.test.js
+ *
+ * @description :: This file is run before all other tests.
  */
 var should = require('should'),
-    Sails = require('sails'),
-    Barrels = require('barrels'),
-    barrels = new Barrels();
-
+    appHelper = require('./helpers/appHelper');
+ 
+before(function (done) {
+  appHelper.lift(done);
+});
+ 
 describe('Barrels', function() {
-  var fixtures = barrels.data;
 
   // Load fixtures into memory
   describe('constructor', function() {
@@ -27,50 +30,21 @@ describe('Barrels', function() {
 
   // Populate DB with fixtures
   describe('populate()', function() {
-    before(function(done) {
-      Sails.lift({
-        log: {
-          level: 'error'
-        },
-        paths: {
-          models: require('path').join(process.cwd(),
-            'test/fixtures/models')
-        },
-        connections: {
-          test: {
-            adapter: 'sails-memory'
-          }
-        },
-        models: {
-          connection: 'test',
-          migrate: 'drop'
-        },
-        hooks: {
-          grunt: false
-        }
-      }, function(err, sails) {
-        done(err);
-      });
-    });
-
-    after(function(done) {
-      sails.lower(done);
-    });
-
     describe('populate(cb)', function() {
       before(function(done) {
-        barrels.populate(done);
+        barrels.populate(['users','posts'], done);
       });
 
       it('should populate the DB with users and posts', function(done) {
+
         Post.find().exec(function(err, posts) {
           if (err)
             return done(err);
 
-          var gotPost = (fixtures['posts'].length >
-            0);
-          var postsAreInTheDb = (posts.length ===
-            fixtures['posts'].length);
+          console.log(posts);
+          var gotPost = (fixtures['posts'].length > 0);
+          var postsAreInTheDb = (posts.length === fixtures['posts'].length);
+
           should(gotPost && postsAreInTheDb).be.ok;
 
           User.find().exec(function(err, users) {
@@ -82,18 +56,19 @@ describe('Barrels', function() {
             );
             done();
           });
+
         });
       });
 
       it('should assign a post to each user', function(done) {
-        User.find().populate('post').exec(function(err, users) {
+        User.find().populate('posts').exec(function(err, users) {
           if (err)
             return done(err);
 
-          async.each(users, function(user, nextProduct) {
+          async.each(users, function(user, nextPost) {
             should(user.post.name).not.be.empty;
 
-            nextProduct();
+            nextPost();
           }, done);
         });
       });
@@ -103,10 +78,10 @@ describe('Barrels', function() {
           if (err)
             return done(err);
 
-          async.each(users, function(user, nextProduct) {
+          async.each(users, function(user, nextPost) {
             should(user.comments.length).be.greaterThan(1);
 
-            nextProduct();
+            nextPost();
           }, done);
         });
       });
@@ -122,11 +97,11 @@ describe('Barrels', function() {
           if (err)
             return done(err);
 
-          async.each(users, function(user, nextProduct) {
-            user.post.should.be.a.Number;
+          async.each(users, function(user, nextPost) {
+            user.posts.should.be.an.Array;
             user.comments.should.be.an.Array;
 
-            nextProduct();
+            nextPost();
           }, done);
         });
       });
@@ -147,7 +122,7 @@ describe('Barrels', function() {
         });
       });
 
-      it('should populate users but not posts', function(done) {
+      /*it('should populate users but not posts', function(done) {
         User.find().exec(function(err, users) {
           if (err)
             return done(err);
@@ -158,12 +133,16 @@ describe('Barrels', function() {
         Post.find().exec(function(err, posts) {
           if (err)
             return done(err);
-
           posts.length.should.be.eql(0);
         });
 
         done();
-      });
+      });*/
+
     });
   });
+});
+
+after(function (done) {
+  appHelper.lower(done);
 });

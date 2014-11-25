@@ -2,8 +2,7 @@
  * Test File: Testing HomeController
  * File location: test/controllers/HomeController.test.js
  */
-var HomeController = require('../../../api/controllers/HomeController'),
-    sinon = require('sinon'),
+var sinon = require('sinon'),
     assert = require('assert');
 
 describe('The Home Controller', function() {  

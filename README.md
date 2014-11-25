@@ -93,12 +93,15 @@ grunt test
 - [Grunt Mocha Test](https://github.com/pghalliday/grunt-mocha-test)
 - [Grunt Mocha Istanbul](https://github.com/pocesar/grunt-mocha-istanbul) - Code coverage
 - [Sinon Spy](http://sinonjs.org) - Standalone test spies, stubs and mocks for JavaScript.
+- [WrenchJS](https://github.com/ryanmcgrath/wrench-js) - Recursive file operations
+- [FS-Extra](https://github.com/jprichardson/node-fs-extra) - Extra file system methods
 
 # Test Related Reading
 
 1. [Unit testing Sails JS: How to mock SailsJS Services in Controllers](https://blog.sergiocruz.me/unit-testing-sails-js-how-to-mock-sailsjs-services-in-controllers/)
 1. [Unit testing JavaScript is easy they said. It only takes a few seconds they said.](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
-
+1. [Unit test SailsJS with Mocha and generate code coverage with Istanbul](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
+1. [3 Quick Tips for Writing Tests in Node.Js (after some rambling)](http://niallohiggins.com/2012/03/28/3-quick-tips-for-writing-tests-in-nodejs/)
 
 # Further Reading
 
@@ -114,3 +117,4 @@ grunt test
 1. [User Authentication with Sails.js](http://sethetter.com/user-authentication-with-sails-js/)
 1. [Promises in Sails JS - Remove Callback Hell](http://maangalabs.com/blog/2014/08/23/promises-in-sails-js-remove-callback-hell/)
 1. [JavaScript Promises ... In Wicked Detail](http://dailyjs.com/2014/02/20/promises-in-detail/)
+1. [Generating REST API With Sails JS - Part 2](http://maangalabs.com/blog/2014/07/26/generating-rest-api-with-sails-js-part-2/)
