@@ -85,6 +85,7 @@ grunt test
 ```
 
 ## Testing Dependencies
+
 - [Sails Guide to Testing](http://sailsjs.org/#/documentation/concepts/Testing)
 - [Supertest](https://github.com/tj/supertest)
 - [Barrels](https://www.npmjs.org/package/barrels) - Fixtures for Sails
@@ -94,7 +95,6 @@ grunt test
 # Test Related Reading
 
 1. [Unit testing Sails JS: How to mock SailsJS Services in Controllers](https://blog.sergiocruz.me/unit-testing-sails-js-how-to-mock-sailsjs-services-in-controllers/)
-1. 
 
 
 # Further Reading
