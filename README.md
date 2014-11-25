@@ -91,10 +91,13 @@ grunt test
 - [Barrels](https://www.npmjs.org/package/barrels) - Fixtures for Sails
 - [ShouldJS](https://github.com/shouldjs/should.js)
 - [Grunt Mocha Test](https://github.com/pghalliday/grunt-mocha-test)
+- [Grunt Mocha Istanbul](https://github.com/pocesar/grunt-mocha-istanbul) - Code coverage
+- [Sinon Spy](http://sinonjs.org) - Standalone test spies, stubs and mocks for JavaScript.
 
 # Test Related Reading
 
 1. [Unit testing Sails JS: How to mock SailsJS Services in Controllers](https://blog.sergiocruz.me/unit-testing-sails-js-how-to-mock-sailsjs-services-in-controllers/)
+1. [Unit testing JavaScript is easy they said. It only takes a few seconds they said.](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
 
 
 # Further Reading

@@ -12,7 +12,8 @@ before(function (done) {
     models: {
       connection: 'localDiskDb',
       migrate: 'drop'
-    }
+    },
+    environment: 'development'
   }, function(err, sails) {
     if (err)
       return done(err);

@@ -11,11 +11,6 @@
 module.exports = {
 
   attributes: require('waterlock').models.user.attributes({
-
-    email: {
-      type: 'string',
-      unique: true
-    },
     phone: {
       type: 'string',
       unique: true
