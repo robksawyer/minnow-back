@@ -11,7 +11,7 @@ var Sails = require('sails'),
     Barrels = require('barrels'),
     sailsprocess, barrels, fixtures;
  
-module.exports.appHelper = {
+var appHelper = {
  
   /* Starts the Sails server, or if already started, stops and then starts it
    *
@@ -92,3 +92,8 @@ module.exports.appHelper = {
     });
   }
 };
+
+/**
+ * Expose should to external world.
+ */
+exports = module.exports = appHelper;

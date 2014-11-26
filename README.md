@@ -8,6 +8,7 @@ The backend is built on [Sails](http://sailsjs.org) and depends on [Waterlock](h
 
 1. clone the repo `git clone https://therepo.com`
 1. cd `therepo`
+1. Rename `config/local.sample.js` to `local.js` and update variables in the file as needed
 1. npm install //Installs the node modules used by the project
 1. sails lift //Launches the sails app
 
