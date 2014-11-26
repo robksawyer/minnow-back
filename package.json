@@ -28,6 +28,7 @@
     "sails-memory": "^0.10.3",
     "sails-mongo": "^0.10.4",
     "sails-redis": "^0.10.3",
+    "stripe": "^3.0.0 ",
     "url": "^0.10.1",
     "uuid": "^2.0.1",
     "waterlock": "0.0.13",
