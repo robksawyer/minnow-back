@@ -3,10 +3,8 @@
 
 > An application that allows you to make money from your secrets. 
 
-| [![Build Status][travis-image]][travis-url] | [![Dependency Status][dependency-image]][dependency-url] |
-| ------ | ------ |
-| [![Coverage Status][coverage-image]][coverage-url] | [![Code Climate][climate-image]][climate-url] |
-| [![Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International][license-image]][license-url] | |
+| [![Build Status][travis-image]][travis-url] | [![Dependency Status][dependency-image]][dependency-url] | [![Coverage Status][coverage-image]][coverage-url] | [![Code Climate][climate-image]][climate-url] | [![Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International][license-image]][license-url] | 
+| ------ | ------ | ------ | ------ | ------ |
 
 
 The backend is built on [Sails](http://sailsjs.org) and depends on [Waterlock](http://waterlock.ninja) for API authentication. There are a few other components that have been added as well. These include [waterlock-facebook-auth](https://github.com/davidrivera/waterlock-facebook-auth) that handles Facebook authentication along with the other modules listed below.
