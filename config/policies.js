@@ -32,6 +32,7 @@ module.exports.policies = {
     'login': true,
     'logout': true,
     'register': true,
+    'facebook_oauth2': true,
     'findOne': ['hasJsonWebToken', 'ownUser'],
     'populate': ['hasJsonWebToken', 'ownAssociations'],
     'remove': ['hasJsonWebToken', 'ownAssociations'],
