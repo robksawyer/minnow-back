@@ -60,7 +60,7 @@ The config variables are set via the [Heroku tool belt](https://toolbelt.heroku.
 - PASS_RESET_EMAIL_ADDRESS:           [hellominnow@gmail.com]
 - WATERLOCK_SECRET:                   [Add your own secret]
 
-# local.js
+## local.js
 
 The `config/local.js` file contains important variables that are used during local development. You can read more about the local config file [here](http://sailsjs.org/#/documentation/reference/sails.config/sails.config.local.html). To get started quickly, just rename `local.js.sample` to `local.js` and then change the variables included as you see fit.
 
