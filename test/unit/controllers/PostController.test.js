@@ -3,14 +3,23 @@ var should = require('chai').should(),
     postFixtures = require('../../fixtures/posts'),
     assert = require('chai').assert,
     sinon = require('sinon'),
+    Barrels = require('barrels'),
+    barrels = new Barrels(),
     request = require('supertest');
 
+
+before('before posts', function(done){
+  fixtures = barrels.data;
+  barrels.populate(function(err){
+    done(err);
+  });
+});
 
 describe('Posts', function() {
   it('should return some posts', function(done){
 
     console.log(fixtures['posts']);
-    /*Post.find().exec(function(err, posts) {
+    Post.find().exec(function(err, posts) {
       if (err)
         return done(err);
       
@@ -29,6 +38,6 @@ describe('Posts', function() {
         done();
       });
 
-    });*/
+    });
   });
 });

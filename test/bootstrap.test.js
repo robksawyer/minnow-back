@@ -1,13 +1,20 @@
-var appHelper = require('./helpers/appHelper'),
-    should = require('should');
+'use strict';
 
-before(function (done) {
+/*
+ * Location: /test/bootstrap.test.js
+ *
+ * @description :: This file is run before all other tests.
+ */
+var should = require('chai').should(),
+    appHelper = require('./helpers/appHelper');
+
+/*before('bootstrap', function (done) {
   appHelper.lift(done);
-});
+});*/
 
+//...
 
 // Global after hook
-after(function (done) {
-  console.log(); // Skip a line before displaying Sails lowering logs
+/*after('bootstrap', function (done) {
   appHelper.lower(done);
-});
+});*/
