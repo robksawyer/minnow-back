@@ -11,53 +11,61 @@ describe('AuthController', function AuthController() {
     describe('action login', function loginTest() {
       [
           {
-              payload: null,
+              payload: null, 
               status: 400
           },
+          //2
           {
-              payload: '',
+              payload: '', 
               status: 400
           },
+          //3
           {
               payload: 'foobar',
               status: 400
           },
+          //4
           {
               payload: {},
               status: 400
           },
+          //5
           {
-              payload: {
+              payload: { 
                   email: '',
                   password: '',
                   type: 'local'
               },
-              status: 403
+              status: 200
           },
+          //6
           {
               payload: {
                   email: 'foo',
                   password: '',
                   type: 'local'
               },
-              status: 500
+              status: 403
           },
+          //7
           {
               payload: {
                   email: '',
                   password: 'bar',
                   type: 'local'
               },
-              status: 500
+              status: 403
           },
+          //8
           {
               payload: {
                   email: 'foo@gmail.com',
                   password: 'bar',
                   type: 'local'
               },
-              status: 500
+              status: 403
           },
+          //9
           {
               payload: {
                   email: 'demo@gmail.com',
@@ -66,6 +74,7 @@ describe('AuthController', function AuthController() {
               },
               status: 200
           },
+          //10
           {
               payload: {
                   email: 'admin@gmail.com',
