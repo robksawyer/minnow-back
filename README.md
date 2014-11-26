@@ -155,14 +155,14 @@ The minnow doesn't like the hastle of dealing with images, therefore it has chos
 [travis-url]: https://magnum.travis-ci.com/robksawyer/minnow-back
 [travis-image]: https://magnum.travis-ci.com/robksawyer/minnow-back.svg?token=tu1UvVgnNuKF7LkzqttM&branch=master&style=flat
 
-[dependency-image]: https://gemnasium.com/8a83683bf41d385f992e7399998ad722.svg?style=flat
+[dependency-image]: http://img.shields.io/gemnasium/robksawyer/minnow-back.svg?style=flat
 [dependency-url]: https://gemnasium.com/robksawyer/minnow-back
 
-[coverage-image]: http://img.shields.io/coveralls/davidrivera/waterlock/master.svg?style=flat
-[coverage-url]: https://coveralls.io/r/davidrivera/waterlock?branch=master
+[coverage-image]: http://img.shields.io/coveralls/robksawyer/minnow-back/master.svg?style=flat
+[coverage-url]: https://coveralls.io/r/robksawyer/minnow-back?branch=master
 
-[minnow-image]: https://lh3.googleusercontent.com/-aThk1tYLSh0/U5fAM6NyB5I/AAAAAAAAH84/FKmmmQ80XWY/w611-h144-no/waterlock-header.png
+[minnow-image]: http://s17.postimg.org/7yzn6tinz/big_minnow_logo_500.png
 [minnow-url]: http://getminnow.com/
 
-[climate-image]: http://img.shields.io/codeclimate/github/davidrivera/waterlock.svg?style=flat
-[climate-url]: https://codeclimate.com/github/davidrivera/waterlock
+[climate-image]: http://img.shields.io/codeclimate/github/robksawyer/minnow-back.svg?style=flat
+[climate-url]: https://codeclimate.com/github/robksawyer/minnow-back
