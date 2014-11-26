@@ -1,9 +1,18 @@
 {
   "name": "minnow-back",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "version": "0.0.1",
+  "author": "Rob Sawyer <robksawyer@gmail.com>",
+  "description": "The backend that powers the minnow.",
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/)",
+  "homepage": "http://gominnow.com/",
+  "contributors": [ 
+    {
+      "name": "Jay Wallace",
+      "email": "jay@bubblr.co"
+    } 
+  ],
+  "keywords": ["secrets","minnow","social networking"],
   "dependencies": {
     "ejs": "~0.8.4",
     "flickrapi": "^0.3.28",
@@ -31,7 +40,7 @@
     "stripe": "^3.0.0 ",
     "url": "^0.10.1",
     "uuid": "^2.0.1",
-    "waterlock": "0.0.13",
+    "waterlock": "git://github.com/robksawyer/waterlock",
     "waterlock-facebook-auth": "0.0.3",
     "waterlock-local-auth": "0.0.5"
   },
@@ -44,8 +53,6 @@
     "type": "git",
     "url": "git://github.com/robsawyer/minnow-back.git"
   },
-  "author": "robsawyer",
-  "license": "",
   "devDependencies": {
     "assert": "^1.1.2",
     "async": "^0.9.0",

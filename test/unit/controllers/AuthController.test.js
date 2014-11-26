@@ -32,7 +32,7 @@ describe('AuthController', function AuthController() {
                   password: '',
                   type: 'local'
               },
-              status: 400
+              status: 403
           },
           {
               payload: {
@@ -40,7 +40,7 @@ describe('AuthController', function AuthController() {
                   password: '',
                   type: 'local'
               },
-              status: 400
+              status: 500
           },
           {
               payload: {
@@ -48,7 +48,7 @@ describe('AuthController', function AuthController() {
                   password: 'bar',
                   type: 'local'
               },
-              status: 401
+              status: 500
           },
           {
               payload: {
@@ -56,7 +56,7 @@ describe('AuthController', function AuthController() {
                   password: 'bar',
                   type: 'local'
               },
-              status: 401
+              status: 500
           },
           {
               payload: {
@@ -84,12 +84,11 @@ describe('AuthController', function AuthController() {
                       .end(
                           function(error, result) {
                               if (error) {
-                                  return done(error);
+                                return done(error);
                               }
 
-                              sails.log.error(typeof result.res.body);
                               expect(result.res.body).to.be.a('object');
-      
+
                               done();
                           }
                       );
