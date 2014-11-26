@@ -165,5 +165,5 @@ The minnow doesn't like the hastle of dealing with images, therefore it has chos
 [minnow-image]: http://s17.postimg.org/7yzn6tinz/big_minnow_logo_500.png
 [minnow-url]: http://getminnow.com/
 
-[climate-image]: http://img.shields.io/codeclimate/github/robksawyer/minnow-back.svg?style=flat
-[climate-url]: https://codeclimate.com/github/robksawyer/minnow-back
+[climate-image]: https://codeclimate.com/repos/54764e11e30ba02095004001/badges/da65b9e693df1becc355/gpa.svg?style=flat
+[climate-url]: https://codeclimate.com/repos/54764e11e30ba02095004001/feed
