@@ -9,12 +9,12 @@ var should = require('chai').should(),
     appHelper = require('./helpers/appHelper');
 
 
-/*before('index', function (done) {
+before('index', function (done) {
   appHelper.lift(done);
-});*/
+});
  
 //...
 
-/*after('index', function (done) {
+after('index', function (done) {
   appHelper.lower(done);
-});*/
+});

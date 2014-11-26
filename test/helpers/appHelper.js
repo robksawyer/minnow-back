@@ -30,7 +30,7 @@ var appHelper = {
  
         // Start the Sails server
         function (cb) {
-          Sails().lift({
+          Sails.lift({
             log: {
               level: 'warn'
             },
@@ -78,7 +78,7 @@ var appHelper = {
             cb(null, app);
           });
         }
-      ], done);
+      ]);
   },
  
   /* Stops the Sails server

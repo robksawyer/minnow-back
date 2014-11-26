@@ -1,18 +1,13 @@
 var should = require('chai').should(),
     appHelper = require('../../helpers/appHelper'),
-    postFixtures = require('../../fixtures/posts'),
+    //postFixtures = require('../../fixtures/posts'),
     assert = require('chai').assert,
     sinon = require('sinon'),
-    Barrels = require('barrels'),
-    barrels = new Barrels(),
     request = require('supertest');
 
 
 before('before posts', function(done){
-  fixtures = barrels.data;
-  barrels.populate(function(err){
-    done(err);
-  });
+  appHelper.lift(done);
 });
 
 describe('Posts', function() {
@@ -40,4 +35,8 @@ describe('Posts', function() {
 
     });
   });
+});
+
+after('after posts', function(done){
+  appHelper.lower(done);
 });
