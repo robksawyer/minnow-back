@@ -6,16 +6,21 @@
   "description": "The backend that powers the minnow.",
   "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/)",
   "homepage": "http://gominnow.com/",
-  "contributors": [ 
+  "contributors": [
     {
       "name": "Jay Wallace",
       "email": "jay@bubblr.co"
-    } 
+    }
   ],
-  "keywords": ["secrets","minnow","social networking"],
+  "keywords": [
+    "secrets",
+    "minnow",
+    "social networking"
+  ],
   "dependencies": {
     "ejs": "~0.8.4",
     "flickrapi": "^0.3.28",
+    "fs-extra": "^0.12.0",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-coffee": "~0.10.1",
@@ -41,8 +46,8 @@
     "url": "^0.10.1",
     "uuid": "^2.0.1",
     "waterlock": "git://github.com/robksawyer/waterlock",
-    "waterlock-facebook-auth": "0.0.3",
-    "waterlock-local-auth": "0.0.5"
+    "waterlock-facebook-auth": "git://github.com/robksawyer/waterlock-facebook-auth",
+    "waterlock-local-auth": "git://github.com/robksawyer/waterlock-local-auth"
   },
   "scripts": {
     "start": "node app.js",
@@ -58,7 +63,6 @@
     "async": "^0.9.0",
     "barrels": "^1.3.0",
     "chai": "^1.10.0",
-    "fs-extra": "^0.12.0",
     "grunt-karma": "^0.9.0",
     "grunt-mocha-istanbul": "^2.2.0",
     "grunt-mocha-test": "^0.12.4",
