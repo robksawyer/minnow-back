@@ -97,15 +97,13 @@ grunt test
 - [WrenchJS](https://github.com/ryanmcgrath/wrench-js) - Recursive file operations
 - [FS-Extra](https://github.com/jprichardson/node-fs-extra) - Extra file system methods
 
-# Test Related Reading
+# Image Management
 
-1. [Unit testing Sails JS: How to mock SailsJS Services in Controllers](https://blog.sergiocruz.me/unit-testing-sails-js-how-to-mock-sailsjs-services-in-controllers/)
-1. [Unit testing JavaScript is easy they said. It only takes a few seconds they said.](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
-1. [Unit test SailsJS with Mocha and generate code coverage with Istanbul](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
-1. [3 Quick Tips for Writing Tests in Node.Js (after some rambling)](http://niallohiggins.com/2012/03/28/3-quick-tips-for-writing-tests-in-nodejs/)
-1. [Asynchronous Unit Tests With Mocha, Promises, And WinJS](http://lostechies.com/derickbailey/2012/08/17/asynchronous-unit-tests-with-mocha-promises-and-winjs/)
+The minnow doesn't like the hastle of dealing with images, therefore it has chosen to use the flickrapi. And because the minnow chooses the simple path, it went with the node module [flickrapi](https://www.npmjs.org/package/flickrapi).
 
 # Further Reading
+
+## Node/Sails Related
 
 1. [Sails.js Documentation > Core Concepts](http://sailsjs.org/#/documentation/concepts/)
 1. [Node.js Documentation](http://nodejs.org/documentation/)
@@ -120,3 +118,11 @@ grunt test
 1. [Promises in Sails JS - Remove Callback Hell](http://maangalabs.com/blog/2014/08/23/promises-in-sails-js-remove-callback-hell/)
 1. [JavaScript Promises ... In Wicked Detail](http://dailyjs.com/2014/02/20/promises-in-detail/)
 1. [Generating REST API With Sails JS - Part 2](http://maangalabs.com/blog/2014/07/26/generating-rest-api-with-sails-js-part-2/)
+
+## Test Related
+
+1. [Unit testing Sails JS: How to mock SailsJS Services in Controllers](https://blog.sergiocruz.me/unit-testing-sails-js-how-to-mock-sailsjs-services-in-controllers/)
+1. [Unit testing JavaScript is easy they said. It only takes a few seconds they said.](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
+1. [Unit test SailsJS with Mocha and generate code coverage with Istanbul](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
+1. [3 Quick Tips for Writing Tests in Node.Js (after some rambling)](http://niallohiggins.com/2012/03/28/3-quick-tips-for-writing-tests-in-nodejs/)
+1. [Asynchronous Unit Tests With Mocha, Promises, And WinJS](http://lostechies.com/derickbailey/2012/08/17/asynchronous-unit-tests-with-mocha-promises-and-winjs/)
