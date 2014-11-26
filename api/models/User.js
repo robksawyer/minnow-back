@@ -20,12 +20,10 @@ module.exports = {
       unique: true
     },
     emailConfirmationStatus: {
-      type: 'string',
-      defaultsTo: 'unconfirmed'
+      type: 'boolean'
     },
     phoneConfirmationStatus: {
-      type: 'string',
-      defaultsTo: 'unconfirmed'
+      type: 'boolean'
     },
     likes: {
       type: 'int',

@@ -46,11 +46,11 @@ module.exports.waterlock = {
       },
       createOnNotFound: true
     },
-  /*{
+    {
       name: 'waterlock-facebook-auth',
       appId: process.env.FACEBOOK_CLIENT_ID,
       appSecret: process.env.FACEBOOK_CLIENT_SECRET
-    }*/
+    }
   ],
 
   // JSON Web Tokens
