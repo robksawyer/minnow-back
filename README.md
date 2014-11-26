@@ -156,7 +156,7 @@ The minnow doesn't like the hastle of dealing with images, therefore it has chos
 [travis-url]: https://magnum.travis-ci.com/robksawyer/minnow-back
 [travis-image]: https://magnum.travis-ci.com/robksawyer/minnow-back.svg?token=tu1UvVgnNuKF7LkzqttM&branch=master&style=flat
 
-[dependency-image]: http://img.shields.io/gemnasium/robksawyer/minnow-back.svg?style=flat
+[dependency-image]: https://gemnasium.com/8a83683bf41d385f992e7399998ad722.svg?style=flat
 [dependency-url]: https://gemnasium.com/robksawyer/minnow-back
 
 [coverage-image]: http://img.shields.io/coveralls/robksawyer/minnow-back/master.svg?style=flat
