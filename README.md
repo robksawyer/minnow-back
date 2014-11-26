@@ -1,4 +1,5 @@
-# [Minnow](http://www.gominnow.com) - The Backend `version 0.1`
+[![Minnow][minnow-image]][minnow-url]
+# [Minnow](minnow-url) - The Backend `version 0.1`
 
 > An application that allows you to make money from your secrets. 
 
@@ -147,3 +148,21 @@ The minnow doesn't like the hastle of dealing with images, therefore it has chos
 1. [Unit test SailsJS with Mocha and generate code coverage with Istanbul](https://blog.sergiocruz.me/unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage/)
 1. [3 Quick Tips for Writing Tests in Node.Js (after some rambling)](http://niallohiggins.com/2012/03/28/3-quick-tips-for-writing-tests-in-nodejs/)
 1. [Asynchronous Unit Tests With Mocha, Promises, And WinJS](http://lostechies.com/derickbailey/2012/08/17/asynchronous-unit-tests-with-mocha-promises-and-winjs/)
+
+[license-image]: http://img.shields.io/badge/license-BY--NC--ND%204.0-blue.svg?style=flat
+[license-url]: LICENSE
+
+[travis-url]: https://magnum.travis-ci.com/robksawyer/minnow-back
+[travis-image]: https://magnum.travis-ci.com/robksawyer/minnow-back.svg?token=tu1UvVgnNuKF7LkzqttM&branch=master&style=flat
+
+[dependency-image]: https://gemnasium.com/8a83683bf41d385f992e7399998ad722.svg?style=flat
+[dependency-url]: https://gemnasium.com/robksawyer/minnow-back
+
+[coverage-image]: http://img.shields.io/coveralls/davidrivera/waterlock/master.svg?style=flat
+[coverage-url]: https://coveralls.io/r/davidrivera/waterlock?branch=master
+
+[minnow-image]: https://lh3.googleusercontent.com/-aThk1tYLSh0/U5fAM6NyB5I/AAAAAAAAH84/FKmmmQ80XWY/w611-h144-no/waterlock-header.png
+[minnow-url]: http://getminnow.com/
+
+[climate-image]: http://img.shields.io/codeclimate/github/davidrivera/waterlock.svg?style=flat
+[climate-url]: https://codeclimate.com/github/davidrivera/waterlock
