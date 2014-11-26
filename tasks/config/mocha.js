@@ -10,7 +10,7 @@
  */
 module.exports = function(grunt) {
 
-  grunt.config.set('mochaTest', {
+  grunt.config.set('mocha', {
     test: {
       options: {
         reporter: 'spec'

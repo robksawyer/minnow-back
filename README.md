@@ -80,18 +80,35 @@ You can find Sails documentation at <http://sailsjs.org/#/documentation>.
 
 # Testing
 
-We are using [MochaJS](http://mochajs.org) for unit testing. Visit the `test` folder to see more. You can run the tests via the following command:
+We are using [MochaJS](http://mochajs.org) for unit testing and [Karma](http://karma-runner.github.io) as the test runner. Visit the `test` folder to see more. Running the following will run Mocha with code coverage reports being generated via [Istanbul](http://gotwarlost.github.io/istanbul/).
+
+## Testing via terminal
 ```
 grunt test
 ```
 
+## Starting Karma
+
+> When starting Karma, the configuration file path can be passed in as the first argument.
+By default, Karma will look for karma.conf.js or karma.conf.coffee in the current directory.
+
+```
+$ karma start
+```
+
+For more detailed information about the Karma configuration file, such as available options and features, please read the [configuration file docs](http://karma-runner.github.io/0.12/config/configuration-file.html).
+
+
 ## Testing Dependencies
 
+- [KarmaJS](http://karma-runner.github.io/0.12/index.html) - Used for running tests in the browser
+- [karma-mocha](https://github.com/karma-runner/karma-mocha)
 - [Sails Guide to Testing](http://sailsjs.org/#/documentation/concepts/Testing)
 - [Supertest](https://github.com/tj/supertest)
 - [Barrels](https://www.npmjs.org/package/barrels) - Fixtures for Sails
 - [ShouldJS](https://github.com/shouldjs/should.js)
 - [Grunt Mocha Test](https://github.com/pghalliday/grunt-mocha-test)
+- [Istanbul](http://gotwarlost.github.io/istanbul/) - Code coverage reports
 - [Grunt Mocha Istanbul](https://github.com/pocesar/grunt-mocha-istanbul) - Code coverage
 - [Sinon Spy](http://sinonjs.org) - Standalone test spies, stubs and mocks for JavaScript.
 - [WrenchJS](https://github.com/ryanmcgrath/wrench-js) - Recursive file operations
@@ -108,6 +125,7 @@ The minnow doesn't like the hastle of dealing with images, therefore it has chos
 1. [Sails.js Documentation > Core Concepts](http://sailsjs.org/#/documentation/concepts/)
 1. [Node.js Documentation](http://nodejs.org/documentation/)
 1. [Waterline Documentation](http://sailsjs.org/#/documentation/reference/waterline) - The Sails default ORM
+1. [sailsCasts](http://irlnathan.github.io/sailscasts/)
 1. [_lodash Documentation](http://devdocs.io/lodash/) 
 1. [ExpressJS Documentation](http://expressjs.com/guide/error-handling.html) - Sails is built on ExpressJS
 1. [Embedded Javascript (EJS) Templates](http://www.embeddedjs.com) - This is the default view engine included with SailsJS

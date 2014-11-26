@@ -1,2 +1,4 @@
-var sinon = require('sinon'),
-    assert = require('assert');
+/**
+ * Test File: Testing CommentController
+ * File location: test/controllers/CommentController.test.js
+ */

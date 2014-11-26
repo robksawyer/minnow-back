@@ -4,6 +4,7 @@ var sinon = require('sinon'),
     barrels = new Barrels();
 
 /*describe('User', function() {
+  
   it ('should not be empty', function(done) {
     User.find().exec(function(err, users) {
       console.log(users);
