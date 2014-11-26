@@ -7,7 +7,7 @@
  */
 var should = require('should'),
     appHelper = require('./helpers/appHelper');
- 
+
 before(function (done) {
   appHelper.lift(done);
 });

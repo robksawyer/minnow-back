@@ -5,10 +5,11 @@
  *   and tear down a Sails instance (for use in tests)
  */
 var Sails = require('sails'),
-  async = require('async'),
-  lifted = false,
-  Barrels = require('barrels'),
-  sailsprocess, barrels, fixtures;
+    should = require('should'),
+    async = require('async'),
+    lifted = false,
+    Barrels = require('barrels'),
+    sailsprocess, barrels, fixtures;
  
 module.exports.appHelper = {
  

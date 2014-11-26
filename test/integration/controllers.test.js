@@ -1,6 +1,6 @@
 'use strict';
 
-var AuthController = require('../../api/controllers/AuthController'),
+/*var AuthController = require('../../api/controllers/AuthController'),
     UserController = require('../../api/controllers/UserController'),
     proxyquire = require('proxyquire'),
     should = require('should'),
@@ -36,4 +36,4 @@ describe('templates', function(){
       });
     });
   });
-});
+});*/
