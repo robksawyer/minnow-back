@@ -30,6 +30,7 @@ var appHelper = {
  
         // Start the Sails server
         function (cb) {
+          Sails.log.warn('Lifting sails...');
           Sails.lift({
             log: {
               level: 'warn'
@@ -86,10 +87,36 @@ var appHelper = {
    * @param {function} done Callback function
    */
   lower: function (done) {
+    sailsprocess.log.warn('Lowering sails...');
     sailsprocess.lower(function (err) {
+      if(err) 
+        throw err;
       lifted = false;
       done(err);
     });
+  },
+
+  //Pass along a specific model to load fixtures for it.
+  //Usage:
+  //appHelper.fixtures(['posts'], done, function(err, res){
+  //   sails.log.warn( res );
+  //});
+  fixtures: function(model, done, cb){
+    // Load fixtures
+    barrels = new Barrels();
+
+    if(!model){
+      // Populate the DB
+      barrels.populate(function(err) {
+        cb(err, barrels.data);
+      });
+    }else{
+      // Populate the DB with models passed
+      barrels.populate(model, function(err) {
+        cb(err, barrels.data[model]);
+      });
+    }
+    done();
   }
 };
 
