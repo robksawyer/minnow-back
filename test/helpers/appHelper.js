@@ -16,6 +16,10 @@ var appHelper = {
   /* Starts the Sails server, or if already started, stops and then starts it
    *
    * @param {function} done Callback function
+   * @usage 
+   * before('bootstrap', function (done) {
+   *    appHelper.lift(done);
+   * });
    */
   lift: function (done) {
     async.waterfall(
@@ -71,20 +75,23 @@ var appHelper = {
 
             // Populate the DB
             barrels.populate(function(err) {
-              done(err, Sails);
+              done(err, app);
             });
-
+            
             lifted = true;
             sailsprocess = app;
-            cb(null, app);
           });
         }
-      ]);
+      ], done);
   },
  
   /* Stops the Sails server
    *
    * @param {function} done Callback function
+   * @usage 
+   * after('bootstrap', function (done) {
+   *    appHelper.lower(done);
+   * });
    */
   lower: function (done) {
     sailsprocess.log.warn('Lowering sails...');
@@ -96,28 +103,32 @@ var appHelper = {
     });
   },
 
-  //Pass along a specific model to load fixtures for it.
-  //Usage:
-  //appHelper.fixtures(['posts'], done, function(err, res){
-  //   sails.log.warn( res );
-  //});
-  fixtures: function(model, done, cb){
+  /*Pass along a specific model to load fixtures for it.
+  * @usage:
+  * appHelper.fixtures(['posts'], done, function(err, res){
+  *   sails.log.warn( res );
+  * });
+  */
+  /*getFixtures: function(model){
     // Load fixtures
     barrels = new Barrels();
 
     if(!model){
       // Populate the DB
       barrels.populate(function(err) {
-        cb(err, barrels.data);
+        if (err) 
+          throw err;
+        return barrels.data;
       });
     }else{
       // Populate the DB with models passed
       barrels.populate(model, function(err) {
-        cb(err, barrels.data[model]);
+        if(err)
+            throw err;
+        return barrels.data[model];
       });
     }
-    done();
-  }
+  }*/
 };
 
 /**

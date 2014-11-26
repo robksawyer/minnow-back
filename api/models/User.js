@@ -15,10 +15,6 @@ module.exports = {
       type: 'string',
       unique: true
     },
-    facebookId: { 
-      type: 'string',
-      unique: true
-    },
     emailConfirmationStatus: {
       type: 'boolean'
     },
@@ -36,6 +32,10 @@ module.exports = {
     posts: {
       collection: 'post',
       via: 'owner'
+    },
+    role: {
+      type: 'string',
+      defaultsTo: 'anonymous'
     },
     toJSON: function() {
       var obj = this.toObject();

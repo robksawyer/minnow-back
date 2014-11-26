@@ -4,7 +4,7 @@ var should = require('chai').should(),
     sinon = require('sinon'),
     request = require('supertest');
 
-describe('Posts', function() {
+/*describe('Posts', function() {
   it('should return some posts', function(done){
     Post.find({id: fixtures[0].id }).exec(function(err, post) {
       if (err)
@@ -12,7 +12,7 @@ describe('Posts', function() {
 
       sails.log.warn(post);
       
-      /*var gotPost = (fixtures['posts'].length > 0);
+      var gotPost = (fixtures['posts'].length > 0);
       var postsAreInTheDb = (posts.length === fixtures['posts'].length);
 
       should(gotPost && postsAreInTheDb).be.ok;
@@ -25,8 +25,8 @@ describe('Posts', function() {
           'Post and users should have equal amount of entries!'
         );
         done();
-      });*/
+      });
 
     });
   });
-});
+});*/

@@ -27,7 +27,9 @@ module.exports.policies = {
   ***************************************************************************/
 
   '*': false,
-
+  HomeController: {
+    '*': true
+  },
   AuthController: {
     'login': true,
     'logout': true,

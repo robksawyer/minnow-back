@@ -1,5 +1,4 @@
---require chai
---reporter spec
+--timeout 60000
+--reporter dot
 --ui bdd
---recursive
---timeout 5000
+test/**/*.test.js
