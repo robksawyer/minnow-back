@@ -5,6 +5,11 @@ var sinon = require('sinon'),
     barrels = new Barrels(),
     agent = request.agent('http://localhost:1337');
 
+//Load the fixtures in barrels
+appHelper.fixtures(['users'], done, function(err, res){
+   fixtures = res;
+});
+
 /*describe('UsersController', function() {
   describe('GET /user/jwt', function() {
     it('should NOT return a JWT token', function (done) {
@@ -26,3 +31,24 @@ describe('UsersController', function() {
     });
   });
 });*/
+
+describe('UserController', function () {
+  
+  before(function (done) {
+    User.create(fixtures[0], done);
+  });
+  
+  after(function (done) {
+    // Restart the server to get back to a clean state
+    // (could just delete the user in this case, but sometimes this is easier)
+    appHelper.lift(done);
+  })
+ 
+  describe('#findOneById', function (done) {
+    it('should get forbidden', function (done) {
+      request
+        .get('/user/1')
+        .expect(403, done);
+    });
+  });
+});
