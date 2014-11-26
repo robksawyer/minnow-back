@@ -80,6 +80,7 @@
     "should": "^4.3.0",
     "sinon": "^1.12.1",
     "supertest": "^0.15.0",
-    "wrench": "^1.5.8"
+    "wrench": "^1.5.8",
+    "zeparser": "0.0.7"
   }
 }
