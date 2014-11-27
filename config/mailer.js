@@ -5,7 +5,8 @@
  * The current processing service is Postmark.
  *
  * For more information visit:
- * https://devcenter.heroku.com/articles/postmark
+ *  Postmark: https://devcenter.heroku.com/articles/postmark
+ *  Nodemailer: https://github.com/andris9/Nodemailer
  * 
  */
 
