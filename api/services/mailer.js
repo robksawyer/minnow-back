@@ -9,19 +9,23 @@ module.exports = {
    */
   send: function(email, cb){
 
-    /** sets up the modemailer smtp transport */
-    /*var transport = nodemailer.createTransport("SMTP", {
-      service: mailer.service,
+    // Postmark transport.
+    var transport_postmark = nodemailer.createTransport( 'postmark', {
+      host: config.mailer.smtpServer,
+      from: config.mailer.fromEmail,
+      subject: email.subject,
+      to: email.to,
+      html: email.html
       auth: {
-          user: mailer.user,
-          pass: mailer.pass
+        user: config.mailer.apiKey,
+        pass: config.mailer.apiKey
       }
-    });*/
+    });
 
     /** sets up the mail options, from and such like that **/
 
     /** Actually sends the email */
-    transport.sendMail(email, function(err, response){
+    transport.sendMail(transport_postmark, function(err, response){
       if(err) return cb(err);
       return cb(null, response);
     });
