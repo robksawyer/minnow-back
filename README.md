@@ -90,24 +90,12 @@ You can find Sails documentation at <http://sailsjs.org/#/documentation>.
 
 # Testing
 
-We are using [MochaJS](http://mochajs.org) for unit testing and [Karma](http://karma-runner.github.io) as the test runner. Visit the `test` folder to see more. Running the following will run Mocha with code coverage reports being generated via [Istanbul](http://gotwarlost.github.io/istanbul/).
+We are using [MochaJS](http://mochajs.org) for unit testing. Visit the `test` folder to see more. Running the following will run Mocha with code coverage reports being generated via [Istanbul](http://gotwarlost.github.io/istanbul/).
 
-## Testing via terminal
+## Running Tests
 ```
-grunt test
+make test
 ```
-
-## Starting Karma
-
-> When starting Karma, the configuration file path can be passed in as the first argument.
-By default, Karma will look for karma.conf.js or karma.conf.coffee in the current directory.
-
-```
-$ karma start
-```
-
-For more detailed information about the Karma configuration file, such as available options and features, please read the [configuration file docs](http://karma-runner.github.io/0.12/config/configuration-file.html).
-
 
 # Continuous Integration (CI)
 
@@ -115,8 +103,6 @@ The minnow currently uses [Travis](https://travis-ci.com/) for CI. He also relys
 
 ## Testing Dependencies
 
-- [KarmaJS](http://karma-runner.github.io/0.12/index.html) - Used for running tests in the browser
-- [karma-mocha](https://github.com/karma-runner/karma-mocha)
 - [Sails Guide to Testing](http://sailsjs.org/#/documentation/concepts/Testing)
 - [Supertest](https://github.com/tj/supertest)
 - [Barrels](https://www.npmjs.org/package/barrels) - Fixtures for Sails
