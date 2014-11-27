@@ -32,7 +32,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': 'HomeController.index'
+  '/': 'HomeController.index',
+  'testFlickr': 'HomeController.testFlickr'
 
   /***************************************************************************
   *                                                                          *

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * 403 (Forbidden) Handler
  *
@@ -11,39 +13,29 @@
  * return res.forbidden('Access denied.');
  * ```
  */
+module.exports = function forbidden(data, options) {
+    // Get access to `req`, `res`, & `sails`
+    var req = this.req;
+    var res = this.res;
+    var sails = req._sails;
 
-module.exports = function forbidden (data, options) {
+    // Set status code
+    res.status(403);
 
-  // Get access to `req`, `res`, & `sails`
-  var req = this.req;
-  var res = this.res;
-  var sails = req._sails;
-
-  // Set status code
-  res.status(403);
-  
-  // Log error to console
-  if (data !== undefined) {
-    sails.log.verbose('Sending 403 ("Forbidden") response: \n',data);
-  }
-  else sails.log.verbose('Sending 403 ("Forbidden") response');
-
-  // Only include errors in response if application environment
-  // is not set to 'production'.  In production, we shouldn't
-  // send back any identifying information about errors.
-  if (sails.config.environment === 'production') {
-    data = undefined;
-  }
-
-  // If no second argument provided, try to serve the default view,
-  // but fall back to sending JSON(P) if any errors occur.
-  return res.json(403, { 
-    status_code: res.statusCode,
-    response: { 
-      message: '403 ("Forbidden")',
-      data: data
+    // Log error to console
+    if (data !== undefined) {
+        sails.log.verbose('Sending 403 ("Forbidden") response: \n',data);
+    } else {
+        sails.log.verbose('Sending 403 ("Forbidden") response');
     }
-  });
 
+    // Only include errors in response if application environment
+    // is not set to 'production'.  In production, we shouldn't
+    // send back any identifying information about errors.
+    if (sails.config.environment === 'production') {
+        data = undefined;
+    }
+
+    // Backend will always response JSON
+    return res.jsonx(data);
 };
-

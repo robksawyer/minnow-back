@@ -42,7 +42,6 @@
     "attempts": [3]
   },
   {
-    "phone": "",
     "emailConfirmationStatus": false,
     "phoneConfirmationStatus": true,
     "customer": {},
@@ -56,7 +55,6 @@
     "attempts": [4]
   },
   {
-    "phone": "",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
     "customer": {},
@@ -70,7 +68,6 @@
     "attempts": [5]
   },
   {
-    "phone": "",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
     "customer": {},
@@ -84,7 +81,6 @@
     "attempts": [6]
   },
   {
-    "phone": "",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
     "customer": {},
@@ -98,7 +94,6 @@
     "attempts": [7]
   },
   {
-    "phone": "",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
     "customer": {},
@@ -112,7 +107,6 @@
     "attempts": [8]
   },
   {
-    "phone": "",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
     "customer": {},
@@ -126,7 +120,6 @@
     "attempts": [9]
   },
   {
-    "phone": "",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
     "customer": {},

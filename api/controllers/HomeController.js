@@ -13,6 +13,12 @@ module.exports = {
 			description: 'Welcome to the minnow.',
 			version: '1.0'
 		});
-	}
+	},
+
+  testFlickr: function(req, res){
+    console.log(config.flickr.apiKey);
+    res.view();
+  }
+
 };
 

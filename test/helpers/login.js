@@ -14,17 +14,19 @@ module.exports.authenticate = function authenticate(user, next) {
     // Static credential information, which are used within tests.
     var credentials = {
         demo: {
-            identifier: 'demo',
-            password: 'demodemodemo'
+            email: 'demo@demo.com',
+            password: 'demodemodemo',
+            type: 'local'
         },
         admin: {
-            identifier: 'admin',
-            password: 'adminadminadmin'
+            email: 'me@me.com',
+            password: 'adminadminadmin',
+            type: 'local'
         }
     };
 
     request(sails.hooks.http.app)
-        .post('/login')
+        .post('/auth/login')
         .set('Content-Type', 'application/json')
         .send(credentials[user])
         .expect(200)

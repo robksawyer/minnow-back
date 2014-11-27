@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * 200 (OK) Response
  *
@@ -6,36 +8,21 @@
  * return res.ok(data);
  * return res.ok(data, 'auth/login');
  *
- * @param  {Object} data
- * @param  {String|Object} options
- *          - pass string to render specified view
+ * @param  {Object}         data
+ * @param  {String|Object}  options   pass string to render specified view
  */
+module.exports = function sendOK(data, options) {
+    // Get access to `req`, `res`, & `sails`
+    var req = this.req;
+    var res = this.res;
+    var sails = req._sails;
 
-module.exports = function sendOK (data, options) {
+    sails.log.silly('res.ok() :: Sending 200 ("OK") response');
 
-  // Get access to `req`, `res`, & `sails`
-  var req = this.req;
-  var res = this.res;
-  var sails = req._sails;
+    // Set status code
+    res.status(200);
 
-  sails.log.silly('res.ok() :: Sending 200 ("OK") response');
-
-  // Set status code
-  res.status(200);
-
-  // Only include errors in response if application environment
-  // is not set to 'production'.  In production, we shouldn't
-  // send back any identifying information about errors.
-  if (sails.config.environment === 'production') {
-    data = undefined;
-  }
-
-  return res.json(200, { 
-    status_code: res.statusCode,
-    response: { 
-      message: '200 ("OK")',
-      data: data
-    }
-  });
-
+    // If appropriate, serve data as JSON(P)
+    // Backend will always response JSON
+    return res.jsonx(data);
 };

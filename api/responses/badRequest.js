@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * 400 (Bad Request) Handler
  *
@@ -14,39 +16,29 @@
  * );
  * ```
  */
-
 module.exports = function badRequest(data, options) {
+    // Get access to `req`, `res`, & `sails`
+    var req = this.req;
+    var res = this.res;
+    var sails = req._sails;
 
-  // Get access to `req`, `res`, & `sails`
-  var req = this.req;
-  var res = this.res;
-  var sails = req._sails;
+    // Set status code
+    res.status(400);
 
-  // Set status code
-  res.status(400);
-
-  // Log error to console
-  if (data !== undefined) {
-    sails.log.verbose('Sending 400 ("Bad Request") response: \n',data);
-  }
-  else sails.log.verbose('Sending 400 ("Bad Request") response');
-
-  // Only include errors in response if application environment
-  // is not set to 'production'.  In production, we shouldn't
-  // send back any identifying information about errors.
-  if (sails.config.environment === 'production') {
-    data = undefined;
-  }
-
-  // If no second argument provided, try to serve the implied view,
-  // but fall back to sending JSON(P) if no view can be inferred.
-  return res.json(400, { 
-    status_code: res.statusCode,
-    response: { 
-      message: '400 ("Bad Request")',
-      data: data
+    // Log error to console
+    if (data !== undefined) {
+        sails.log.verbose('Sending 400 ("Bad Request") response: \n', data);
+    } else {
+        sails.log.verbose('Sending 400 ("Bad Request") response');
     }
-  });
 
+    // Only include errors in response if application environment
+    // is not set to 'production'.  In production, we shouldn't
+    // send back any identifying information about errors.
+    if (sails.config.environment === 'production') {
+        data = undefined;
+    }
+
+    // Backend will always response JSON
+    return res.jsonx(data);
 };
-
