@@ -15,7 +15,8 @@ module.exports = {
       from: config.mailer.fromEmail,
       subject: email.subject,
       to: email.to,
-      html: email.html
+      html: email.htmlContent,
+      txt: email.txtContent,
       auth: {
         user: config.mailer.apiKey,
         pass: config.mailer.apiKey

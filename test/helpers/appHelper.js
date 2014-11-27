@@ -10,7 +10,7 @@ var SailsApp = require('sails').Sails,
     lifted = false,
     Barrels = require('barrels'),
     sailsprocess = new SailsApp(),
-    clear = require("cli-clear"),
+    clear = require('cli-clear'),
     barrels, fixtures;
  
 var appHelper = {
@@ -26,6 +26,15 @@ var appHelper = {
   lift: function (cb) {
     //Clear the terminal window
     clear();
+    
+    var timeoutProtect = setTimeout(function() {
+      // Clear the local timer variable, indicating the timeout has been triggered.
+      timeoutProtect = null;
+      // Execute the callback with an error argument.
+      console.log({
+        error:'-------- Sails Test Helper Timed Out. :\'( --------'
+      });
+    }, 5000);
 
     async.waterfall(
       [
@@ -42,7 +51,7 @@ var appHelper = {
           sailsprocess.log.warn('Lifting sails...');
           sailsprocess.lift({
             log: {
-              level: 'warn'
+              level: 'info'
             },
             connections: {
               test: {

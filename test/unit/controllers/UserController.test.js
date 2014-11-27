@@ -13,14 +13,14 @@ describe('UserController', function(){
 
   describe('action get', function(){
     
-    it('users should not be empty', function(done){
+    it('users should not be empty', function(done, User){
       User.find().exec(function(err, res){
         expect(res.length).to.be.above(0);
         done();
       });
     });
 
-    it('should return a single user', function(done){
+    it('should return a single user', function(done, User){
       User.find({id: 1}).exec(function(err, res){
         
         expect(res.length, 1);

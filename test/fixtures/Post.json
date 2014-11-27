@@ -1,11 +1,9 @@
 [
   {
-    "id": 1,
     "price": 300.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -17,12 +15,10 @@
     "owner": 1
   },
   {
-    "id": 2,
     "price": 10.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -34,12 +30,10 @@
     "owner": 2
   },
   {
-    "id": 3,
     "price": 1.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -51,12 +45,10 @@
     "owner": 3
   },
   {
-    "id": 4,
     "price": 5.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -68,12 +60,10 @@
     "owner": 4
   },
   {
-    "id": 5,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -85,12 +75,10 @@
     "owner": 5
   },
   {
-    "id": 6,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -102,12 +90,10 @@
     "owner": 6
   },
   {
-    "id": 7,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -119,12 +105,10 @@
     "owner": 7
   },
   {
-    "id": 8,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -136,12 +120,10 @@
     "owner": 8
   },
   {
-    "id": 9,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -153,12 +135,10 @@
     "owner": 9
   },
   {
-    "id": 10,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
     "slug": "",
-    "tags": ["tagOne","tagTwo"],
     "category": "uncategorized",
     "img": {
       "source": "John Doe",

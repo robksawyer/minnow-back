@@ -12,8 +12,8 @@ describe('Comment', function userModel(){
 
  describe('to have', function(){
 
-    it('attributes', function(done){
-      User.find({id: 1}).exec(function(err, res){
+    it('attributes', function(done, Comment){
+      Comment.find({id: 1}).exec(function(err, res){
         
         expect(res[0]).to.have.property('body');
         expect(res[0]).to.have.property('summary');

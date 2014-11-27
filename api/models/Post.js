@@ -5,8 +5,6 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-var defaultStatus = 'published';
-
 module.exports = {
 
   attributes: {
@@ -23,9 +21,9 @@ module.exports = {
     slug: {
       type: 'string'
     },
-    tags: {
-      type: 'array'
-    },
+    /*tags: {
+      model: 'tag'
+    },*/
     category:{
       type: 'string',
       in: [
@@ -43,7 +41,7 @@ module.exports = {
     },
     comments: {
       collection: 'comment',
-      via: 'posts'
+      via: 'post'
     },
     owner:{
       model: 'user'
@@ -57,11 +55,6 @@ module.exports = {
       values.slug = values.body.toString().substr(0,15);
     }
     values.slug = getSlug(values.slug);
-
-    // Set the status if it wasn't sent
-    if (values.status === null || values.status === '') {
-      values.status = defaultStatus;
-    }
   },
 
   afterValidation: function(values, next) {
@@ -72,11 +65,6 @@ module.exports = {
       values.slug = values.title;
     }
     values.slug = getSlug(values.slug);
-
-    // Set the status if it wasn't sent
-    if (values.status === null || values.status === '') {
-      values.status = defaultStatus;
-    }
 
     next();
   }
