@@ -1,5 +1,5 @@
-var should = require('chai').should(),
-    appHelper = require('../../helpers/appHelper'),
-    assert = require('chai').assert,
-    sinon = require('sinon'),
-    request = require('supertest');
+'use strict';
+/**
+ * Test File: Testing PostController
+ * File location: test/controllers/PostController.test.js
+ */

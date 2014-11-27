@@ -4,7 +4,6 @@
 'use strict';
 
 var Sails = require('sails'),
-    should = require('chai').should(),
     fs = require('fs');
 
 /**

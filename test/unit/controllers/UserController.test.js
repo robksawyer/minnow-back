@@ -1,5 +1,5 @@
-var Sails = require('sails'),
-    sinon = require('sinon'),
-    assert = require('assert'),
-    request = require('supertest'),
-    agent = request.agent('http://localhost:1337');
+'use strict';
+/**
+ * Test File: Testing UserController
+ * File location: test/controllers/UserController.test.js
+ */

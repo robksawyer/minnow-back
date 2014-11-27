@@ -4,8 +4,8 @@
  * @description :: Provides 'lift' and 'lower' methods to set up
  *   and tear down a Sails instance (for use in tests)
  */
+'use strict';
 var Sails = require('sails'),
-    should = require('should'),
     async = require('async'),
     lifted = false,
     Barrels = require('barrels'),
@@ -96,39 +96,13 @@ var appHelper = {
   lower: function (done) {
     sailsprocess.log.warn('Lowering sails...');
     sailsprocess.lower(function (err) {
-      if(err) 
+      if(err) {
         throw err;
+      }
       lifted = false;
       done(err);
     });
-  },
-
-  /*Pass along a specific model to load fixtures for it.
-  * @usage:
-  * appHelper.fixtures(['posts'], done, function(err, res){
-  *   sails.log.warn( res );
-  * });
-  */
-  /*getFixtures: function(model){
-    // Load fixtures
-    barrels = new Barrels();
-
-    if(!model){
-      // Populate the DB
-      barrels.populate(function(err) {
-        if (err) 
-          throw err;
-        return barrels.data;
-      });
-    }else{
-      // Populate the DB with models passed
-      barrels.populate(model, function(err) {
-        if(err)
-            throw err;
-        return barrels.data[model];
-      });
-    }
-  }*/
+  }
 };
 
 /**

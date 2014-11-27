@@ -12,6 +12,9 @@
       "email": "jay@bubblr.co"
     }
   ],
+  "bugs": {
+    "url": "https://github.com/robksawyer/minnow-back/issues"
+  },
   "keywords": [
     "secrets",
     "minnow",
@@ -61,6 +64,7 @@
     "type": "git",
     "url": "git://github.com/robsawyer/minnow-back.git"
   },
+  "preferGlobal": false,
   "devDependencies": {
     "assert": "^1.1.2",
     "async": "^0.9.0",
@@ -71,6 +75,7 @@
     "grunt-mocha-istanbul": "^2.2.0",
     "grunt-mocha-test": "^0.12.4",
     "istanbul": "^0.3.2",
+    "jshint": "^2.5.10",
     "karma": "^0.12.28",
     "karma-chrome-launcher": "^0.1.5",
     "karma-mocha": "^0.1.9",

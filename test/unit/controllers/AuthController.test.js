@@ -1,7 +1,12 @@
+'use strict';
+/**
+ * Test File: Testing AuthController
+ * File location: test/controllers/AuthController.test.js
+ */
+
 var request = require('supertest'),
     expect = require('chai').expect,
-    login = require("./../../helpers/login"),
-    _ = require('lodash'),
+    login = require('./../../helpers/login'),
     Barrels = require('barrels'),
     barrels = new Barrels(),
     fixtures = barrels.data;
@@ -83,7 +88,7 @@ describe('AuthController', function AuthController() {
               },
               status: 200
           }
-      ].forEach(function testCase(testCase, index) {
+      ].forEach(function testCaseFunc(testCase, index) {
           describe('with testCase #' + (parseInt(index, 10) + 1), function loginTest() {
               it('should return expected HTTP status and object as response body', function it(done) {
                   request(sails.hooks.http.app)
