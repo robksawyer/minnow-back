@@ -21,9 +21,6 @@ module.exports = {
     slug: {
       type: 'string'
     },
-    /*tags: {
-      model: 'tag'
-    },*/
     category:{
       type: 'string',
       in: [
@@ -38,6 +35,10 @@ module.exports = {
       type: 'string',
       in: ['published', 'draft', 'banned'],
       defaultsTo: ['published']
+    },
+    likes: {
+      collection: 'like',
+      via: 'post'
     },
     comments: {
       collection: 'comment',

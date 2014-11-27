@@ -1,5 +1,5 @@
 /*
- * Location: /test/helpers/appHelper.js
+ * Location: /test/helpers/theLifter.js
  *
  * @description :: Provides 'lift' and 'lower' methods to set up
  *   and tear down a Sails instance (for use in tests)
@@ -9,18 +9,18 @@ var SailsApp = require('sails').Sails,
     async = require('async'),
     lifted = false,
     Barrels = require('barrels'),
-    sailsprocess = new SailsApp(),
+    sailsprocess,
     clear = require('cli-clear'),
     barrels, fixtures;
  
-var appHelper = {
+var theLifter = {
  
   /* Starts the Sails server, or if already started, stops and then starts it
    *
    * @param {function} done Callback function
    * @usage 
    * before('bootstrap', function (done) {
-   *    appHelper.lift(done);
+   *    theLifter.lift(done);
    * });
    */
   lift: function (cb) {
@@ -32,17 +32,18 @@ var appHelper = {
         // Check whether the Sails server is already running, and stop it if so
         function (cb) {
           if (lifted) {
-            return appHelper.lower(cb);
+            return theLifter.lower(cb);
           }
           cb();
         },
  
         // Start the Sails server
         function (cb) {
+          sailsprocess = new SailsApp();
           sailsprocess.log.warn('Lifting sails...');
           sailsprocess.lift({
             log: {
-              level: 'info'
+              level: 'warn'
             },
             connections: {
               test: {
@@ -65,7 +66,7 @@ var appHelper = {
             models: {
               // Use in-memory database for tests
               connection: 'test',
-              migrate: 'drop'
+              migrate: 'alter'
             },
             liftTimeout: 10000
           }, function (err, app) {
@@ -96,7 +97,7 @@ var appHelper = {
    * @param {function} done Callback function
    * @usage 
    * after('bootstrap', function (done) {
-   *    appHelper.lower(done);
+   *    theLifter.lower(done);
    * });
    */
   lower: function (cb) {
@@ -114,4 +115,4 @@ var appHelper = {
 /**
  * Expose should to external world.
  */
-exports = module.exports = appHelper;
+exports = module.exports = theLifter;

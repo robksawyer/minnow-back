@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var appHelper = require('./helpers/appHelper');
+var theLifter = require('./helpers/theLifter');
 
 /**
  * Mocha bootstrap before function, that is run before any tests are being processed. This will lift sails.js with
@@ -14,7 +14,7 @@ var appHelper = require('./helpers/appHelper');
  * @param   {Function}  next    Callback function
  */
 before(function before(next) {
-    appHelper.lift(next);
+    theLifter.lift(next);
 });
 
 /**
@@ -24,5 +24,5 @@ before(function before(next) {
  * @param   {Function}  next    Callback function
  */
 after(function after(next) {
-    appHelper.lower(next);
+    theLifter.lower(next);
 });
