@@ -3,30 +3,67 @@
     "id": 1,
     "phone": "000-000-0000",
     "emailConfirmationStatus": true,
-    "auth": 1
+    "phoneConfirmationStatus": true,
+    "customer": {},
+    "recipient": {},
+    "comments": [],
+    "posts": [],
+    "likes": 1,
+    "auth": 1,
+    "role": "admin"
   },
   {
     "id": 2,
+    "phone": "111-111-1111",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
-    "auth": 2
+    "customer": {},
+    "recipient": {},
+    "comments": [2],
+    "posts": [2],
+    "likes": 2,
+    "auth": 2,
+    "role": "anonymous"
   },
   {
     "id": 3,
-    "phone": "111-111-1111",
+    "phone": "222-222-2222",
     "emailConfirmationStatus": true,
-    "likes": 0,
-    "auth": 3
+    "phoneConfirmationStatus": true,
+    "customer": {},
+    "recipient": {},
+    "comments": [3],
+    "posts": [3],
+    "likes": 3,
+    "auth": 3,
+    "role": "anonymous"
   },
   {
     "id": 4,
+    "phone": "",
     "email": "test3@test.com",
-    "auth": 4
+    "emailConfirmationStatus": false,
+    "phoneConfirmationStatus": true,
+    "customer": {},
+    "recipient": {},
+    "comments": [4],
+    "posts": [4],
+    "likes": 0,
+    "auth": 4,
+    "role": "anonymous"
   },
   {
     "id": 5,
     "email": "test4@test.com",
+    "phone": "",
+    "emailConfirmationStatus": true,
+    "phoneConfirmationStatus": false,
+    "customer": {},
+    "recipient": {},
+    "comments": [5],
+    "posts": [5],
     "likes": 10,
-    "auth": 5
+    "auth": 5,
+    "role": "anonymous"
   }
 ]

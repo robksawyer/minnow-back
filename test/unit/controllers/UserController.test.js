@@ -12,25 +12,23 @@ var request = require('supertest'),
 describe('UserController', function(){
 
   describe('action get', function(){
-    it('the total users and it should not be empty', function(done){
+    
+    it('users should not be empty', function(done){
       User.find().exec(function(err, res){
         expect(res.length).to.be.above(0);
         done();
       });
     });
-  });
 
-
-  describe('action get', function(){
-    it('the total users and it should be 10', function(done){
-      User.find().exec(function(err, res){
-        expect(res.length, 10);
-
-        assert('foo' !== 'bar', 'foo is not bar');
+    it('should return a single user', function(done){
+      User.find({id: 1}).exec(function(err, res){
         
+        expect(res.length, 1);
+
         done();
       });
     });
+
   });
 
 });

@@ -43,6 +43,11 @@ module.exports = {
       collection: 'post',
       via: 'owner'
     },
+    status: {
+      type: 'string',
+      in: ['active', 'unconfirmed', 'banned'],
+      defaultsTo: 'unconfirmed'
+    },
     role: {
       type: 'string',
       defaultsTo: 'anonymous'
