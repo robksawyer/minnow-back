@@ -92,7 +92,18 @@ You can find Sails documentation at <http://sailsjs.org/#/documentation>.
 
 We are using [MochaJS](http://mochajs.org) for unit testing. Visit the `test` folder to see more. Running the following will run Mocha with code coverage reports being generated via [Istanbul](http://gotwarlost.github.io/istanbul/).
 
-## Running Tests
+## Local Continuous Integration (CI) Testing
+
+The best way to test while in development is to run the following command in a terminal window.
+```
+mocha test -w
+```
+> This will run mocha tests as a background process and will continually update as tests are changed.
+
+## Remote Continuous Integration (CI) Testing
+
+This is the command that is used in the Makefile and that is run by Travis.
+
 ```
 make test
 ```

@@ -3,8 +3,7 @@
  */
 'use strict';
 
-var Sails = require('sails'),
-    fs = require('fs');
+var appHelper = require('./helpers/appHelper');
 
 /**
  * Mocha bootstrap before function, that is run before any tests are being processed. This will lift sails.js with
@@ -15,26 +14,7 @@ var Sails = require('sails'),
  * @param   {Function}  next    Callback function
  */
 before(function before(next) {
-    fs.unlink('.tmp/localDiskDb.db', function unlinkDone(error) {
-        Sails.lift({
-            // configuration for testing purposes
-            models: {
-                connection: 'localDiskDb',
-                migrate: 'drop'
-            },
-            port: 1336,
-            environment: 'development',
-            log: {
-                level: 'error'
-            },
-            hooks: {
-                grunt: false
-            }
-        }, function callback(error, sails) {
-            // Yeah sails is lifted now!
-            next(error, sails);
-        });
-    });
+    appHelper.lift(next);
 });
 
 /**
@@ -44,5 +24,5 @@ before(function before(next) {
  * @param   {Function}  next    Callback function
  */
 after(function after(next) {
-    sails.lower(next);
+    appHelper.lower(next);
 });

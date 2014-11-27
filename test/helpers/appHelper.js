@@ -5,11 +5,12 @@
  *   and tear down a Sails instance (for use in tests)
  */
 'use strict';
-var Sails = require('sails'),
+var SailsApp = require('sails').Sails,
     async = require('async'),
     lifted = false,
     Barrels = require('barrels'),
-    sailsprocess, barrels, fixtures;
+    sailsprocess = new SailsApp(),
+    barrels, fixtures;
  
 var appHelper = {
  
@@ -21,7 +22,7 @@ var appHelper = {
    *    appHelper.lift(done);
    * });
    */
-  lift: function (done) {
+  lift: function (cb) {
     async.waterfall(
       [
         // Check whether the Sails server is already running, and stop it if so
@@ -34,8 +35,8 @@ var appHelper = {
  
         // Start the Sails server
         function (cb) {
-          Sails.log.warn('Lifting sails...');
-          Sails.lift({
+          sailsprocess.log.warn('Lifting sails...');
+          sailsprocess.lift({
             log: {
               level: 'warn'
             },
@@ -75,14 +76,14 @@ var appHelper = {
 
             // Populate the DB
             barrels.populate(function(err) {
-              done(err, app);
+              cb(err, app);
             });
             
             lifted = true;
             sailsprocess = app;
           });
         }
-      ], done);
+      ], cb);
   },
  
   /* Stops the Sails server
@@ -93,14 +94,14 @@ var appHelper = {
    *    appHelper.lower(done);
    * });
    */
-  lower: function (done) {
+  lower: function (cb) {
     sailsprocess.log.warn('Lowering sails...');
     sailsprocess.lower(function (err) {
       if(err) {
         throw err;
       }
       lifted = false;
-      done(err);
+      cb(err);
     });
   }
 };

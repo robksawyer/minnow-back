@@ -58,7 +58,7 @@
     "start": "node app.js",
     "debug": "node debug app.js",
     "test": "make test",
-    "mocha": "grunt test"
+    "mocha": "grunt test -w"
   },
   "main": "app.js",
   "repository": {
