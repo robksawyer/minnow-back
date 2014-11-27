@@ -25,6 +25,12 @@ module.exports = {
     phoneConfirmationStatus: {
       type: 'boolean'
     },
+    customer: {
+      type: 'json'
+    },
+    recipient: {
+      type: 'json'
+    },
     likes: {
       type: 'int',
       defaultsTo: 0
