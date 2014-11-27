@@ -26,15 +26,6 @@ var appHelper = {
   lift: function (cb) {
     //Clear the terminal window
     clear();
-    
-    var timeoutProtect = setTimeout(function() {
-      // Clear the local timer variable, indicating the timeout has been triggered.
-      timeoutProtect = null;
-      // Execute the callback with an error argument.
-      console.log({
-        error:'-------- Sails Test Helper Timed Out. :\'( --------'
-      });
-    }, 5000);
 
     async.waterfall(
       [
@@ -79,6 +70,7 @@ var appHelper = {
             liftTimeout: 10000
           }, function (err, app) {
             if (err) {
+              sails.log.error(err);
               return cb(err);
             }
             // Load fixtures
