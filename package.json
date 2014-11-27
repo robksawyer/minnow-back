@@ -57,7 +57,8 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
-    "test": "make test"
+    "test": "make test",
+    "mocha": "grunt test"
   },
   "main": "app.js",
   "repository": {
