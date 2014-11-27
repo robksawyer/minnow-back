@@ -58,7 +58,7 @@
     "start": "node app.js",
     "debug": "node debug app.js",
     "test": "make test",
-    "mocha": "grunt test -w"
+    "watch-test": "node_modules/.bin/_mocha --watch --reporter spec"
   },
   "main": "app.js",
   "repository": {

@@ -96,9 +96,10 @@ We are using [MochaJS](http://mochajs.org) for unit testing. Visit the `test` fo
 
 The best way to test while in development is to run the following command in a terminal window.
 ```
-mocha test -w
+npm run watch-test
 ```
-> This will run mocha tests as a background process and will continually update as tests are changed.
+
+> This will run mocha tests as a background process and will continually update as tests are changed. This command can be updated in `package.json` in the scripts section.
 
 ## Remote Continuous Integration (CI) Testing
 
