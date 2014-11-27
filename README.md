@@ -23,7 +23,11 @@ The backend is built on [Sails](http://sailsjs.org) and depends on [Waterlock](h
 A JWT is needed before most actions are able to be completed. Note: The JSON web token currently is set to expire in 7 days. This can be set via the `config/waterlock.js` file.
 
 1. Logging in/Creating an account
-- It's fast an easy to create an account or login. Currently, all you need to pass along is an email address and a password. If the email isn't found in the database, a new user is created. 
+- It's fast an easy to create an account or login. Currently, all you need to make a POST request with the email address, a password and the type. The type can either be `facebook` or `local`. If the email isn't found in the database, a new user is created. 
+Example request:
+```
+http://localhost:1337?type=local&email='rob@test.com'&password='secret'
+```
 Example response:
 ```
 {
@@ -39,6 +43,7 @@ Example response:
     "updatedAt": "2014-11-24T19:30:07.789Z"
 }
 ```
+> If you're using the [waterlock-facebook-auth], you'll get a facebookId in the response.
 
 2. If an account was created for the user, the user is automatically logged in.
 3. Now, to gain the access token a.k.a JWT perform a GET request on `http://localhost:1337/user/jwt`.
