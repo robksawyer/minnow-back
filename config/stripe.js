@@ -8,20 +8,9 @@
  */
 
 module.exports.stripe = {
-
-  if(process.env.NODE_ENV == 'development'){
      
-     secretKey: process.env.STRIPE_TEST_SECRET_KEY,
+     secretKey: (process.env.NODE_ENV == 'development') ? process.env.STRIPE_TEST_SECRET_KEY : process.env.STRIPE_LIVE_SECRET_KEY,
    
-     publicKey: process.env.STRIPE_TEST_PUBLIC_KEY,
-
-     
-  } else {
-
-     secretKey: process.env.STRIPE_LIVE_SECRET_KEY,
-
-     publicKey: process.env.STRIPE_LIVE_PUBLIC_KEY
-
-  }
+     publicKey: (process.env.NODE_ENV == 'development') ? process.env.STRIPE_TEST_PUBLIC_KEY : process.env.STRIPE_LIVE_PUBLIC_KEY
 
 };
