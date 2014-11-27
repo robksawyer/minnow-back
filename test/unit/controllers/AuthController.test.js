@@ -127,12 +127,23 @@ describe('AuthController', function AuthController() {
                               if (error) {
                                 return done(error);
                               }
+                      
                               expect(result.res.body).to.be.a('object');
+                              
                               done();
                           }
                       );
               });
           });
+      });
+    });
+
+
+    describe('login', function(){
+      it('should create a user successfully', function(done){
+        User.find().exec(function(err, res){
+          sails.log(res);
+        });
       });
     });
 

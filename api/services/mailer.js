@@ -1,5 +1,4 @@
-var nodemailer = require('nodemailer'),
-    secrets = require('../../config/secrets');
+var nodemailer = require('nodemailer');
 
 module.exports = {
 
@@ -11,13 +10,13 @@ module.exports = {
   send: function(email, cb){
 
     /** sets up the modemailer smtp transport */
-    var transport = nodemailer.createTransport("SMTP", {
-      service: secrets.mailer.service,
+    /*var transport = nodemailer.createTransport("SMTP", {
+      service: mailer.service,
       auth: {
-          user: secrets.mailer.user,
-          pass: secrets.mailer.pass
+          user: mailer.user,
+          pass: mailer.pass
       }
-    });
+    });*/
 
     /** sets up the mail options, from and such like that **/
 

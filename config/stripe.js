@@ -9,11 +9,19 @@
 
 module.exports.stripe = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Your Stripe secret key.                                                  *
-  *                                                                          *
-  ***************************************************************************/
-   secretKey: process.env.STRIPE_SECRET_KEY,
+  if(process.env.NODE_ENV == 'development'){
+     
+     secretKey: process.env.STRIPE_TEST_SECRET_KEY,
+   
+     publicKey: process.env.STRIPE_TEST_PUBLIC_KEY,
+
+     
+  } else {
+
+     secretKey: process.env.STRIPE_LIVE_SECRET_KEY,
+
+     publicKey: process.env.STRIPE_LIVE_PUBLIC_KEY
+
+  }
 
 };

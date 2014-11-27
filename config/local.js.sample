@@ -132,8 +132,28 @@ module.exports = {
     jsonWebTokens: {
 
       // CHANGE THIS SECRET
-      secret: 'YOUR_SECRET'
+      secret: '00000000000000000000000000'
     }
+ },
+
+ stripe: {
+    
+    secretKey: 'sk_test_000000000000000000000000',
+
+    publicKey: 'pk_test_000000000000000000000000'
+
+ },
+
+ mailer: {
+  
+ },
+
+ flickr: {
+
+    apiKey: '00000000000000000000000000',
+
+    apiSecret: '0000000000000000'
+
  }
 
 
