@@ -5,6 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+var defaultStatus = 'published';
+
 module.exports = {
 
   attributes: {
@@ -24,11 +26,15 @@ module.exports = {
     tags: {
       type: 'array'
     },
-    categories:{
-      type: 'array'
+    category:{
+      type: 'string',
+      in: [
+        'uncategorized', 'person', 'place', 'thing', 'other'
+      ],
+      defaultsTo: 'uncategorized'
     },
     img: {
-      type: 'string'
+      type: 'json'
     },
     status: {
       type: 'string',
@@ -54,8 +60,25 @@ module.exports = {
 
     // Set the status if it wasn't sent
     if (values.status === null || values.status === '') {
-      values.status = 'published';
+      values.status = defaultStatus;
     }
+  },
+
+  afterValidation: function(values, next) {
+
+    // Generate and sanitanize slug
+    var getSlug = require('speakingurl');
+    if (values.slug === null || values.slug === '') {
+      values.slug = values.title;
+    }
+    values.slug = getSlug(values.slug);
+
+    // Set the status if it wasn't sent
+    if (values.status === null || values.status === '') {
+      values.status = defaultStatus;
+    }
+
+    next();
   }
 
 };

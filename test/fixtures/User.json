@@ -6,8 +6,8 @@
     "phoneConfirmationStatus": true,
     "customer": {},
     "recipient": {},
-    "comments": [],
-    "posts": [],
+    "comments": [1],
+    "posts": [1],
     "likes": 1,
     "auth": 1,
     "role": "admin"
@@ -41,7 +41,6 @@
   {
     "id": 4,
     "phone": "",
-    "email": "test3@test.com",
     "emailConfirmationStatus": false,
     "phoneConfirmationStatus": true,
     "customer": {},
@@ -54,7 +53,6 @@
   },
   {
     "id": 5,
-    "email": "test4@test.com",
     "phone": "",
     "emailConfirmationStatus": true,
     "phoneConfirmationStatus": false,
@@ -65,5 +63,70 @@
     "likes": 10,
     "auth": 5,
     "role": "anonymous"
+  },
+  {
+    "id": 6,
+    "phone": "",
+    "emailConfirmationStatus": true,
+    "phoneConfirmationStatus": false,
+    "customer": {},
+    "recipient": {},
+    "comments": [6],
+    "posts": [6],
+    "likes": 1,
+    "auth": 6,
+    "role": "anonymous"
+  },
+  {
+    "id": 7,
+    "phone": "",
+    "emailConfirmationStatus": true,
+    "phoneConfirmationStatus": false,
+    "customer": {},
+    "recipient": {},
+    "comments": [7],
+    "posts": [7],
+    "likes": 1,
+    "auth": 7,
+    "role": "anonymous"
+  },
+  {
+    "id": 8,
+    "phone": "",
+    "emailConfirmationStatus": true,
+    "phoneConfirmationStatus": false,
+    "customer": {},
+    "recipient": {},
+    "comments": [8],
+    "posts": [8],
+    "likes": 1,
+    "auth": 8,
+    "role": "anonymous"
+  },
+  {
+    "id": 9,
+    "phone": "",
+    "emailConfirmationStatus": true,
+    "phoneConfirmationStatus": false,
+    "customer": {},
+    "recipient": {},
+    "comments": [9],
+    "posts": [9],
+    "likes": 100000000,
+    "auth": 9,
+    "role": "anonymous"
+  },
+  {
+    "id": 10,
+    "phone": "",
+    "emailConfirmationStatus": true,
+    "phoneConfirmationStatus": false,
+    "customer": {},
+    "recipient": {},
+    "comments": [10],
+    "posts": [10],
+    "likes": 0,
+    "auth": 10,
+    "role": "admin"
   }
 ]

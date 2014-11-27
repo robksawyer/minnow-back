@@ -2,46 +2,171 @@
   {
     "id": 1,
     "price": 300.00,
-    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
-    "bg_img_url": "http://flickr.com/image.jpg",
-    "comments": [1,3],
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [1],
     "owner": 1
   },
   {
     "id": 2,
     "price": 10.00,
-    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
-    "bg_img_url": "http://flickr.com/image2.jpg",
-    "comments": [2,4],
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [2],
     "owner": 2
   },
   {
     "id": 3,
     "price": 1.00,
-    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
-    "bg_img_url": "http://flickr.com/image3.jpg",
-    "comments": [5,6,7,8],
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [3],
     "owner": 3
   },
   {
     "id": 4,
     "price": 5.00,
-    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
-    "bg_img_url": "http://flickr.com/image4.jpg",
-    "comments": [9,10],
-    "owner": 2
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image4.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [4],
+    "owner": 4
   },
   {
     "id": 5,
     "price": 50.00,
-    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
-    "bg_img_url": "http://flickr.com/image5.jpg",
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [5,6],
+    "owner": 5
+  },
+  {
+    "id": 6,
+    "price": 50.00,
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "secret": "Lorem Ipsum",
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
     "comments": [],
-    "owner": 1
+    "owner": 6
+  },
+  {
+    "id": 7,
+    "price": 50.00,
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "secret": "Lorem Ipsum",
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [7],
+    "owner": 7
+  },
+  {
+    "id": 8,
+    "price": 50.00,
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "secret": "Lorem Ipsum",
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [8],
+    "owner": 8
+  },
+  {
+    "id": 9,
+    "price": 50.00,
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "secret": "Lorem Ipsum",
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [9],
+    "owner": 9
+  },
+  {
+    "id": 10,
+    "price": 50.00,
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "secret": "Lorem Ipsum",
+    "slug": "",
+    "tags": ["tagOne","tagTwo"],
+    "category": "uncategorized",
+    "img": {
+      "source": "John Doe",
+      "url": "http://flickr.com/image.jpg",
+      "ext": "jpg"
+    },
+    "status": "published",
+    "comments": [10],
+    "owner": 10
   }
 ]
