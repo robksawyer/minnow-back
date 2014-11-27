@@ -10,6 +10,7 @@ var SailsApp = require('sails').Sails,
     lifted = false,
     Barrels = require('barrels'),
     sailsprocess = new SailsApp(),
+    clear = require("cli-clear"),
     barrels, fixtures;
  
 var appHelper = {
@@ -23,6 +24,9 @@ var appHelper = {
    * });
    */
   lift: function (cb) {
+    //Clear the terminal window
+    clear();
+
     async.waterfall(
       [
         // Check whether the Sails server is already running, and stop it if so

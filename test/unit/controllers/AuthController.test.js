@@ -47,7 +47,7 @@ describe('AuthController', function AuthController() {
           },
       ].forEach(function testCaseFunc(testCase, index) {
           describe('with testCase #' + (parseInt(index, 10) + 1), function loginTest() {
-              it('should return expected HTTP status and object as response body', function it(done) {
+              it('should return expected HTTP status ' + testCase.status + ' and object as response body', function it(done) {
                   request(sails.hooks.http.app)
                       .post('/auth/login')
                       .send(testCase.payload)
@@ -117,7 +117,7 @@ describe('AuthController', function AuthController() {
           }
       ].forEach(function testCaseFunc(testCase, index) {
           describe('with testCase #' + (parseInt(index, 10) + 1), function loginTest() {
-              it('should return expected HTTP status and object as response body', function it(done) {
+              it('should return expected HTTP status ' + testCase.status + ' and object as response body', function it(done) {
                   request(sails.hooks.http.app)
                       .post('/auth/login')
                       .send(testCase.payload)
@@ -135,15 +135,6 @@ describe('AuthController', function AuthController() {
                       );
               });
           });
-      });
-    });
-
-
-    describe('login', function(){
-      it('should create a user successfully', function(done){
-        User.find().exec(function(err, res){
-          sails.log(res);
-        });
       });
     });
 
