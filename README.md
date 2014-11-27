@@ -1,5 +1,5 @@
 [![Minnow][minnow-image]][minnow-url]
-# [Minnow](minnow-url) - The Backend `version 0.1`
+# [Minnow](minnow-url) `0.1` - The Backend
 
 > An application that allows you to make money from your secrets. 
 
@@ -103,6 +103,10 @@ $ karma start
 
 For more detailed information about the Karma configuration file, such as available options and features, please read the [configuration file docs](http://karma-runner.github.io/0.12/config/configuration-file.html).
 
+
+# Continuous Integration (CI)
+
+The minnow currently uses [Travis](https://travis-ci.com/) for CI. He also relys on [Coveralls.io](https://coveralls.io) for coverage reports.
 
 ## Testing Dependencies
 
