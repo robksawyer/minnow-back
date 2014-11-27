@@ -11,7 +11,7 @@ env:
 before_script: grunt build
 
 script:
-  - "grunt test"
+  - "make test"
 
 branches:
   only:
