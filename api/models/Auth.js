@@ -13,7 +13,13 @@ module.exports = {
     /* e.g.
     nickname: 'string'
     */
-    
+    toJSON: function() {
+      var obj = this.toObject();
+      if(obj)
+        delete obj.password;
+      return obj;
+    }
+
   }),
   
   beforeCreate: require('waterlock').models.auth.beforeCreate,

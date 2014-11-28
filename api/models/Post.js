@@ -23,7 +23,7 @@ module.exports = {
     },
     category:{
       type: 'string',
-      in: [
+      enum: [
         'uncategorized', 'person', 'place', 'thing', 'other'
       ],
       defaultsTo: 'uncategorized'
@@ -33,7 +33,7 @@ module.exports = {
     },
     status: {
       type: 'string',
-      in: ['published', 'draft', 'banned'],
+      enum: ['published', 'draft', 'banned'],
       defaultsTo: ['published']
     },
     likes: {
@@ -44,7 +44,7 @@ module.exports = {
       collection: 'comment',
       via: 'post'
     },
-    owner:{
+    owner: {
       model: 'user'
     }
   },
@@ -56,6 +56,8 @@ module.exports = {
       values.slug = values.body.toString().substr(0,15);
     }
     values.slug = getSlug(values.slug);
+
+    next();
   },
 
   afterValidation: function(values, next) {

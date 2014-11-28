@@ -45,18 +45,12 @@ module.exports = {
     },
     status: {
       type: 'string',
-      in: ['active', 'unconfirmed', 'banned'],
+      enum: ['active', 'unconfirmed', 'banned'],
       defaultsTo: 'unconfirmed'
     },
     role: {
       type: 'string',
       defaultsTo: 'anonymous'
-    },
-    toJSON: function() {
-      var obj = this.toObject();
-      if(obj.auth)
-        delete obj.auth.password;
-      return obj;
     }
     
   }),

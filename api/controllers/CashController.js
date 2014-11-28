@@ -57,9 +57,9 @@ module.exports = {
             } else {
               console.log('set up email to send about transfer');
               mailer.send({
-                from:       'jordan@cauley.co',
+                from:       process.env.REPLY_TO_EMAIL_ADDRESS,
                 to:         user.email,
-                replyTo:    'jordan@cauley.co',
+                replyTo:    process.env.FROM_EMAIL_ADDRESS,
                 subject:    'New Account Acivation Required',
                 html:       '<h3>Thanks for signing up</h3><p><a href="http://localhost:1337/user/' + user.id + '/activate/' + user.activationToken + '">Please Activate Your Account</a></p>'
               }, function(err, response){

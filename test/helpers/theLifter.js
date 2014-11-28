@@ -66,9 +66,9 @@ var theLifter = {
             models: {
               // Use in-memory database for tests
               connection: 'test',
-              migrate: 'alter'
+              migrate: 'drop'
             },
-            liftTimeout: 10000
+            liftTimeout: 50000
           }, function (err, app) {
             if (err) {
               sails.log.error(err);
@@ -82,8 +82,9 @@ var theLifter = {
 
             // Populate the DB
             barrels.populate(function(err) {
+              console.log('Populating the database.');
               cb(err, app);
-            });
+            }, false);
             
             lifted = true;
             sailsprocess = app;

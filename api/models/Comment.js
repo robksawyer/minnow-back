@@ -17,13 +17,13 @@ module.exports = {
     summary: {
       type: 'string'
     },
-    post: {
-      model: 'post'
-    },
     status: {
       type: 'string',
-      in: ['published', 'draft', 'banned'],
+      enum: ['published', 'draft', 'banned'],
       defaultsTo: ['published']
+    },
+    post: {
+      model: 'post'
     },
     owner: {
       model: 'user'
