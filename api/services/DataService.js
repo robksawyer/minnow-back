@@ -154,18 +154,15 @@ module.exports = {
      */
     getComments: function(where, next, users) {
         users = users || false;
-        sails.log.warn("getComments");
+        self = this;
         async.parallel(
             {
                 // Fetch comments
                 comments: function(callback) {
                     Comment
                         .find(where)
-                        .populate('owner','post')
                         .sort("createdAt ASC")
                         .exec(function(error, /** sails.model.comment[] */ comments) {
-                            sails.log.warn('Inside');
-                            sails.log.warn(comments);
                             callback(error, comments);
                         });
                 },
@@ -175,7 +172,7 @@ module.exports = {
                     if (users) {
                         callback(null, users);
                     } else {
-                        DataService.getUsers({}, callback);
+                        self.getUsers({}, callback);
                     }
                 }
             },
@@ -223,12 +220,12 @@ module.exports = {
                  * @param   {Function}              callback    Callback function to call after job is done.
                  */
                 function(comment, callback) {
-                    comment.author = _.find(data.users, function(user) {
-                        return user.id === comment.createdUserId;
+                    comment.owner = _.find(data.users, function(user) {
+                        return user.id === comment.owner;
                     });
 
                     // Call service itself recursive, note that we pass the users to service
-                    DataService.getComments(objectName, objectId, comment.id, function(error, comments) {
+                    self.getComments(comment.id, function(error, comments) {
                         if (!error) {
                             comment.comments = comments;
                         }

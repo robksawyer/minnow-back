@@ -1,72 +1,62 @@
 [
   {
+    "id": 1,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
     "commentId": 0,
-    "post": 1,
-    "status": "published",
-    "owner": 1
+    "status": "published"
   },
   {
+    "id": 2,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
     "commentId": 0,
-    "post": 2,
-    "status": "published",
-    "owner": 2
+    "status": "published"
   },
   {
+    "id": 3,
     "body": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots ",
     "commentId": 0,
-    "post": 3,
-    "status": "published",
-    "owner": 3
+    "status": "published"
   },
   {
+    "id": 4,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
     "commentId": 0,
-    "post": 4,
-    "status": "published",
-    "owner": 4
+    "status": "published"
   },
   {
+    "id": 5,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
     "commentId": 0,
-    "post": 5,
-    "status": "published",
-    "owner": 5
+    "status": "published"
   },
   {
+    "id": 6,
     "body": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots ",
     "commentId": 0,
-    "post": 6,
-    "status": "published",
-    "owner": 6
+    "status": "published"
   },
   {
+    "id": 7,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
     "commentId": 0,
-    "post": 7,
-    "status": "published",
-    "owner": 7
+    "status": "published"
   },
   {
+    "id": 8,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
     "commentId": 0,
-    "post": 8,
-    "status": "published",
-    "owner": 8
+    "status": "published"
   },
   {
+    "id": 9,
     "body": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots ",
     "commentId": 0,
-    "post": 9,
-    "status": "published",
-    "owner": 9
+    "status": "published"
   },
   {
+    "id": 10,
     "body": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered ",
     "commentId": 0,
-    "post": 10,
-    "status": "published",
-    "owner": 10
+    "status": "published"
   }
 ]

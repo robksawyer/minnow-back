@@ -68,7 +68,7 @@ var theLifter = {
             models: {
               // Use in-memory database for tests
               connection: 'test',
-              migrate: 'drop'
+              migrate: 'safe'
             },
             liftTimeout: 10000
           }, function (err, app) {

@@ -1,42 +1,32 @@
 [
   {
-    "post": [1],
-    "owner": [1]
+    "id": 1
   },
   {
-    "post": [2],
-    "owner": [2]
+    "id": 2
   },
   {
-    "post": [3],
-    "owner": [3]
+    "id": 3
   },
   {
-    "post": [4],
-    "owner": [4]
+    "id": 4
   },
   {
-    "post": [5],
-    "owner": [5]
+    "id": 5
   },
   {
-    "post": [6],
-    "owner": [6]
+    "id": 6
   },
   {
-    "post": [7],
-    "owner": [7]
+    "id": 7
   },
   {
-    "post": [8],
-    "owner": [8]
+    "id": 8
   },
   {
-    "post": [9],
-    "owner": [9]
+    "id": 9
   },
   {
-    "post": [10],
-    "owner": [10]
+    "id": 10
   }
 ]

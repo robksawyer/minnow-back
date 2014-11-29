@@ -14,11 +14,10 @@ describe('Comment', function userModel(){
  describe('should have', function(){
 
     it('the attributes', function(done){
-      Comment.findOne({id: 1}).exec(function(err, res){
+      Comment.findOne({commentId: 0}).exec(function(err, res){
         
         sails.log.warn(res);
         expect(res).to.have.property('body');
-        expect(res).to.have.property('summary');
         expect(res).to.have.property('post');
         expect(res).to.have.property('status');
         expect(res).to.have.property('owner');

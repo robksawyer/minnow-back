@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "price": 300.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -12,10 +13,10 @@
     },
     "status": "published",
     "comments": [1],
-    "likes": [1],
-    "owner": 1
+    "likes": [1]
   },
   {
+    "id": 2,
     "price": 10.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -28,10 +29,10 @@
     },
     "status": "published",
     "comments": [2],
-    "likes": [2],
-    "owner": 2
+    "likes": [2]
   },
   {
+    "id": 3,
     "price": 1.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -44,10 +45,10 @@
     },
     "status": "published",
     "comments": [3],
-    "likes": [3],
-    "owner": 3
+    "likes": [3]
   },
   {
+    "id": 4,
     "price": 5.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -60,10 +61,10 @@
     },
     "status": "published",
     "comments": [4],
-    "likes": [4],
-    "owner": 4
+    "likes": [4]
   },
   {
+    "id": 5,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -76,10 +77,10 @@
     },
     "status": "published",
     "comments": [5],
-    "likes": [5],
-    "owner": 5
+    "likes": [5]
   },
   {
+    "id": 6,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -92,10 +93,10 @@
     },
     "status": "published",
     "comments": [6],
-    "likes": [6],
-    "owner": 6
+    "likes": [6]
   },
   {
+    "id": 7,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -108,10 +109,10 @@
     },
     "status": "published",
     "comments": [7],
-    "likes": [7],
-    "owner": 7
+    "likes": [7]
   },
   {
+    "id": 8,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -124,10 +125,10 @@
     },
     "status": "published",
     "comments": [8],
-    "likes": [8],
-    "owner": 8
+    "likes": [8]
   },
   {
+    "id": 9,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -140,10 +141,10 @@
     },
     "status": "published",
     "comments": [9],
-    "likes": [9],
-    "owner": 9
+    "likes": [9]
   },
   {
+    "id": 10,
     "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": "Lorem Ipsum",
@@ -156,7 +157,6 @@
     },
     "status": "published",
     "comments": [10],
-    "likes": [10],
-    "owner": 10
+    "likes": [10]
   }
 ]

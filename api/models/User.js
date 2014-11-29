@@ -32,8 +32,8 @@ module.exports = {
       type: 'json'
     },
     likes: {
-      type: 'integer',
-      defaultsTo: 0
+      collection: 'like',
+      via: 'owner'
     },
     comments: {
       collection: 'comment',
