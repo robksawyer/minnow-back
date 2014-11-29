@@ -1,3 +1,10 @@
+/**
+ * /api/services/LogService.js
+ *
+ * Logger service.
+ */
+"use strict";
+
 var nodemailer = require('nodemailer');
 
 module.exports = {
@@ -31,4 +38,5 @@ module.exports = {
       return cb(null, response);
     });
   }
+  
 }

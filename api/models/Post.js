@@ -23,9 +23,7 @@ module.exports = {
     },
     category:{
       type: 'string',
-      enum: [
-        'uncategorized', 'person', 'place', 'thing', 'other'
-      ],
+      enum: ['uncategorized', 'person', 'place', 'thing', 'other'],
       defaultsTo: 'uncategorized'
     },
     img: {
@@ -34,7 +32,7 @@ module.exports = {
     status: {
       type: 'string',
       enum: ['published', 'draft', 'banned'],
-      defaultsTo: ['published']
+      defaultsTo: 'published'
     },
     likes: {
       collection: 'like',

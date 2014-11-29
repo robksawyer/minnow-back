@@ -46,11 +46,12 @@ module.exports = {
     status: {
       type: 'string',
       enum: ['active', 'unconfirmed', 'banned'],
-      defaultsTo: 'unconfirmed'
+      defaultsTo: 'active'
     },
-    role: {
-      type: 'string',
-      defaultsTo: 'anonymous'
+    roles: {
+      type: 'array',
+      enum: ['anonymous','admin','moderator'],
+      defaultsTo: ['anonymous']
     }
     
   }),
