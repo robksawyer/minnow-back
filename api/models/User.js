@@ -32,7 +32,7 @@ module.exports = {
       type: 'json'
     },
     likes: {
-      type: 'int',
+      type: 'integer',
       defaultsTo: 0
     },
     comments: {

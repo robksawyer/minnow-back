@@ -14,8 +14,10 @@ module.exports = {
       minLength: 1,
       required: true
     },
-    summary: {
-      type: 'string'
+    // Parent comment id
+    commentId: {
+        type: "integer",
+        defaultsTo: 0
     },
     status: {
       type: 'string',

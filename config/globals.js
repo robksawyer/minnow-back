@@ -59,5 +59,30 @@ module.exports.globals = {
   *                                                                           *
   ****************************************************************************/
 
-	 models: true
+	 models: true,
+
+
+  /****************************************************************************
+  *                                                                           *
+  * Custom Globals                                                            *
+  *                                                                           *
+  ****************************************************************************/
+
+  /**
+  * Reference @url http://stackoverflow.com/questions/14172455/get-name-and-line-of-calling-function-in-node-js 
+  */
+   __filename: arguments.callee.toString(),
+   __line: function() { return __stack[1].getLineNumber(); },
+   __function: function() { return __stack[1].getFunctionName(); },
+   __stack: function() {
+        var orig = Error.prepareStackTrace;
+        Error.prepareStackTrace = function(_, stack) {
+            return stack;
+        };
+        var err = new Error;
+        Error.captureStackTrace(err, arguments.callee);
+        var stack = err.stack;
+        Error.prepareStackTrace = orig;
+        return stack;
+    }
 };

@@ -1,7 +1,9 @@
 /**
- * /api/services/LogService.js
+ * /api/services/MailerService.js
  *
- * Logger service.
+ * Handles mail related mehtods.
+ * 
+ * Mailer service.
  */
 "use strict";
 
@@ -12,6 +14,8 @@ module.exports = {
   /**
    * Sends an email to a given recipient
    * @param  {object}   email           an object containing all of the necessary data to email
+   *                        { to, htmlContent, txtContnet, fromEmail, subject }
+   *                      
    * @param  {Function} cb[err, res]    the callback to call once email is sent, or if it fails
    */
   send: function(email, cb){

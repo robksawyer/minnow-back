@@ -6,6 +6,7 @@
 "use strict";
 
 module.exports = {
+
   /**
    * Simple service method to send "proper" error message back to client. This is called basically
    * all over the application in cases where error may occur.
@@ -16,7 +17,7 @@ module.exports = {
    *
    * @returns {*}
    */
-  exports.makeError = function(error, request, response) {
+  makeError: function(error, request, response) {
       sails.log.error(__filename + ":" + __line + " [Error triggered]");
       sails.log.error(error);
 
@@ -31,4 +32,5 @@ module.exports = {
           return response.send(error.status ? error.status : 500, error.message ? error.message : error);
       }
   }
+  
 }

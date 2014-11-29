@@ -7,10 +7,7 @@
 var request = require('supertest'),
     expect = require('chai').expect,
     should = require('chai').should,
-    login = require('./../../helpers/login'),
-    Barrels = require('barrels'),
-    barrels = new Barrels(),
-    fixtures = barrels.data;
+    login = require('./../../helpers/login');
 
 
 describe('AuthController', function AuthController() {
@@ -19,22 +16,22 @@ describe('AuthController', function AuthController() {
       [
           {
               payload: null, 
-              status: 400
+              status: 403
           },
           //2
           {
               payload: '', 
-              status: 400
+              status: 403
           },
           //3
           {
               payload: 'foobar',
-              status: 400
+              status: 403
           },
           //4
           {
               payload: {},
-              status: 400
+              status: 403
           },
           //5
           {

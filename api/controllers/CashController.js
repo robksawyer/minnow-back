@@ -56,7 +56,7 @@ module.exports = {
 
             } else {
               console.log('set up email to send about transfer');
-              mailer.send({
+              MailerService.send({
                 from:       process.env.REPLY_TO_EMAIL_ADDRESS,
                 to:         user.email,
                 replyTo:    process.env.FROM_EMAIL_ADDRESS,

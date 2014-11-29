@@ -25,8 +25,8 @@ describe('User', function userModel(){
         expect(res[0]).to.have.property('likes');
         expect(res[0]).to.have.property('comments');
         expect(res[0]).to.have.property('posts');
-        expect(res[0]).to.have.property('role');
         expect(res[0]).to.have.property('status');
+        expect(res[0]).to.have.property('roles');
 
         done();
       });

@@ -14,11 +14,4 @@ module.exports = require('waterlock').actions.user({
   
     }
   */
-
-  connections: function(req,res){
-  	sails.log.info(sails.config.connections);
-  	
-  	res.view();
-  }
-  
 });

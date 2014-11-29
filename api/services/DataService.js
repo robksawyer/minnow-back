@@ -58,7 +58,7 @@ module.exports = {
         Post
             .find()
             .where(where)
-            .sort("title ASC")
+            //.sort("title ASC")
             .exec(function(error, /** sails.model.post[] */ posts) {
                 if (error) {
                     sails.log.error(__filename + ":" + __line + " [Failed to fetch post data]");
@@ -298,7 +298,7 @@ module.exports = {
         UserLogin
             .find()
             .where({id: userId})
-            .sort("stamp DESC")
+            .sort("createdAt DESC")
             .exec(function(error, /** sails.model.userLogin[] */ userLogin) {
                 if (error) {
                     sails.log.error(__filename + ":" + __line + " [Failed to fetch user login data]");
@@ -320,7 +320,7 @@ module.exports = {
             .find()
             .where(where)
             .sort("email ASC")
-            .sort("created ASC")
+            .sort("createdAt ASC")
             .exec(function(error, users) {
                 if (error) {
                     sails.log.error(__filename + ":" + __line + " [Failed to fetch user data]");
