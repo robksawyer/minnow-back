@@ -12,36 +12,26 @@ var request = require('supertest'),
 
 describe('AuthController', function AuthController() {
 
-    describe('action login', function loginTest() {
+    describe('action login (empty data)', function loginTest() {
       [
           {
               payload: null, 
-              status: 403
+              status: 400
           },
           //2
           {
               payload: '', 
-              status: 403
+              status: 400
           },
           //3
           {
-              payload: 'foobar',
-              status: 403
-          },
-          //4
-          {
               payload: {},
-              status: 403
+              status: 400
           },
-          //5
           {
-              payload: { 
-                  email: '',
-                  password: '',
-                  type: 'local'
-              },
-              status: 200
-          },
+              payload: 'foobar',
+              status: 400
+          }
       ].forEach(function testCaseFunc(testCase, index) {
           describe('with testCase #' + (parseInt(index, 10) + 1), function loginTest() {
               it('should return expected HTTP status ' + testCase.status + ' and object as response body', function it(done) {
@@ -50,11 +40,10 @@ describe('AuthController', function AuthController() {
                       .send(testCase.payload)
                       .expect(testCase.status)
                       .end(
-                          function(error, result) {
-                              if (error) {
-                                return done(error);
+                          function(err, result) {
+                              if (err) {
+                                return done(err);
                               }
-
                               expect(result.res.body).to.be.a('object');
 
                               done();
@@ -65,7 +54,39 @@ describe('AuthController', function AuthController() {
       });
     });
 
-    describe('action login', function loginTest() {
+    /*describe('action login (some data)', function loginTest(validationError) {
+      [
+          {
+              payload: { 
+                  email: '',
+                  password: '',
+                  type: 'local'
+              },
+              status: 200
+          }
+      ].forEach(function testCaseFunc(testCase, index) {
+          describe('with testCase #' + (parseInt(index, 10) + 1), function loginTest() {
+              it('should return error as response', function it(done) {
+                  request(sails.hooks.http.app)
+                      .post('/auth/login')
+                      .send(testCase.payload)
+                      //.expect.to.throw(validationError)
+                      .end(
+                          function(err, result) {
+                              //should.exist(err);
+                              sails.log.warn(err);
+                              //expect(result.res.body).to.be.a('object');
+                              //expect.to.throw(Error);
+
+                              done();
+                          }
+                      );
+              });
+          });
+      });
+    });*/
+
+    /*describe('action login (more data)', function loginTest() {
       [
           //1
           {
@@ -133,7 +154,7 @@ describe('AuthController', function AuthController() {
               });
           });
       });
-    });
+    });*/
 
     
 

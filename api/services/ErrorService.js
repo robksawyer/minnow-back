@@ -17,16 +17,17 @@ module.exports = {
    *
    * @returns {*}
    */
-  makeErrorResponse: function(status, message, request, response) {
-      if (request.isAjax || request.isJson || request.isSocket) {
+  makeErrorResponse: function(status, message, req, res) {
+
+      if (req.isAjax || req.isJson || req.isSocket) {
           var errorMessage = new Error();
 
           errorMessage.message = message;
-          errorMessage.status = status;
+          errorMessage.status = res.statusCode;
 
-          return response.json(status, errorMessage);
+          return res.json(status, errorMessage);
       } else {
-          return response.send(status, message);
+          return res.send(status, message);
       }
   }
   

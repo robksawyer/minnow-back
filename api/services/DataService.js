@@ -35,7 +35,7 @@ module.exports = {
             .findOne(where)
             .exec(function(error, /** sails.model.post */ post) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch post data]");
+                    sails.log.error("[Failed to fetch post data]");
                     sails.log.error(error);
                 } else if (!post && !noExistsCheck) {
                     error = new Error();
@@ -56,15 +56,13 @@ module.exports = {
      */
     getPosts: function(where, next) {
         Post
-            .find()
-            .where(where)
+            .find(where)
             //.sort("title ASC")
             .exec(function(error, /** sails.model.post[] */ posts) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch post data]");
+                    sails.log.error("[Failed to fetch post data]");
                     sails.log.error(error);
                 }
-
                 next(error, posts);
             });
     },
@@ -83,7 +81,7 @@ module.exports = {
             .findOne(where)
             .exec(function(error, /** sails.model.postUser */ postUser) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch post user data]");
+                    sails.log.error("[Failed to fetch post user data]");
                     sails.log.error(error);
                 } else if (!postUser && !noExistsCheck) {
                     error = new Error();
@@ -108,7 +106,7 @@ module.exports = {
             .where(where)
             .exec(function(error, /** sails.model.postUser[] */ postUsers) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch post user data]");
+                    sails.log.error("[Failed to fetch post user data]");
                     sails.log.error(error);
                 }
 
@@ -131,7 +129,7 @@ module.exports = {
             .findOne(where)
             .exec(function(error, /** sails.model.comment */ comment) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch comment data]");
+                    sails.log.error("[Failed to fetch comment data]");
                     sails.log.error(error);
                 } else if (!comment && !noExistsCheck) {
                     error = new Error();
@@ -197,7 +195,7 @@ module.exports = {
              */
             function(error, data) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch comment data]");
+                    sails.log.error("[Failed to fetch comment data]");
                     sails.log.error(error);
 
                     next(error, null);
@@ -251,7 +249,7 @@ module.exports = {
                  */
                 function(error, comment) {
                     if (error) {
-                        sails.log.error(__filename + ":" + __line + " [Failed to fetch comment sibling data]");
+                        sails.log.error("[Failed to fetch comment sibling data]");
                         sails.log.error(error);
                     }
 
@@ -275,7 +273,7 @@ module.exports = {
             .findOne(where)
             .exec(function(error, /** sails.model.user */ user) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch user data]");
+                    sails.log.error("[Failed to fetch user data]");
                     sails.log.error(error);
                 } else if (!user && !noExistsCheck) {
                     error = new Error();
@@ -301,7 +299,7 @@ module.exports = {
             .sort("createdAt DESC")
             .exec(function(error, /** sails.model.userLogin[] */ userLogin) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch user login data]");
+                    sails.log.error("[Failed to fetch user login data]");
                     sails.log.error(error);
                 }
 
@@ -323,7 +321,7 @@ module.exports = {
             .sort("createdAt ASC")
             .exec(function(error, users) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch user data]");
+                    sails.log.error("[Failed to fetch user data]");
                     sails.log.error(error);
                 }
 
@@ -376,7 +374,7 @@ module.exports = {
              */
             function(error, data) {
                 if (error) {
-                    sails.log.error(__filename + ":" + __line + " [Failed to fetch post users data, see errors above]");
+                    sails.log.error("[Failed to fetch post users data, see errors above]");
                     sails.log.error(error);
 
                     next(error, null);

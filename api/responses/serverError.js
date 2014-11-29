@@ -13,6 +13,8 @@
  * error is encountered, Sails will call `res.serverError()`
  * automatically.
  */
+var ErrorService = require('../services/ErrorService');
+
 module.exports = function serverError(data, options) {
     // Get access to `req`, `res`, & `sails`
     var req = this.req;
@@ -42,5 +44,5 @@ module.exports = function serverError(data, options) {
     }
 
     // Backend will always response JSON
-    return res.jsonx(data);
+    return ErrorService.makeErrorResponse(res.statusCode, data, req, res);
 };

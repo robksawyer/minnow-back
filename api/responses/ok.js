@@ -11,6 +11,8 @@
  * @param  {Object}         data
  * @param  {String|Object}  options   pass string to render specified view
  */
+var ErrorService = require('../services/ErrorService');
+
 module.exports = function sendOK(data, options) {
     // Get access to `req`, `res`, & `sails`
     var req = this.req;
@@ -24,5 +26,5 @@ module.exports = function sendOK(data, options) {
 
     // If appropriate, serve data as JSON(P)
     // Backend will always response JSON
-    return res.jsonx(data);
+    return ErrorService.makeErrorResponse(res.statusCode, data, req, res);
 };

@@ -13,6 +13,9 @@
  * return res.forbidden('Access denied.');
  * ```
  */
+
+var ErrorService = require('../services/ErrorService');
+
 module.exports = function forbidden(data, options) {
     // Get access to `req`, `res`, & `sails`
     var req = this.req;
@@ -37,5 +40,5 @@ module.exports = function forbidden(data, options) {
     }
 
     // Backend will always response JSON
-    return res.jsonx(data);
+    return ErrorService.makeErrorResponse(res.statusCode, data, req, res);
 };

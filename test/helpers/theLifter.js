@@ -24,7 +24,9 @@ var theLifter = {
    * });
    */
   lift: function (cb) {
-
+    //Clear the terminal window
+    clear();
+    
     async.waterfall(
       [
         // Check whether the Sails server is already running, and stop it if so

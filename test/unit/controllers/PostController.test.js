@@ -5,12 +5,17 @@
 'use strict';
 
 var DataService = require('../../../api/services/DataService');
+var request = require('supertest'),
+    expect = require('chai').expect,
+    should = require('chai').should,
+    assert = require('chai').assert;
 
 describe('PostController', function(){
   it('should return posts', function(done){
-    var posts = DataService.getPosts({}, done);
-    sails.log.error(__filename + ":" + __line);
-    sails.log.error(posts);
-    done();
+    DataService.getPosts(null, function(err, posts){
+      expect(err).to.be.null;
+      expect(posts.length).to.be.above(0);
+      sails.log.warn(posts);
+    });
   });
 });

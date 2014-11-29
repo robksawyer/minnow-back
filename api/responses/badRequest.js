@@ -16,6 +16,8 @@
  * );
  * ```
  */
+var ErrorService = require('../services/ErrorService');
+
 module.exports = function badRequest(data, options) {
     // Get access to `req`, `res`, & `sails`
     var req = this.req;
@@ -40,5 +42,5 @@ module.exports = function badRequest(data, options) {
     }
 
     // Backend will always response JSON
-    return res.jsonx(data);
+    return ErrorService.makeErrorResponse(res.statusCode, data, req, res);
 };

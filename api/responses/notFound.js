@@ -18,6 +18,8 @@
  * or route blueprints (i.e. "shadow routes", Sails will call `res.notFound()`
  * automatically.
  */
+var ErrorService = require('../services/ErrorService');
+
 module.exports = function notFound(data, options) {
     // Get access to `req`, `res`, & `sails`
     var req = this.req;
@@ -42,5 +44,5 @@ module.exports = function notFound(data, options) {
     }
 
     // Backend will always response JSON
-    return res.jsonx(data);
+    return ErrorService.makeErrorResponse(res.statusCode, data, req, res);
 };
