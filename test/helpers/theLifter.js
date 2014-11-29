@@ -70,7 +70,7 @@ var theLifter = {
               connection: 'test',
               migrate: 'drop'
             },
-            liftTimeout: 50000
+            liftTimeout: 10000
           }, function (err, app) {
             if (err) {
               sails.log.error(err);

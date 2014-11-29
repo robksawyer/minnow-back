@@ -149,26 +149,23 @@ module.exports = {
      *
      * @param   {String}                objectName  Name of the object (Post, Sprint, Story, Task, etc.)
      * @param   {Number}                objectId    Id of the specified object
-     * @param   {Number}                commentId   Possible parent comment id
      * @param   {Function}              next        Callback function which is called after comments are fetched
      * @param   {sails.model.user[]}    [users]     User objects or empty array
      */
-    getComments: function(objectName, objectId, commentId, next, users) {
+    getComments: function(where, next, users) {
         users = users || false;
-
+        sails.log.warn("getComments");
         async.parallel(
             {
                 // Fetch comments
                 comments: function(callback) {
                     Comment
-                        .find()
-                        .where({
-                            objectName: objectName,
-                            objectId: objectId,
-                            commentId: commentId
-                        })
+                        .find(where)
+                        .populate('owner','post')
                         .sort("createdAt ASC")
                         .exec(function(error, /** sails.model.comment[] */ comments) {
+                            sails.log.warn('Inside');
+                            sails.log.warn(comments);
                             callback(error, comments);
                         });
                 },
@@ -294,8 +291,7 @@ module.exports = {
      */
     getUserSignInData: function(userId, next) {
         UserLogin
-            .find()
-            .where({id: userId})
+            .find({id: userId})
             .sort("createdAt DESC")
             .exec(function(error, /** sails.model.userLogin[] */ userLogin) {
                 if (error) {
@@ -315,8 +311,7 @@ module.exports = {
      */
     getUsers: function(where, next) {
         User
-            .find()
-            .where(where)
+            .find(where)
             .sort("email ASC")
             .sort("createdAt ASC")
             .exec(function(error, users) {

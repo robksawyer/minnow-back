@@ -15,48 +15,56 @@
   },
   {
     "body": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots ",
+    "commentId": 0,
     "post": 3,
     "status": "published",
     "owner": 3
   },
   {
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
+    "commentId": 0,
     "post": 4,
     "status": "published",
     "owner": 4
   },
   {
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
+    "commentId": 0,
     "post": 5,
     "status": "published",
     "owner": 5
   },
   {
     "body": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots ",
+    "commentId": 0,
     "post": 6,
     "status": "published",
     "owner": 6
   },
   {
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
+    "commentId": 0,
     "post": 7,
     "status": "published",
     "owner": 7
   },
   {
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ",
+    "commentId": 0,
     "post": 8,
     "status": "published",
     "owner": 8
   },
   {
     "body": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots ",
+    "commentId": 0,
     "post": 9,
     "status": "published",
     "owner": 9
   },
   {
     "body": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered ",
+    "commentId": 0,
     "post": 10,
     "status": "published",
     "owner": 10

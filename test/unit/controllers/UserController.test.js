@@ -4,6 +4,7 @@
  */
 'use strict';
 
+var DataService = require('../../../api/services/DataService');
 var request = require('supertest'),
     expect = require('chai').expect,
     should = require('chai').should,
@@ -11,25 +12,22 @@ var request = require('supertest'),
 
 describe('UserController', function(){
 
-  describe('action get', function(){
+  describe('DataService requests', function(){
     
-    it('users should not be empty', function(done){
-      User.find().exec(function(err, res){
+    it('should not be empty', function(done){
+      DataService.getUsers(null, function(err, users){
         assert(!err, err);
-
-        expect(res.length).to.be.above(0);
-        done();
+        expect(users.length).to.be.above(0);
       });
+      done();
     });
 
-    it('should return a single user', function(done){
-      User.find({id: 1}).exec(function(err, res){
+    it('should be valid', function(done){
+      DataService.getUsers(null, function(err, users){
         assert(!err, err);
-
-        expect(res.length, 1);
-
-        done();
+        expect(users[0].id).to.be.above(0);
       });
+      done();
     });
 
   });
