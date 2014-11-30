@@ -57,6 +57,7 @@ module.exports = {
     getPosts: function(where, next) {
         Post
             .find(where)
+            .populate('owner')
             .sort("createdAt ASC")
             .exec(function(error, /** sails.model.post[] */ posts) {
                 if (error) {

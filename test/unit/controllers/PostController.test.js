@@ -29,6 +29,14 @@ describe('PostController', function(){
       });
       done();
     });
+
+    it('should have owner data', function(done){
+      DataService.getPosts(null, function(err, posts){
+        assert(!err, err);
+        expect(posts[0].owner.id).to.be.above(0);
+      });
+      done();
+    });
     
   });
 

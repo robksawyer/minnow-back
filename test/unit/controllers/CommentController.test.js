@@ -21,13 +21,29 @@ describe('CommentController', function(){
       done();
     });
 
-    /*it('should be valid result', function(done){
-      DataService.getComments(null, function(err, results){
+    it('should be valid result', function(done){
+      DataService.getComments({id: 1}, function(err, results){
         assert(!err, err);
         expect(results[0].id).to.be.above(0);
       });
       done();
-    });*/
+    });
+
+    it('should have owner data', function(done){
+      DataService.getComments({id: 1}, function(err, results){
+        assert(!err, err);
+        expect(results[0].owner.id).to.be.above(0);
+      });
+      done();
+    });
+
+    it('should have post data', function(done){
+      DataService.getComments({id: 1}, function(err, results){
+        assert(!err, err);
+        expect(results[0].post.id).to.be.above(0);
+      });
+      done();
+    });
     
   });
 });
