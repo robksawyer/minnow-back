@@ -15,8 +15,8 @@ describe('User', function userModel(){
  describe('to have', function(){
 
     it('attributes', function(done){
-      User.find({id: 1}).exec(function(err, res){
-        
+      User.findOne({id: 1}).exec(function(err, res){
+
         expect(res).to.have.property('phone');
         expect(res).to.have.property('emailConfirmationStatus');
         expect(res).to.have.property('phoneConfirmationStatus');

@@ -16,8 +16,9 @@ describe('Comment', function userModel(){
     it('the attributes', function(done){
       Comment.findOne({commentId: 0}).exec(function(err, res){
         
-        sails.log.warn(res);
+        expect(res).to.have.property('id');
         expect(res).to.have.property('body');
+        expect(res).to.have.property('commentId'); //This allows us to order the comments
         expect(res).to.have.property('post');
         expect(res).to.have.property('status');
         expect(res).to.have.property('owner');

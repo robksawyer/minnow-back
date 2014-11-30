@@ -57,7 +57,7 @@ module.exports = {
     getPosts: function(where, next) {
         Post
             .find(where)
-            //.sort("title ASC")
+            .sort("createdAt ASC")
             .exec(function(error, /** sails.model.post[] */ posts) {
                 if (error) {
                     sails.log.error("[Failed to fetch post data]");
@@ -137,7 +137,6 @@ module.exports = {
                     error.message = "Comment not found.";
                     error.status = 404;
                 }
-
                 next(error, comment);
             });
     },
@@ -147,110 +146,22 @@ module.exports = {
      * fetch all nested comments. Note that service fetches all users for performance reasons so we
      * don't have to make n single user queries to database.
      *
-     * @param   {String}                objectName  Name of the object (Post, Sprint, Story, Task, etc.)
-     * @param   {Number}                objectId    Id of the specified object
-     * @param   {Function}              next        Callback function which is called after comments are fetched
-     * @param   {sails.model.user[]}    [users]     User objects or empty array
+     * @param   {String}                where             Specific query instructions
+     * @param   {Function}              next              Callback function which is called after comments are fetched
      */
-    getComments: function(where, next, users) {
-        users = users || false;
-        self = this;
-        async.parallel(
-            {
-                // Fetch comments
-                comments: function(callback) {
-                    Comment
-                        .find(where)
-                        .sort("createdAt ASC")
-                        .exec(function(error, /** sails.model.comment[] */ comments) {
-                            callback(error, comments);
-                        });
-                },
-
-                // Fetch users, note this is done only with first iteration
-                users: function(callback) {
-                    if (users) {
-                        callback(null, users);
-                    } else {
-                        self.getUsers({}, callback);
-                    }
-                }
-            },
-
-            /**
-             * Main callback function which is called after all parallel jobs are done or
-             * an error has occurred within those.
-             *
-             * @param   {null|Error}    error
-             * @param   {{
-             *              comments: sails.model.comment[],
-             *              users: sails.model.user[]
-             *          }}              data
-             */
-            function(error, data) {
+    getComments: function(where, next) {
+        Comment
+            .find(where)
+            .populate('owner')
+            .populate('post')
+            .sort("createdAt ASC")
+            .exec(function(error, /** sails.model.comment[] */ comments) {
                 if (error) {
                     sails.log.error("[Failed to fetch comment data]");
                     sails.log.error(error);
-
-                    next(error, null);
-                } else {
-                    fetchSiblingsAndAttachUsers(data);
-                }
-            }
-        );
-
-        /**
-         * Private helper function to attach user object to each comment and fetch
-         * siblings by calling service method itself with current comment data.
-         *
-         * @param   {{
-         *              comments: sails.model.comment[],
-         *              users: sails.model.user[]
-         *          }}  data
-         */
-        function fetchSiblingsAndAttachUsers(data) {
-            async.map(
-                data.comments,
-
-                /**
-                 * Iterator function which will attach user object to processed link object. Users
-                 * are simply searched from user array which is fetched in main async parallel call.
-                 *
-                 * @param   {sails.model.comment}   comment     Comment object
-                 * @param   {Function}              callback    Callback function to call after job is done.
-                 */
-                function(comment, callback) {
-                    comment.owner = _.find(data.users, function(user) {
-                        return user.id === comment.owner;
-                    });
-
-                    // Call service itself recursive, note that we pass the users to service
-                    self.getComments(comment.id, function(error, comments) {
-                        if (!error) {
-                            comment.comments = comments;
-                        }
-
-                        callback(error, comment);
-                    }, data.users);
-                },
-
-                /**
-                 * Main callback function which is called after all links are mapped. In this
-                 * comments contains author and siblings data.
-                 *
-                 * @param   {null|Error}            error   Possible error
-                 * @param   {sails.model.comment[]} comment Processed comments
-                 */
-                function(error, comment) {
-                    if (error) {
-                        sails.log.error("[Failed to fetch comment sibling data]");
-                        sails.log.error(error);
-                    }
-
-                    next(error, comment);
-                }
-            );
-        }
+                }  
+                next(error, comments);
+            });
     },
 
     /**
@@ -271,7 +182,6 @@ module.exports = {
                     sails.log.error(error);
                 } else if (!user && !noExistsCheck) {
                     error = new Error();
-
                     error.message = "User not found.";
                     error.status = 404;
                 }

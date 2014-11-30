@@ -14,10 +14,9 @@ describe('CommentController', function(){
   describe('DataService requests', function(){
 
     it('should return comments', function(done){
-      DataService.getComments(null, function(err, results){
+      DataService.getComments({}, function(err, results){
         assert(!err, err);
-        sails.log.warn(results);
-        //expect(results.length).to.be.above(0);
+        expect(results.length).to.be.above(0);
       });
       done();
     });
