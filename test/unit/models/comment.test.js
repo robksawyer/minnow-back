@@ -14,17 +14,17 @@ describe('Comment', function userModel(){
  describe('should have', function(){
 
     it('the attributes', function(done){
-      Comment.findOne({commentId: 0}).exec(function(err, res){
-        
+
+      Comment.findOne({id: 1}).exec(function(err, res){  
         expect(res).to.have.property('id');
         expect(res).to.have.property('body');
         expect(res).to.have.property('commentId'); //This allows us to order the comments
         expect(res).to.have.property('post');
         expect(res).to.have.property('status');
         expect(res).to.have.property('owner');
-
-        done();
       });
+
+      done();
     });
 
   });

@@ -57,10 +57,12 @@ module.exports = {
   beforeCreate: function( values, next){
     // Generate and sanitanize slug
     var getSlug = require('speakingurl');
+    var bcrypt = require('bcrypt');
     if (values.slug === null || values.slug === '') {
       values.slug = values.body.toString().substr(0,15);
     }
     values.slug = getSlug(values.slug);
+    values.slug = bcrypt.hashSync(values.slug, 8);
 
     next();
   },
@@ -69,10 +71,12 @@ module.exports = {
 
     // Generate and sanitanize slug
     var getSlug = require('speakingurl');
+    var bcrypt = require('bcrypt');
     if (values.slug === null || values.slug === '') {
       values.slug = values.title;
     }
     values.slug = getSlug(values.slug);
+    values.slug = bcrypt.hashSync(values.slug, 8);
 
     next();
   }

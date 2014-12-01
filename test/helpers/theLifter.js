@@ -44,7 +44,7 @@ var theLifter = {
           sailsprocess.log.warn('Lifting sails...');
           sailsprocess.lift({
             log: {
-              level: 'info'
+              level: 'debug'
             },
             connections: {
               test: {
@@ -67,32 +67,35 @@ var theLifter = {
             models: {
               // Use in-memory database for tests
               connection: 'test',
-              migrate: 'safe'
+              migrate: 'drop'
             },
-            liftTimeout: 10000
+            liftTimeout: 50000
           }, function (err, app) {
             if (err) {
               sails.log.error(err);
-              return next(err);
+              next(err);
             }
             // Load fixtures
             var barrels = new Barrels();
 
             // Populate the DB
             barrels.populate(function(err) {
+              if(err){
+                sails.log.error(err);
+                next(err);
+              }
               console.log('Populating the database.');
               next(err, app);
-            }, false);
+            });
             
             lifted = true;
             sailsprocess = app;
 
             // Save original objects in `fixtures` variable and return it to the callback
-            var fixtures = barrels.data;
+            //var fixtures = barrels.data;
             if(cb){
-              cb(fixtures);
+              cb(app);
             }
-
           });
         }
       ], next);

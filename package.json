@@ -21,6 +21,7 @@
     "social networking"
   ],
   "dependencies": {
+    "bcrypt": "^0.8.0",
     "coveralls": "^2.11.2",
     "ejs": "~0.8.4",
     "flickrapi": "^0.3.28",
