@@ -18,6 +18,9 @@ module.exports.authenticate = function authenticate(user, next) {
             password: 'demodemodemo',
             type: 'local'
         },
+        facebook_user: {
+            type: 'facebook'
+        },
         admin: {
             email: 'me@me.com',
             password: 'adminadminadmin',

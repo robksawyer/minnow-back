@@ -26,6 +26,7 @@
     "describe"   : false,
     "it"         : false,
     "before"     : false,
+    "beforeEach" : false,
     "after"      : false,
     "sails"      : false,
     "Comment"    : false,

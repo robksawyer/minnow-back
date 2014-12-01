@@ -41,16 +41,13 @@ describe('AuthController', function AuthController() {
                       .post('/auth/login')
                       .send(testCase.payload)
                       .expect(testCase.status)
-                      .end(
-                          function(err, res) {
-                              if (err) {
-                                return done(err);
-                              }
-                              expect(res.res.body).to.be.a('object');
-
-                              done();
+                      .end(function(err, res) {
+                          if (err) {
+                            done(err);
                           }
-                      );
+                          expect(res.res.body).to.be.a('object');
+                          done();
+                      });
               });
           });
       });
@@ -63,6 +60,10 @@ describe('AuthController', function AuthController() {
             .get('/auth/login?type=facebook')
             .end(
               function(err, res) {
+                assert(!err, err);
+                if(err){
+                  done(err);
+                }
                 assert.include(res.header.location, 'https://www.facebook.com/dialog/oauth?client_id=');
                 assert.equal(res.statusCode, 302);
                 done();

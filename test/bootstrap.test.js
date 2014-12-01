@@ -14,7 +14,7 @@ var theLifter = require('./helpers/theLifter');
  * @param   {Function}  next    Callback function
  */
 before(function before(next) {
-    theLifter.lift(next);
+  theLifter.lift(next);
 });
 
 /**
@@ -24,5 +24,5 @@ before(function before(next) {
  * @param   {Function}  next    Callback function
  */
 after(function after(next) {
-    theLifter.lower(next);
+  theLifter.lower(next);
 });

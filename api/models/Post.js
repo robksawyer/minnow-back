@@ -19,7 +19,8 @@ module.exports = {
       type: 'float'
     },
     slug: {
-      type: 'string'
+      type: 'string',
+      unique: true
     },
     category:{
       type: 'string',

@@ -10,9 +10,8 @@ var SailsApp = require('sails').Sails,
     lifted = false,
     Barrels = require('barrels'),
     sailsprocess,
-    clear = require('cli-clear'),
-    barrels, fixtures;
- 
+    clear = require('cli-clear');
+
 var theLifter = {
  
   /* Starts the Sails server, or if already started, stops and then starts it
@@ -23,29 +22,29 @@ var theLifter = {
    *    theLifter.lift(done);
    * });
    */
-  lift: function (cb) {
+  lift: function (next, cb) {
     //Clear the terminal window
     clear();
     
     async.waterfall(
       [
         // Check whether the Sails server is already running, and stop it if so
-        function (cb) {
+        function (next) {
           if (lifted) {
             //Clear the terminal window
             clear();
-            return theLifter.lower(cb);
+            return theLifter.lower(next);
           }
-          cb();
+          next();
         },
  
         // Start the Sails server
-        function (cb) {
+        function (next) {
           sailsprocess = new SailsApp();
           sailsprocess.log.warn('Lifting sails...');
           sailsprocess.lift({
             log: {
-              level: 'warn'
+              level: 'info'
             },
             connections: {
               test: {
@@ -74,27 +73,31 @@ var theLifter = {
           }, function (err, app) {
             if (err) {
               sails.log.error(err);
-              return cb(err);
+              return next(err);
             }
             // Load fixtures
-            barrels = new Barrels();
-
-            // Save original objects in `fixtures` variable
-            fixtures = barrels.data;
+            var barrels = new Barrels();
 
             // Populate the DB
             barrels.populate(function(err) {
               console.log('Populating the database.');
-              cb(err, app);
+              next(err, app);
             }, false);
             
             lifted = true;
             sailsprocess = app;
+
+            // Save original objects in `fixtures` variable and return it to the callback
+            var fixtures = barrels.data;
+            if(cb){
+              cb(fixtures);
+            }
+
           });
         }
-      ], cb);
+      ], next);
   },
- 
+
   /* Stops the Sails server
    *
    * @param {function} done Callback function
@@ -103,14 +106,14 @@ var theLifter = {
    *    theLifter.lower(done);
    * });
    */
-  lower: function (cb) {
+  lower: function (next) {
     sailsprocess.log.warn('Lowering sails...');
     sailsprocess.lower(function (err) {
       if(err) {
         throw err;
       }
       lifted = false;
-      cb(err);
+      next(err);
     });
   }
 };

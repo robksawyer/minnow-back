@@ -78,8 +78,9 @@ module.exports = {
     getPostUser: function(where, next, noExistsCheck) {
         noExistsCheck = noExistsCheck || false;
 
-        PostUser
+        Post
             .findOne(where)
+            .populate('owner')
             .exec(function(error, /** sails.model.postUser */ postUser) {
                 if (error) {
                     sails.log.error("[Failed to fetch post user data]");
@@ -92,26 +93,6 @@ module.exports = {
                 }
 
                 next(error, postUser);
-            });
-    },
-
-    /**
-     * Service to fetch post users from database by given conditions.
-     *
-     * @param   {{}}        where   Used query conditions
-     * @param   {Function}  next    Callback function to after query
-     */
-    getPostUsers: function(where, next) {
-        PostUser
-            .find()
-            .where(where)
-            .exec(function(error, /** sails.model.postUser[] */ postUsers) {
-                if (error) {
-                    sails.log.error("[Failed to fetch post user data]");
-                    sails.log.error(error);
-                }
-
-                next(error, postUsers);
             });
     },
 
@@ -198,7 +179,7 @@ module.exports = {
      * @param   {Function}  next    Callback function to call after query
      */
     getUserSignInData: function(userId, next) {
-        UserLogin
+        User
             .find({id: userId})
             .sort("createdAt DESC")
             .exec(function(error, /** sails.model.userLogin[] */ userLogin) {
@@ -230,81 +211,5 @@ module.exports = {
 
                 next(error, users);
             });
-    },
-
-    /**
-     * Service to fetch post users. These users are attached in some role to specified post.
-     *
-     * @param   {Number}    postId   Post id
-     * @param   {Function}  next        Callback function which is called after job is finished
-     * @param   {Boolean}   [noViewers] Skip users that are in 'Viewer' role in this post. Defaults to false.
-     */
-    getUsersByPost: function(postId, next, noViewers) {
-        noViewers = noViewers || false;
-
-        async.parallel(
-            {
-                // Fetch post user data
-                postUsers: function(callback) {
-                    DataService.getPostUsers({id: postId}, callback);
-                },
-
-                // Fetch post data
-                post: function(callback) {
-                    DataService.getPost(postId, callback);
-                },
-
-                // Fetch admin users
-                adminUsers: function(callback) {
-                    var where = {
-                        admin: true
-                    };
-
-                    DataService.getUsers(where, callback);
-                }
-            },
-
-            /**
-             * Main callback function which is called after all parallel jobs are done or
-             * some error occurred while processing those.
-             *
-             * @param   {null|Error}    error
-             * @param   {{
-             *              postUsers: sails.model.postUser[],
-             *              post: sails.model.post,
-             *              adminUsers: sails.model.user[]
-             *          }}              data
-             */
-            function(error, data) {
-                if (error) {
-                    sails.log.error("[Failed to fetch post users data, see errors above]");
-                    sails.log.error(error);
-
-                    next(error, null);
-                } else {
-                    var userIds = [];
-
-                    // Add post users
-                    _.each(data.postUsers, function(postUser) {
-                        if (!(noViewers && postUser.role === 0)) {
-                            userIds.push({id: postUser.userId});
-                        }
-                    });
-
-                    // Add post manager
-                    userIds.push({id: data.post.managerId});
-
-                    // Add admin users
-                    _.each(data.adminUsers, function(user) {
-                        if (user.username !== "admin") {
-                            userIds.push({id: user.id});
-                        }
-                    });
-
-                    // Fetch user objects that are attached to this post
-                    DataService.getUsers({or: userIds}, next);
-                }
-            }
-        )
     }
 }

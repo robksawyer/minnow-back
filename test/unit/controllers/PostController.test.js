@@ -4,38 +4,78 @@
  */
 'use strict';
 
-var DataService = require('../../../api/services/DataService');
-var request = require('supertest'),
+var DataService = require('../../../api/services/DataService'),
+    request = require('supertest'),
     expect = require('chai').expect,
-    should = require('chai').should,
+    should = require('chai').should, 
     assert = require('chai').assert;
 
 describe('PostController', function(){
 
   describe('DataService requests', function(){
 
-    it('should return posts', function(done){
-      DataService.getPosts(null, function(err, posts){
-        assert(!err, err);
-        expect(posts.length).to.be.above(0);
+    describe('action getPosts', function(){
+
+      it('should return posts', function(done){
+        DataService.getPosts(null, function(err, posts){
+          assert(!err, err);
+          expect(posts.length).to.be.above(0);
+        });
+        done();
       });
-      done();
+
+      it('should be valid result', function(done){
+        DataService.getPosts(null, function(err, posts){
+          assert(!err, err);
+          expect(posts[0].id).to.be.above(0);
+        });
+        done();
+      });
+
+      it('should have owner data', function(done){
+        DataService.getPosts(null, function(err, posts){
+          assert(!err, err);
+          expect(posts[0].owner.id).to.be.above(0);
+        });
+        done();
+      });
+
     });
 
-    it('should be valid result', function(done){
-      DataService.getPosts(null, function(err, posts){
-        assert(!err, err);
-        expect(posts[0].id).to.be.above(0);
+    describe('action getPostUser', function(){
+
+      it('should get proper result', function(done){
+        DataService.getPostUser({id: 1}, function(err, res){
+          assert(!err, err);
+          expect(res.owner.id).to.eql(1);
+        });
+        done();
       });
-      done();
+
     });
 
-    it('should have owner data', function(done){
-      DataService.getPosts(null, function(err, posts){
-        assert(!err, err);
-        expect(posts[0].owner.id).to.be.above(0);
+
+    describe('action create', function(){
+
+      it('should create a post', function(done){
+        /*var postData = PostData[0];
+        var tokenData = { access_token: JwtData[0].token };
+        var submissionData = _.merge(postData, tokenData);
+        sails.log.warn(submissionData);
+
+        request(sails.hooks.http.app)
+                      .post('/post/create')
+                      .send(submissionData)
+                      .end(
+                          function(err, res) {
+                              if (err) {
+                                done(err);
+                              }
+                              done();
+                          });*/
+        done();
       });
-      done();
+
     });
     
   });

@@ -13,21 +13,45 @@ var request = require('supertest'),
 describe('UserController', function(){
 
   describe('DataService requests', function(){
+
+    describe('action getUsers', function(){
     
-    it('should not be empty', function(done){
-      DataService.getUsers(null, function(err, users){
-        assert(!err, err);
-        expect(users.length).to.be.above(0);
+      it('should not be empty', function(done){
+        DataService.getUsers(null, function(err, users){
+          assert(!err, err);
+          expect(users.length).to.be.above(0);
+        });
+        done();
       });
-      done();
+
+      it('should be valid', function(done){
+        DataService.getUsers(null, function(err, users){
+          assert(!err, err);
+          expect(users[0].id).to.be.above(0);
+        });
+        done();
+      });
+
     });
 
-    it('should be valid', function(done){
-      DataService.getUsers(null, function(err, users){
-        assert(!err, err);
-        expect(users[0].id).to.be.above(0);
+    describe('action getUserSignInData', function(){
+    
+      it('should not be empty', function(done){
+        DataService.getUserSignInData(1, function(err, users){
+          assert(!err, err);
+          expect(users.length).to.be.above(0);
+        });
+        done();
       });
-      done();
+
+      it('should be valid', function(done){
+        DataService.getUserSignInData(1, function(err, users){
+          assert(!err, err);
+          expect(users[0].id).to.be.above(0);
+        });
+        done();
+      });
+
     });
 
   });
