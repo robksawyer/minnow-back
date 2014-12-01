@@ -29,6 +29,7 @@
     "beforeEach" : false,
     "after"      : false,
     "sails"      : false,
+    "Secret"     : false,
     "Comment"    : false,
     "User"       : false,
     "Post"       : false,

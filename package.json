@@ -23,6 +23,7 @@
   "dependencies": {
     "bcrypt": "^0.8.0",
     "coveralls": "^2.11.2",
+    "cuid": "^1.2.4",
     "ejs": "~0.8.4",
     "flickrapi": "^0.3.28",
     "follow-redirects": "^0.0.3",

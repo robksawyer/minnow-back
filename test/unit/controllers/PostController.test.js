@@ -17,6 +17,18 @@ describe('PostController', function(){
 
   describe('DataService requests', function(){
 
+    describe('action getPost slug', function(){
+
+      it('should have value', function(done){
+        DataService.getPost({id:1}, function(err, post){
+          assert(!err, err);
+          expect(post.slug).to.exist;
+        });
+        done();
+      });
+
+    });
+
     describe('action getPosts', function(){
 
       it('should return posts', function(done){

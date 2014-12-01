@@ -55,7 +55,8 @@ module.exports = {
 
     // base64 encode the slug based on the nano time
     if (values.slug === null || values.slug === '') {
-      values.slug = new Buffer(process.hrtime()).toString('base64');
+      var cuid = require('cuid');
+      values.slug = cuid();
     }
     
     next();
@@ -65,7 +66,8 @@ module.exports = {
 
     // base64 encode the slug based on the nano time
     if (values.slug === null || values.slug === '') {
-      values.slug = new Buffer(process.hrtime()).toString('base64');
+      var cuid = require('cuid');
+      values.slug = cuid();
     }
 
     next();
