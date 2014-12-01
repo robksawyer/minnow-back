@@ -48,8 +48,8 @@ module.exports.waterlock = {
     },
     {
       name: 'waterlock-facebook-auth',
-      appId: process.env.FACEBOOK_CLIENT_ID,
-      appSecret: process.env.FACEBOOK_CLIENT_SECRET
+      appId: process.env.FACEBOOK_APP_ID,
+      appSecret: process.env.FACEBOOK_APP_SECRET
     }
   ],
 
