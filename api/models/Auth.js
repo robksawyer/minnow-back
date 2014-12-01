@@ -13,6 +13,11 @@ module.exports = {
     /* e.g.
     nickname: 'string'
     */
+    facebookId: {
+      type: 'integer',
+      unique: true,
+      required: false
+    },
     toJSON: function() {
       var obj = this.toObject();
       if(obj)
