@@ -47,8 +47,8 @@ module.exports.waterlock = {
     },
     {
       name: 'waterlock-facebook-auth',
-      appId: process.env.FACEBOOK_CLIENT_ID,
-      appSecret: process.env.FACEBOOK_CLIENT_SECRET
+      appId: process.env.FACEBOOK_APP_ID,
+      appSecret: process.env.FACEBOOK_APP_SECRET
     }
   ],
 
@@ -60,7 +60,7 @@ module.exports.waterlock = {
   jsonWebTokens: {
 
     // CHANGE THIS SECRET
-    secret: process.env.WATERLOCK_SECRET || '8927389723j23kh2387232jh2jhj2h3',
+    secret: process.env.WATERLOCK_SECRET,
     expiry:{
       unit: 'days',
       length: '7'
