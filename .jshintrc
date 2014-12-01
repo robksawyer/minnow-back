@@ -27,6 +27,13 @@
     "it"         : false,
     "before"     : false,
     "after"      : false,
-    "sails"      : false
+    "sails"      : false,
+    "Comment"    : false,
+    "User"       : false,
+    "Post"       : false,
+    "Auth"       : false,
+    "Like"       : false,
+    "Use"        : false,
+    "Attempt"    : false
   }
 }
