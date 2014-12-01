@@ -5,7 +5,7 @@
  */
 
 var request = require('supertest'),
-    superrequest = require('super-request'),
+    https = require('follow-redirects').https,
     expect = require('chai').expect,
     assert = require('chai').assert,
     should = require('chai').should,
@@ -72,17 +72,27 @@ describe('AuthController', function AuthController() {
 
       //TODO: Figure out how to make this check the results after the redirect.
       /*it('should have valid results', function(done){
-          sails.log.warn(sails.hooks.http.app);
-          request(sails.hooks.http.app)
-            .get('/auth/login?type=facebook')
-            .end(
-              function(err, res) {
-                assert.include(res.header.location, 'https://www.facebook.com/dialog/oauth?client_id=');
-                sails.log.warn(res);
-                done();
-              }
-            );
-      });*/
+  
+          https.get('https://www.facebook.com/dialog/oauth?client_id='+process.env.FACEBOOK_APP_ID+'&redirect_uri=http%3A%2F%2Flocalhost%3A1337%2Fauth%2Ffacebook_oauth2&response_type=code&scope=public_profile%2Cemail', function(res){
+              sails.log.error(res);
+              var buffy;
+              res.on('data', function(chunk) {
+                buffy += chunk;
+              });
+
+              res.on('end', function(d) {
+                var data = JSON.parse(buffy);
+                sails.log.warn('Received data', data);
+                setTimeout(function() {
+                   sails.log.warn(data);
+                }, 60000);
+              });
+
+            }).on('error', function(e){
+              sails.log.error(e);
+            });
+            done();
+        });*/
 
     });
 
