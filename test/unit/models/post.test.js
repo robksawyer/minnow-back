@@ -23,7 +23,6 @@ describe('Post', function userModel(){
         expect(res).to.have.property('id');
         expect(res).to.have.property('owner');
         expect(res).to.have.property('secret');
-        expect(res).to.have.property('price');
         expect(res).to.have.property('body');
         expect(res).to.have.property('slug');
         expect(res).to.have.property('category');
@@ -52,7 +51,6 @@ describe('Post', function userModel(){
         expect(resJson).to.have.property('id');
         expect(resJson).to.have.property('owner');
         expect(resJson).to.not.have.property('secret'); //Secret should be hidden
-        expect(resJson).to.have.property('price');
         expect(resJson).to.have.property('body');
         expect(resJson).to.have.property('slug');
         expect(resJson).to.have.property('category');

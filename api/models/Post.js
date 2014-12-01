@@ -13,10 +13,7 @@ module.exports = {
       required: true
     },
     secret: {
-      type: 'string'
-    },
-    price: {
-      type: 'float'
+      model: 'post'
     },
     slug: {
       type: 'string',
@@ -55,28 +52,21 @@ module.exports = {
   },
 
   beforeCreate: function( values, next){
-    // Generate and sanitanize slug
-    var getSlug = require('speakingurl');
-    var bcrypt = require('bcrypt');
-    if (values.slug === null || values.slug === '') {
-      values.slug = values.body.toString().substr(0,15);
-    }
-    values.slug = getSlug(values.slug);
-    values.slug = bcrypt.hashSync(values.slug, 8);
 
+    // base64 encode the slug based on the nano time
+    if (values.slug === null || values.slug === '') {
+      values.slug = new Buffer(process.hrtime()).toString('base64');
+    }
+    
     next();
   },
 
   afterValidation: function(values, next) {
 
-    // Generate and sanitanize slug
-    var getSlug = require('speakingurl');
-    var bcrypt = require('bcrypt');
+    // base64 encode the slug based on the nano time
     if (values.slug === null || values.slug === '') {
-      values.slug = values.title;
+      values.slug = new Buffer(process.hrtime()).toString('base64');
     }
-    values.slug = getSlug(values.slug);
-    values.slug = bcrypt.hashSync(values.slug, 8);
 
     next();
   }

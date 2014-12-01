@@ -1,9 +1,8 @@
 [
   {
     "id": 1,
-    "price": 300.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 1,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -17,9 +16,8 @@
   },
   {
     "id": 2,
-    "price": 10.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 2,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -33,9 +31,8 @@
   },
   {
     "id": 3,
-    "price": 1.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 3,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -49,9 +46,8 @@
   },
   {
     "id": 4,
-    "price": 5.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 4,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -65,9 +61,8 @@
   },
   {
     "id": 5,
-    "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 5,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -81,9 +76,8 @@
   },
   {
     "id": 6,
-    "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 6,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -97,9 +91,8 @@
   },
   {
     "id": 7,
-    "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 7,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -113,9 +106,8 @@
   },
   {
     "id": 8,
-    "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 8,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -129,9 +121,8 @@
   },
   {
     "id": 9,
-    "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 9,
     "slug": "",
     "category": "uncategorized",
     "img": {
@@ -145,9 +136,8 @@
   },
   {
     "id": 10,
-    "price": 50.00,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "secret": "Lorem Ipsum",
+    "secret": 10,
     "slug": "",
     "category": "uncategorized",
     "img": {
