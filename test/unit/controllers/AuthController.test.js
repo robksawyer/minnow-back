@@ -6,6 +6,7 @@
 
 var request = require('supertest'),
     expect = require('chai').expect,
+    assert = require('chai').assert,
     should = require('chai').should,
     login = require('./../../helpers/login');
 
@@ -40,11 +41,11 @@ describe('AuthController', function AuthController() {
                       .send(testCase.payload)
                       .expect(testCase.status)
                       .end(
-                          function(err, result) {
+                          function(err, res) {
                               if (err) {
                                 return done(err);
                               }
-                              expect(result.res.body).to.be.a('object');
+                              expect(res.res.body).to.be.a('object');
 
                               done();
                           }
@@ -53,7 +54,22 @@ describe('AuthController', function AuthController() {
           });
       });
     });
+  
+    describe('action facebook login', function(){
+      it('should redirect to auth/facebook_oauth2', function(done){
+          request(sails.hooks.http.app)
+            .get('/auth/login?type=facebook')
+            .end(
+              function(err, res) {
+                assert.include(res.header.location, 'https://www.facebook.com/dialog/oauth?client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A1337%2Fauth%2Ffacebook_oauth2&response_type=code&scope=public_profile%2Cemail');
+                assert.equal(res.statusCode, 302);
+                done();
+              }
+            );
 
+      });
+
+    });
     /*describe('action login (some data)', function loginTest(validationError) {
       [
           {
