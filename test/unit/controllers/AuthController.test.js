@@ -56,6 +56,7 @@ describe('AuthController', function AuthController() {
     });
   
     describe('action facebook login', function(){
+      
       it('should redirect to auth/facebook_oauth2', function(done){
           request(sails.hooks.http.app)
             .get('/auth/login?type=facebook')
@@ -68,6 +69,20 @@ describe('AuthController', function AuthController() {
             );
 
       });
+
+      /*it('should have valid results', function(done){
+          request(sails.hooks.http.app)
+            .get('/auth/login?type=facebook')
+            .end(
+              function(err, res) {
+                assert.include(res.header.location, 'https://www.facebook.com/dialog/oauth?client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A1337%2Fauth%2Ffacebook_oauth2&response_type=code&scope=public_profile%2Cemail');
+                assert.equal(res.statusCode, 302);
+                done();
+              }
+            );
+
+      });*/
+      
 
     });
     /*describe('action login (some data)', function loginTest(validationError) {
