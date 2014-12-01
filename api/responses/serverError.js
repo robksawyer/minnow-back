@@ -25,7 +25,7 @@ module.exports = function serverError(data, options) {
     res.status(500);
 
     //Do something with the valiation errors
-    if(data.invalidAttributes !== undefined){
+    if(data && data.invalidAttributes !== undefined){
       
     }
 
