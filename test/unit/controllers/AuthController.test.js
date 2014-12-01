@@ -70,18 +70,24 @@ describe('AuthController', function AuthController() {
 
       });
 
-      /*it('should have valid results', function(done){
+      it('should have valid results', function(done){
           request(sails.hooks.http.app)
             .get('/auth/login?type=facebook')
             .end(
               function(err, res) {
                 assert.include(res.header.location, 'https://www.facebook.com/dialog/oauth?client_id=&redirect_uri=http%3A%2F%2Flocalhost%3A1337%2Fauth%2Ffacebook_oauth2&response_type=code&scope=public_profile%2Cemail');
-                assert.equal(res.statusCode, 302);
+                
+                request(res.header.location)
+                  .end(
+                    function(err, res){
+                      sails.log.warn(res);
+                    });
+
                 done();
               }
             );
 
-      });*/
+      });
       
 
     });

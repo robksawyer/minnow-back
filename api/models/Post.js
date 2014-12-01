@@ -44,6 +44,12 @@ module.exports = {
     },
     owner: {
       model: 'user'
+    },
+    toJSON: function() {
+      var obj = this.toObject();
+      if(obj)
+        delete obj.secret;
+      return obj;
     }
   },
 
