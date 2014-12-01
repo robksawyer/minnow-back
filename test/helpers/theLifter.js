@@ -92,9 +92,9 @@ var theLifter = {
             sailsprocess = app;
 
             // Save original objects in `fixtures` variable and return it to the callback
-            //var fixtures = barrels.data;
+            var fixtures = barrels.data;
             if(cb){
-              cb(app);
+              cb(fixtures);
             }
           });
         }

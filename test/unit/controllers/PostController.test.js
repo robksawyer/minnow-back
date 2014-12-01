@@ -5,6 +5,9 @@
 'use strict';
 
 var DataService = require('../../../api/services/DataService'),
+    PostData = require('../../fixtures/Post.json'),
+    JwtData = require('../../fixtures/JWT.json'),
+    _ = require('lodash'),
     request = require('supertest'),
     expect = require('chai').expect,
     should = require('chai').should, 
@@ -58,21 +61,28 @@ describe('PostController', function(){
     describe('action create', function(){
 
       it('should create a post', function(done){
-        /*var postData = PostData[0];
+        var postData = PostData[0];
         var tokenData = { access_token: JwtData[0].token };
         var submissionData = _.merge(postData, tokenData);
-        sails.log.warn(submissionData);
+        
+        //Check the results before sending
+        expect(submissionData.access_token).to.be.ok;
+        delete submissionData.id;
+        expect(submissionData.id).to.not.be.ok;
 
+        //Send the results
         request(sails.hooks.http.app)
-                      .post('/post/create')
-                      .send(submissionData)
-                      .end(
-                          function(err, res) {
-                              if (err) {
-                                done(err);
-                              }
-                              done();
-                          });*/
+            .post('/post/create')
+            .send(submissionData)
+            .end(function(err, res) {
+                    assert(!err, err);
+                    if (err) {
+                      sails.log.error(err);
+                      done(err);
+                    }
+                    sails.log.warn(res);
+                    done();
+            });
         done();
       });
 

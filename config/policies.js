@@ -35,37 +35,38 @@ module.exports.policies = {
     'logout': true,
     'register': true,
     'facebook_oauth2': true,
-    'findOne': ['hasJsonWebToken', 'ownUser'],
-    'populate': ['hasJsonWebToken', 'ownAssociations'],
-    'remove': ['hasJsonWebToken', 'ownAssociations'],
-    'update': ['hasJsonWebToken','ownAssociations']
+    'findOne': ['hasJsonWebToken'],
+    'populate': ['hasJsonWebToken'],
+    'remove': ['hasJsonWebToken'],
+    'update': ['hasJsonWebToken']
   },
   UserController: {
     '*': false,
-    'jwt': ['sessionAuth','ownUser'],
-    'findOne': ['hasJsonWebToken', 'ownUser'],
-    'populate': ['hasJsonWebToken', 'ownAssociations'],
-    'remove': ['hasJsonWebToken', 'ownAssociations'],
-    'destroy': ['hasJsonWebToken','ownUser'],
-    'update': ['hasJsonWebToken','ownAssociations']
+    'jwt': ['sessionAuth'],
+    'findOne': ['hasJsonWebToken'],
+    'populate': ['hasJsonWebToken'],
+    'remove': ['hasJsonWebToken'],
+    'destroy': ['hasJsonWebToken'],
+    'update': ['hasJsonWebToken']
   },
   PostController: {
     '*': false,
     'create': ['hasJsonWebToken'],
+    'update': ['hasJsonWebToken'],
     'find': ['hasJsonWebToken'],
-    'populate': ['hasJsonWebToken','ownAssociations'],
-    'remove': ['hasJsonWebToken','ownUser'],
-    'destroy': ['hasJsonWebToken','ownUser'],
-    'findOne': ['hasJsonWebToken','ownUser']
+    'populate': ['hasJsonWebToken'],
+    'remove': ['hasJsonWebToken'],
+    'destroy': ['hasJsonWebToken'],
+    'findOne': ['hasJsonWebToken']
   },
   CommentController: {
     '*': false,
     'create': ['hasJsonWebToken'],
     'find': ['hasJsonWebToken'],
-    'populate': ['hasJsonWebToken','ownAssociations'],
-    'remove': ['hasJsonWebToken','ownUser'],
-    'destroy': ['hasJsonWebToken','ownUser'],
-    'findOne': ['hasJsonWebToken','ownUser']
+    'populate': ['hasJsonWebToken'],
+    'remove': ['hasJsonWebToken'],
+    'destroy': ['hasJsonWebToken'],
+    'findOne': ['hasJsonWebToken']
   }
 
   /***************************************************************************
