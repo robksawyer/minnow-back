@@ -50,6 +50,7 @@
     "sails-redis": "^0.10.3",
     "speakingurl": "^0.17.0",
     "stripe": "^3.0.0 ",
+    "super-request": "0.0.8",
     "url": "^0.10.1",
     "uuid": "^2.0.1",
     "waterlock": "0.0.13",
