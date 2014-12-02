@@ -25,11 +25,9 @@ module.exports = {
     phoneConfirmationStatus: {
       type: 'boolean'
     },
-    customer: {
-      type: 'json'
-    },
-    recipient: {
-      type: 'json'
+    customerId: {
+      type: 'string',
+      unique: true
     },
     likes: {
       collection: 'like',
@@ -52,6 +50,19 @@ module.exports = {
       type: 'array',
       enum: ['anonymous','admin','moderator'],
       defaultsTo: ['anonymous']
+    },
+
+    toJSON: function() {
+      var obj = this.toObject();
+      if(obj){
+        delete obj.emailConfirmationStatus;
+        delete obj.phoneConfirmationStatus;
+        delete obj.customerId;
+        delete obj.phone;
+        delete obj.roles;
+        delete obj.status;
+      }
+      return obj;
     }
     
   }),

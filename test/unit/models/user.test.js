@@ -24,8 +24,7 @@ describe('User', function userModel(){
         expect(res).to.have.property('phone');
         expect(res).to.have.property('emailConfirmationStatus');
         expect(res).to.have.property('phoneConfirmationStatus');
-        expect(res).to.have.property('customer');
-        expect(res).to.have.property('recipient');
+        expect(res).to.have.property('customerId');
         expect(res).to.have.property('likes');
         expect(res).to.have.property('comments');
         expect(res).to.have.property('posts');
@@ -49,8 +48,7 @@ describe('User', function userModel(){
         expect(resJson).to.have.property('phone');
         expect(resJson).to.have.property('emailConfirmationStatus');
         expect(resJson).to.have.property('phoneConfirmationStatus');
-        expect(resJson).to.have.property('customer');
-        expect(resJson).to.have.property('recipient');
+        expect(resJson).to.have.property('customerId');
         //expect(resJson).to.have.property('likes');
         //expect(resJson).to.have.property('comments');
         //expect(resJson).to.have.property('posts');

@@ -6,12 +6,64 @@
  */
 
 var secrets = require('../../config/stripe'),
-    applicationFeeInPercent = process.env.MINNOW_APPLICATION_FEE_PERCENT || 10,
+    applicationFeeInPercent = process.env.MINNOW_APPLICATION_FEE_PERCENT || 15,
     stripe = require("stripe")(secrets.stripe.secretKey),
     ErrorService = require('../services/ErrorService'),
     MailerService = require('../services/MailerService');
 
 module.exports = {
+
+  /**
+  *
+  * This handles creating a customer record. This will be referred to when making future transfers on part of the user
+  * More info: https://stripe.com/docs/api#create_customer
+  * 
+  * PARAMS:
+  * user.id, token (see tokens in Stripe docs)
+  * 
+  * NOTES:
+  * This should be called when a new account is created.
+  **/
+  createCustomer: function(req, res){
+    var params = req.params.all(),
+        token = params.token,
+        customerData = {};
+
+    //Add the card token if it's available
+    if(token){
+      customerData.token = token;
+    }
+
+    //Create the customer
+    stripe.customers.create(customerData, function(err, customer) {
+      // asynchronously called
+      if(err){
+        ErrorService.makeErrorResponse(500, {
+          message: "Something went wrong", 
+          type: "error", 
+          options: {}
+        }, req, res);
+      }
+
+      //The customer was created. Update the user's account and add the customer id
+      User.findOneById(req.user.id).exec(function(err, user){
+
+        user.customerId = customer.id; //Add the customer id
+        User.save(function(err, user){
+          if(err){
+            ErrorService.makeErrorResponse(500, {
+              message: "There was an issue that occured when creating your account. Please contact support.", 
+              type: "error", 
+              options: {
+                code: 501 
+              }
+            }, req, res);
+          }
+        });
+      });
+
+    });
+  },
 
   /**
   *
@@ -33,6 +85,13 @@ module.exports = {
   * 
   * Transfers to debit cards can take 1 to 2 days to complete. However, unlike with bank accounts, we'll know instantaneously if the debit card is not 
   * valid when it is added to the recipient.
+  * 
+  * PARAMS:
+  * amount, receiver (id), req.user.id (id), param.post.id, param.secret.id
+  * 
+  * TODO: 
+  * We should track when failures and successes happen and track those for each user. This would go into a rating for them or something.
+  * 
   **/
   transfer: function(req, res){
     var params = req.params.all(),
@@ -40,70 +99,83 @@ module.exports = {
         appProfitAmount = (chargeAmount * applicationFeeInPercent/100),
         userProfitAmount = chargeAmount - appProfitAmount;
 
-    console.log("Charge Amt: " + chargeAmount);
-    console.log("App Profit: " + appProfitAmount);
-    console.log("User Profit: " + userProfitAmount);
+    sails.log.warn("Post IDt: " + param.post.id);
+    sails.log.warn("Secret ID: " + param.secret.id);
 
-    User.findOneByEmail(req.user.email, function(err, sender){
+    sails.log("Charge Amt: " + chargeAmount);
+    sails.log("App Profit: " + appProfitAmount);
+    sails.log("User Profit: " + userProfitAmount);
+
+    //Find the sender details (by ID)
+    User.findOneById(req.user.id, function(err, sender){
       if(err){
-        console.log(err);
+        sails.log(err);
         ErrorService.makeErrorResponse(500, {
           message: "Something went wrong", 
           type: "error", 
           options: {}
-        }, res, req);
+        }, req, res);
       }
 
-      User.findOneByEmail(params.reciever, function (err, reciever){
-        console.log(err);
+      //Find the recipient details (by ID)
+      User.findOneById(params.reciever, function (err, reciever){
+        sails.log(err);
         ErrorService.makeErrorResponse(500, {
           message: "Something went wrong", 
           type: "error", 
           options: {}
-        }, res, req);
+        }, req, res);
 
-        //The Minnow transaction fee
-        stripe.charges.create({
+        //Transfer the funds to the Minnow account
+        stripe.transfers.create({
 
-          amount: appProfitAmount, // amount in cents
+          amount: chargeAmount, // amount in cents
           currency: "usd",
           recipient: 'self',
+          type: "card",
           card: sender.recipient.default_card,
-          statement_description: 'Secret transfer fee.'
+          statement_description: 'Secret transfer fee.',
+          //customer: ??
 
         }, function(err, fromSender) {
           if(err){
-            console.log(err);
+            sails.log(err);
             ErrorService.makeErrorResponse(500, {
               message: "Something went wrong", 
               type: "error", 
               options: {}
-            }, res, req);
+            }, req, res);
           } else {
-            console.log(fromSender);
+            sails.log(fromSender);
 
             //If the receiver exists
             if(reciever){
 
-              //The secret owner's cut
-              stripe.charges.create({
+              //The secret owner's cut sent from Minnow
+              stripe.transfers.create({
 
                 amount: userProfitAmount, // amount in cents
                 currency: "usd",
-                recipient: reciever.recipient.id,
-                card: reciever.recipient.default_card,
-                statement_description: 'A secret.'
+                type: "card",
+                recipient: reciever.recipient.id, //The ID of an existing, verified recipient that the money will be transferred to in this request.
+                card: receiver.recipient.default_card, //The card must be the ID of a card belonging to the recipient. The transfer will be sent to this card.
+                statement_description: 'A secret.',
+                metadata: {
+                  post: param.post.id,
+                  secret: param.secret.id
+                }
+                //customer: ??
 
               }, function(err, toReciever) {
                 if(err){
-                  console.log(err);
+                  sails.log(err);
                   ErrorService.makeErrorResponse(500, {
                     message: "Something went wrong", 
                     type: "error", 
                     options: {}
-                  }, res, req);
+                  }, req, res);
                 } else {
-                  console.log(toReciever);
+                  sails.log(toReciever);
                   res.json(200, {
                         message: "Success! Your transaction will be completed within 2 days.", 
                         type: "Success", 
@@ -114,7 +186,7 @@ module.exports = {
               });
 
             } else {
-              console.log('the receiver did not exist, that is weird');
+              sails.log('the receiver did not exist, that is weird');
               /*MailerService.send({
                 from:       process.env.REPLY_TO_EMAIL_ADDRESS,
                 to:         user.email,
@@ -128,20 +200,13 @@ module.exports = {
                     message: "Something went wrong", 
                     type: "error", 
                     options: {}
-                  }, res, req);
+                  }, req, res);
             }
 
           }
         });
       });
     });
-  },
-
-  handleTransaction: function(recipient, ){
-
-  }
-
-
   }
 
 };

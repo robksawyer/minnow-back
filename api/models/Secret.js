@@ -24,8 +24,9 @@ module.exports = {
     },
     toJSON: function() {
       var obj = this.toObject();
-      if(obj)
+      if(obj){
         delete obj.body;
+      }
       return obj;
     }
   },
