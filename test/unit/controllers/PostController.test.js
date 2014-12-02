@@ -80,22 +80,81 @@ describe('PostController', function(){
         //Check the results before sending
         expect(submissionData.access_token).to.be.ok;
         delete submissionData.id;
-        expect(submissionData.id).to.not.be.ok;
+        expect(submissionData.id).to.not.exist;
 
         //Send the results
         request(sails.hooks.http.app)
             .post('/post/create')
             .send(submissionData)
+            .expect(200)
             .end(function(err, res) {
                     assert(!err, err);
                     if (err) {
                       sails.log.error(err);
                       done(err);
                     }
-                    sails.log.warn(res);
+                    expect(res.body).to.be.a('object');
                     done();
             });
-        done();
+      });
+
+
+      it('should FAIL to create a post', function(done){
+        var postData = PostData[0];
+        var submissionData = postData;
+      
+        //Check the results before sending
+        expect(submissionData.access_token).to.be.ok;
+        delete submissionData.id;
+        expect(submissionData.id).to.not.exist;
+        delete submissionData.access_token;
+        expect(submissionData.access_token).to.not.exist;
+
+        //Send the results
+        request(sails.hooks.http.app)
+            .post('/post/create')
+            .send(submissionData)
+            .expect(403)
+            .end(function(err, res) {
+                    assert(!err, err);
+                    if (err) {
+                      sails.log.error(err);
+                      done(err);
+                    }
+                    expect(res.body).to.be.a('object');
+                    done();
+            });
+      });
+
+
+      it('should FAIL to create a post', function(done){
+        var postData = PostData[0];
+        var tokenData = { access_token: JwtData[0].token };
+        var submissionData = _.merge(postData, tokenData);
+      
+        //Check the results before sending
+        expect(submissionData.body).to.be.ok;
+        delete submissionData.id;
+        expect(submissionData.id).to.not.exist;
+        delete submissionData.body;
+        expect(submissionData.body).to.not.exist;
+
+        sails.log.warn(submissionData);
+        
+        //Send the results
+        request(sails.hooks.http.app)
+            .post('/post/create')
+            .send(submissionData)
+            .expect(400)
+            .end(function(err, res) {
+                    assert(!err, err);
+                    if (err) {
+                      sails.log.error(err);
+                      done(err);
+                    }
+                    expect(res.body).to.be.a('object');
+                    done();
+            });
       });
 
     });

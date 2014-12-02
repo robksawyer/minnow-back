@@ -83,6 +83,7 @@ The `config/local.js` file contains important variables that are used during loc
 1. [Postmark](https://addons.heroku.com/postmark) - Email delivery
 1. [Papertrail](https://addons.heroku.com/papertrail) - Logs and logging
 1. [New Relic](https://addons.heroku.com/newrelic) - Monitoring and troubleshooting.
+1. [CUID](https://www.npmjs.org/package/cuid) - This is used to hash the post slugs.
 
 # Documentation
 
