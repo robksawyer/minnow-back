@@ -95,7 +95,7 @@ module.exports = {
   **/
   transfer: function(req, res){
     var params = req.params.all(),
-        chargeAmount = Math.round(Number(params.amount)),
+        chargeAmount = Math.round(Number(params.amount)), //in cents
         appProfitAmount = (chargeAmount * applicationFeeInPercent/100),
         userProfitAmount = chargeAmount - appProfitAmount;
 
