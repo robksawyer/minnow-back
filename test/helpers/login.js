@@ -1,6 +1,8 @@
 'use strict';
 
-var request = require('supertest');
+var request = require('supertest'),
+    config = require('../unit/waterlock.config').waterlock,
+    jwt = require('../../node_modules/waterlock/lib/controllers/actions/jwt');
 
 /**
  * Generic helper function to authenticate specified user with current sails testing instance. Function
@@ -42,4 +44,35 @@ module.exports.authenticate = function authenticate(user, next) {
                 }
             }
         );
+};
+
+module.exports.getToken = function getToken(userId, next){
+    if(!userId) {
+        userId = 1;
+    }
+    var req = {
+      session:{
+        authenticated: true,
+        user:{
+          id: userId
+        }
+      }
+    };
+    var res = {
+      json:function(obj){
+        next(obj.token);
+      }
+    };
+    global.Jwt = {
+      create: function(){
+        return {
+          exec: function(cb){
+            cb(null);
+          }
+        };
+      }
+    };
+    global.waterlock = {config: config};
+
+    jwt.apply(this, [req, res]);
 };

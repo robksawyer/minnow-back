@@ -1,3 +1,8 @@
+/**
+*
+* ownUser
+*
+**/
 module.exports = function(req, res, next) {
   var userId = req.param('id');
   sails.log(req.token);

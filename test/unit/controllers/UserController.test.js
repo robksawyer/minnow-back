@@ -20,16 +20,16 @@ describe('UserController', function(){
         DataService.getUsers(null, function(err, users){
           assert(!err, err);
           expect(users.length).to.be.above(0);
+          done();
         });
-        done();
       });
 
       it('should be valid', function(done){
         DataService.getUsers(null, function(err, users){
           assert(!err, err);
           expect(users[0].id).to.be.above(0);
+          done();
         });
-        done();
       });
 
     });
@@ -40,16 +40,16 @@ describe('UserController', function(){
         DataService.getUserSignInData(1, function(err, users){
           assert(!err, err);
           expect(users.length).to.be.above(0);
+          done();
         });
-        done();
       });
 
       it('should be valid', function(done){
         DataService.getUserSignInData(1, function(err, users){
           assert(!err, err);
           expect(users[0].id).to.be.above(0);
+          done();
         });
-        done();
       });
 
     });

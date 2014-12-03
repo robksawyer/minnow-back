@@ -1,3 +1,9 @@
+/**
+*
+* ownAssociations
+*
+**/
+
 module.exports = function(req, res, next) {
   var userId = req.param('parentid');
   sails.log(req.token);

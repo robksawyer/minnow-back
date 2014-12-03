@@ -45,15 +45,15 @@ describe('User', function userModel(){
 
         var resJson = res.toJSON();
 
-        expect(resJson).to.have.property('phone');
-        expect(resJson).to.have.property('emailConfirmationStatus');
-        expect(resJson).to.have.property('phoneConfirmationStatus');
-        expect(resJson).to.have.property('customerId');
+        expect(resJson).to.not.have.property('phone');
+        expect(resJson).to.not.have.property('emailConfirmationStatus');
+        expect(resJson).to.not.have.property('phoneConfirmationStatus');
+        expect(resJson).to.not.have.property('customerId');
         //expect(resJson).to.have.property('likes');
         //expect(resJson).to.have.property('comments');
         //expect(resJson).to.have.property('posts');
-        expect(resJson).to.have.property('status');
-        expect(resJson).to.have.property('roles');
+        expect(resJson).to.not.have.property('status');
+        expect(resJson).to.not.have.property('roles');
 
         done();
       });

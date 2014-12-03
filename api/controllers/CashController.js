@@ -98,9 +98,9 @@ module.exports = {
         chargeAmount = Math.round(Number(params.amount)), //in cents
         appProfitAmount = (chargeAmount * applicationFeeInPercent/100),
         userProfitAmount = chargeAmount - appProfitAmount;
-
-    sails.log.warn("Post IDt: " + param.post.id);
-    sails.log.warn("Secret ID: " + param.secret.id);
+        
+    sails.log.warn("Post IDt: " + params.post.id);
+    sails.log.warn("Secret ID: " + params.secret.id);
 
     sails.log("Charge Amt: " + chargeAmount);
     sails.log("App Profit: " + appProfitAmount);
@@ -118,7 +118,7 @@ module.exports = {
       }
 
       //Find the recipient details (by ID)
-      User.findOneById(params.reciever, function (err, reciever){
+      User.findOneById(params.receiver, function (err, receiver){
         sails.log(err);
         ErrorService.makeErrorResponse(500, {
           message: "Something went wrong", 
@@ -149,7 +149,7 @@ module.exports = {
             sails.log(fromSender);
 
             //If the receiver exists
-            if(reciever){
+            if(receiver){
 
               //The secret owner's cut sent from Minnow
               stripe.transfers.create({
@@ -157,12 +157,12 @@ module.exports = {
                 amount: userProfitAmount, // amount in cents
                 currency: "usd",
                 type: "card",
-                recipient: reciever.recipient.id, //The ID of an existing, verified recipient that the money will be transferred to in this request.
+                recipient: receiver.recipient.id, //The ID of an existing, verified recipient that the money will be transferred to in this request.
                 card: receiver.recipient.default_card, //The card must be the ID of a card belonging to the recipient. The transfer will be sent to this card.
                 statement_description: 'A secret.',
                 metadata: {
-                  post: param.post.id,
-                  secret: param.secret.id
+                  post: params.post.id,
+                  secret: params.secret.id
                 }
                 //customer: ??
 

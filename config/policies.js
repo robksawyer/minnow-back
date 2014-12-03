@@ -50,23 +50,13 @@ module.exports.policies = {
     'update': ['hasJsonWebToken']
   },
   PostController: {
-    '*': false,
-    'create': ['hasJsonWebToken'],
-    'update': ['hasJsonWebToken'],
-    'find': ['hasJsonWebToken'],
-    'populate': ['hasJsonWebToken'],
-    'remove': ['hasJsonWebToken'],
-    'destroy': ['hasJsonWebToken'],
-    'findOne': ['hasJsonWebToken']
+    '*': ['hasJsonWebToken']
+  },
+  SecretController: {
+    '*': ['hasJsonWebToken']
   },
   CommentController: {
-    '*': false,
-    'create': ['hasJsonWebToken'],
-    'find': ['hasJsonWebToken'],
-    'populate': ['hasJsonWebToken'],
-    'remove': ['hasJsonWebToken'],
-    'destroy': ['hasJsonWebToken'],
-    'findOne': ['hasJsonWebToken']
+    '*': ['hasJsonWebToken']
   }
 
   /***************************************************************************
