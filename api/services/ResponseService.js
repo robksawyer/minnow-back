@@ -31,6 +31,29 @@ module.exports = {
       } else {
           return response.send(error.status ? error.status : 500, error.message ? error.message : error);
       }
+  },
+
+  /**
+   * Simple service method to send "proper" api message back to client. This is called basically
+   * all over the application in cases where a JSON response may occur.
+   *
+   * @param   {}||string  response data     String or Object
+   * @param   {}||string  metadata          String or Object
+   * @param   {Request}   request           Request object
+   * @param   {Response}  response          Response object
+   *
+   * @returns {*}
+   */
+  makeResponse: function(respData, metadata, req, res){
+    if(!metadata) metadata = {};
+    if(!respData) respData = {};
+    var defaultData = {
+      status: res.statusCode,
+      url: req.path,
+      metadata: metadata
+    };
+    var returnData = _.merge(defaultData, respData);
+    res.json(res.statusCode, returnData);
   }
   
 }

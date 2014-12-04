@@ -52,13 +52,23 @@ module.exports = {
      * Service to fetch post data from database.
      *
      * @param   {{}}        where   Used query conditions
+     * @param   10          limit   Total posts to return
+     * @param   0           skip    Total posts to skip over
      * @param   {Function}  next    Callback function to call after query
      */
-    getPosts: function(where, next) {
+    getPosts: function(where, limit, skipAmt, next) {
+        if(!limit) {
+            limit = sails.config.site.posts_return_limit;
+        }
+        if(limit > sails.config.site.posts_return_max){
+            limit = sails.config.site.posts_return_max;
+        }
         Post
             .find(where)
             .populate('owner')
             .sort("createdAt ASC")
+            .limit(limit)
+            .skip(skipAmt)
             .exec(function(error, /** sails.model.post[] */ posts) {
                 if (error) {
                     sails.log.error("[Failed to fetch post data]");

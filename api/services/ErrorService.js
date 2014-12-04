@@ -2,6 +2,12 @@
  * /api/services/ErrorService.js
  *
  * Generic error service.
+ * 200 OK             - Everything worked as expected.
+ * 400 Bad Request    - Often missing a required parameter.
+ * 403 Unauthorized   - No valid access token provided.
+ * 402 Request Failed - Parameters were valid but request failed.
+ * 404 Not Found      - The requested item doesn't exist.
+ * 500, 502, 503, 504 Server errors - Something went wrong on Minnow's end.
  */
 "use strict";
 

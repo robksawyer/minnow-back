@@ -29,7 +29,7 @@ describe('PostController', function(){
     describe('action getPost slug', function(){
 
       it('should have value', function(done){
-        DataService.getPost({id:1}, function(err, post){
+        DataService.getPost({id:1}, 10, 0, function(err, post){
           assert(!err, err);
           expect(post.slug).to.exist;
         });
@@ -41,7 +41,7 @@ describe('PostController', function(){
     describe('action getPosts', function(){
 
       it('should return posts', function(done){
-        DataService.getPosts(null, function(err, posts){
+        DataService.getPosts(null, 10, 0, function(err, posts){
           assert(!err, err);
           expect(posts.length).to.be.above(0);
         });
@@ -49,7 +49,7 @@ describe('PostController', function(){
       });
 
       it('should be valid result', function(done){
-        DataService.getPosts(null, function(err, posts){
+        DataService.getPosts(null, 10, 0, function(err, posts){
           assert(!err, err);
           expect(posts[0].id).to.be.above(0);
         });
@@ -57,7 +57,7 @@ describe('PostController', function(){
       });
 
       it('should have owner data', function(done){
-        DataService.getPosts(null, function(err, posts){
+        DataService.getPosts(null, 10, 0, function(err, posts){
           assert(!err, err);
           expect(posts[0].owner.id).to.be.above(0);
         });
@@ -69,7 +69,7 @@ describe('PostController', function(){
     describe('action getPostUser', function(){
 
       it('should get proper result', function(done){
-        DataService.getPostUser({id: 1}, function(err, res){
+        DataService.getPostUser({id: 1}, 10, 0, function(err, res){
           assert(!err, err);
           expect(res.owner.id).to.eql(1);
         });
