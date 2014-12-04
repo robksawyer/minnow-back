@@ -33,6 +33,10 @@ module.exports = {
       collection: 'like',
       via: 'owner'
     },
+    flags: {
+      collection: 'flag',
+      via: 'owner'
+    },
     comments: {
       collection: 'comment',
       via: 'owner'

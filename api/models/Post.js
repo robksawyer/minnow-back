@@ -36,6 +36,10 @@ module.exports = {
       collection: 'like',
       via: 'post'
     },
+    flags: {
+      collection: 'flag',
+      via: 'post'
+    },
     comments: {
       collection: 'comment',
       via: 'post'

@@ -8,7 +8,15 @@
 module.exports = {
 
   attributes: {
-
+    post: {
+      model: 'post'
+    },
+    owner: {
+      model: 'user'
+    },
+    ip: {
+      type: 'string'
+    }
   }
 };
 

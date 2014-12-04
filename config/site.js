@@ -21,4 +21,12 @@ module.exports.site = {
   **/
   posts_return_max: 100
 
+  /**
+  *
+  * Max Flag Amount 
+  * The total here dictates when a post is automatically banned.
+  *
+  **/
+  max_flag_count: 10
+
 }

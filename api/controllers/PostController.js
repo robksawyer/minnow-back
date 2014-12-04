@@ -49,28 +49,67 @@ module.exports = {
   * @return 
   **/
   flag: function(req, res){
-
-    var postObj = {
-      post: req.param('id'), //The post id
-      user: req.user.id
-    };
-    var userAddress = ResponseService.addressFromRequest(req);
-    postObj = _.merge(postObj, userAddress);
-
-    //
-    //Create a flag
-    //
+    if(req.param('post') == null || req.param('post') == undefined){
+      ErrorService.makeErrorResponse(400, 'You must provide a valid post id.', req, res);
+    }
+    if(req.user.id == null || req.user.id == undefined){
+      ErrorService.makeErrorResponse(400, 'You are not allowed to perform this action.', req, res);
+    }
 
     //Check to see if the user already has a flag for the post
     Flag.find().where({
-      'user': req.user.id,
-      'post': req.param('id')
+      owner: req.user.id,
+      post: req.param('post')
     }).exec(function(err, res){
+      if(!res.id){
+        //Create the flag
+        var postObj = {
+          post: req.param('post'), //The post id
+          user: req.user.id
+        };
+        //Get the user's ip address
+        var userAddress = ResponseService.addressFromRequest(req);
+        postObj = _.merge(postObj, userAddress);
+        Flag.create(postObj, function(err, res){
+          if(err){
+            ErrorService.makeErrorResponse(500, 'There was an error creating the flag.', req, res);
+          }
+          ResponseService.makeResponse({flag: res}, null, req, res);
 
-
+          //Check to see if the post is banned
+          checkFlagCount(post);
+        });
+      }
+      //If the Flag is found do nothing
     });
     
   },
+
+  /**
+  *
+  * checkFlagCount
+  * Method checks the current flag count for a post and bans it if the 
+  * count is at the max flag count.
+  * @param post - The post id
+  * @return integer
+  **/
+  checkFlagCount: function(post){
+    Flag.count({ post: post }).exec(function(err, count){
+      if(count >= sails.config.site.max_flag_count){
+        //Change the status of the post and ban it
+        Post.update({
+          id: post,
+          status: 'banned'
+        }, function(err, res){
+          if(err){
+            sails.log.error('checkFlagCount: Error - Unable to ban post #' + post + '.');
+          }
+          sails.log.warn('The post #' + post + ' was banned.');
+        });
+      }
+      return count;
+    });
+  }
 
   /**
   *
