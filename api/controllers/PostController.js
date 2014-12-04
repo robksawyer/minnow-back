@@ -50,7 +50,26 @@ module.exports = {
   **/
   flag: function(req, res){
 
-    res.json(200, {});
+    var postObj = {
+      post: req.param('id'), //The post id
+      user: req.user.id
+    };
+    var userAddress = ResponseService.addressFromRequest(req);
+    postObj = _.merge(postObj, userAddress);
+
+    //
+    //Create a flag
+    //
+
+    //Check to see if the user already has a flag for the post
+    Flag.find().where({
+      'user': req.user.id,
+      'post': req.param('id')
+    }).exec(function(err, res){
+
+
+    });
+    
   },
 
   /**

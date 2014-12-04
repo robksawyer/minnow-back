@@ -54,6 +54,35 @@ module.exports = {
     };
     var returnData = _.merge(defaultData, respData);
     res.json(res.statusCode, returnData);
+  },
+
+  /**
+   * returns an ip address and port from the express request object, or the 
+   * sails.io socket which is attached to the req object.
+   * 
+   * @param  {Object} req express request
+   * @return {Object}     the transport address object
+   * @api private
+   */
+  addressFromRequest: function(req){
+    if(req.connection && req.connection.remoteAddress){
+      return {
+        ip:req.connection.remoteAddress,
+        port: req.connection.remotePort
+      };
+    }
+    
+    if(req.socket && req.socket.remoteAddress){
+      return {
+        ip: req.socket.remoteAddress,
+        port: req.socket.remotePort
+      };
+    }
+
+    return{
+      ip: '0.0.0.0',
+      port: 'n/a'
+    };
   }
   
 }
