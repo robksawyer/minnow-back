@@ -47,7 +47,7 @@ var theLifter = {
               level: 'debug'
             },
             connections: {
-              test: {
+              testConnection: {
                 adapter: 'sails-disk'
               }
             },
@@ -66,10 +66,10 @@ var theLifter = {
             ],
             models: {
               // Use in-memory database for tests
-              connection: 'test',
+              connection: 'testConnection',
               migrate: 'drop'
             },
-            liftTimeout: 50000
+            liftTimeout: 100000
           }, function (err, app) {
             if (err) {
               sails.log.error(err);
@@ -79,14 +79,14 @@ var theLifter = {
             var barrels = new Barrels();
 
             // Populate the DB
-            barrels.populate(function(err) {
+            barrels.populate(['user'],function(err) {
               if(err){
                 sails.log.error(err);
                 next(err);
               }
               console.log('Populating the database.');
               next(err, app);
-            });
+            }, false);
             
             lifted = true;
             sailsprocess = app;
@@ -96,6 +96,7 @@ var theLifter = {
             if(cb){
               cb(fixtures);
             }
+            next();
           });
         }
       ], next);

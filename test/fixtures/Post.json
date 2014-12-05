@@ -3,7 +3,7 @@
     "id": 1,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 1,
-    "slug": "",
+    "slug": "test1",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -19,7 +19,7 @@
     "id": 2,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 2,
-    "slug": "",
+    "slug": "test2",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -35,7 +35,7 @@
     "id": 3,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 3,
-    "slug": "",
+    "slug": "test3",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -51,7 +51,7 @@
     "id": 4,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 4,
-    "slug": "",
+    "slug": "test4",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -67,7 +67,7 @@
     "id": 5,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 5,
-    "slug": "",
+    "slug": "test5",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -83,7 +83,7 @@
     "id": 6,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 6,
-    "slug": "",
+    "slug": "test6",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -99,7 +99,7 @@
     "id": 7,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 7,
-    "slug": "",
+    "slug": "test7",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -115,7 +115,7 @@
     "id": 8,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 8,
-    "slug": "",
+    "slug": "test8",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -131,7 +131,7 @@
     "id": 9,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 9,
-    "slug": "",
+    "slug": "test9",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",
@@ -147,7 +147,7 @@
     "id": 10,
     "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "secret": 10,
-    "slug": "",
+    "slug": "test10",
     "category": "uncategorized",
     "img": {
       "source": "John Doe",

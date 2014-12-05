@@ -2,71 +2,51 @@
   {
     "id": 1,
     "uses": [1],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxfHVuZGVmaW5lZCIsInN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE0MTY4NzAxODAxNDQsImlhdCI6MTQxNjg3MDE4MDE0NCwianRpIjoiMDk0ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 2,
     "uses": [2],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 3,
     "uses": [3],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 4,
     "uses": [4],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 5,
     "uses": [5],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 6,
     "uses": [6],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 7,
     "uses": [7],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 8,
     "uses": [8],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 9,
     "uses": [9],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   },
   {
     "id": 10,
     "uses": [10],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MueiIxfHVuZGVmaW5lZCIsyrN1YiI6InNtYWxsIGFuZCBjdXJpb3VzIiwiYXVkIjoibWlubm93IiwiZXhwIjoxNDE3NDc0OTgwMTQzLCJuYmYiOjE2MTY4NzAxODAxNDQsImlhdCI3MTQxNjg3MDE4MDE0NCwianRpIjoiMDk4ZjBhMTAtNzQyZS0xMWU0LWFkYmMtMmY1ZWM4MmNhMzE0In0.LAq4n7SMjknE0umjQCwmMsmsyazjaueXP_QxIfC_p_0",
-    "expires": 333333333333333,
     "revoked": false
   }
 ]
