@@ -139,14 +139,21 @@ module.exports = {
      * don't have to make n single user queries to database.
      *
      * @param   {String}                where             Specific query instructions
+     * @param   {Number}                limit             Total number of comments to return
+     * @param   {Number}                skip              Total comments to skip, this is used for paging
      * @param   {Function}              next              Callback function which is called after comments are fetched
      */
-    getComments: function(where, next) {
+    getComments: function(where, limit, skip, next) {
+        if(!limit) {
+            limit = sails.config.site.comments_return_limit;
+        }
+        if(limit > sails.config.site.comments_return_max){
+            limit = sails.config.site.comments_return_max;
+        }
         Comment
             .find(where)
             .populate('owner')
-            .populate('post')
-            .sort("createdAt ASC")
+            .sort("commentId ASC")
             .exec(function(error, /** sails.model.comment[] */ comments) {
                 if (error) {
                     sails.log.error("[Failed to fetch comment data]");

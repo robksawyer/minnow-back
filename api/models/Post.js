@@ -13,7 +13,7 @@ module.exports = {
       required: true
     },
     secret: {
-      model: 'post'
+      model: 'secret'
     },
     slug: {
       type: 'string',

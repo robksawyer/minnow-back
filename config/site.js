@@ -19,7 +19,21 @@ module.exports.site = {
   * Max number of Posts to ever return to the views
   *
   **/
-  posts_return_max: 100
+  posts_return_max: 1000,
+
+  /**
+  *
+  * Default number of Comments to return to the views
+  *
+  **/
+  comments_return_limit: 10,
+
+  /**
+  *
+  * Max number of Comments to ever return to the views
+  *
+  **/
+  comments_return_max: 1000,
 
   /**
   *

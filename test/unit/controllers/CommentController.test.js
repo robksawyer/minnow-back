@@ -13,16 +13,16 @@ var request = require('supertest'),
 describe('CommentController', function(){
   describe('DataService requests', function(){
 
-    it('should return comments', function(done){
-      DataService.getComments({}, function(err, results){
+    it('should return five comments', function(done){
+      DataService.getComments({}, 5, null, function(err, results){
         assert(!err, err);
-        expect(results.length).to.be.above(0);
+        expect(results.length).to.be(5);
       });
       done();
     });
 
     it('should be valid result', function(done){
-      DataService.getComments({id: 1}, function(err, results){
+      DataService.getComments({id: 1}, 10, null, function(err, results){
         assert(!err, err);
         expect(results[0].id).to.be.above(0);
       });
@@ -30,7 +30,7 @@ describe('CommentController', function(){
     });
 
     it('should have owner data', function(done){
-      DataService.getComments({id: 1}, function(err, results){
+      DataService.getComments({id: 1}, 10, null, function(err, results){
         assert(!err, err);
         expect(results[0].owner.id).to.be.above(0);
       });
@@ -38,7 +38,7 @@ describe('CommentController', function(){
     });
 
     it('should have post data', function(done){
-      DataService.getComments({id: 1}, function(err, results){
+      DataService.getComments({id: 1}, 10, null, function(err, results){
         assert(!err, err);
         expect(results[0].post.id).to.be.above(0);
       });

@@ -11,8 +11,9 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [1],
-    "likes": [1]
+    "comments": [1,11,12,13],
+    "likes": [1],
+    "flags": [1]
   },
   {
     "id": 2,
@@ -27,7 +28,8 @@
     },
     "status": "published",
     "comments": [2],
-    "likes": [2]
+    "likes": [2],
+    "flags": [2]
   },
   {
     "id": 3,
@@ -42,7 +44,8 @@
     },
     "status": "published",
     "comments": [3],
-    "likes": [3]
+    "likes": [3],
+    "flags": [3]
   },
   {
     "id": 4,
@@ -56,8 +59,9 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [4],
-    "likes": [4]
+    "comments": [4,14],
+    "likes": [4],
+    "flags": [4]
   },
   {
     "id": 5,
@@ -72,7 +76,8 @@
     },
     "status": "published",
     "comments": [5],
-    "likes": [5]
+    "likes": [5],
+    "flags": [5]
   },
   {
     "id": 6,
@@ -87,7 +92,8 @@
     },
     "status": "published",
     "comments": [6],
-    "likes": [6]
+    "likes": [6],
+    "flags": [6]
   },
   {
     "id": 7,
@@ -102,7 +108,8 @@
     },
     "status": "published",
     "comments": [7],
-    "likes": [7]
+    "likes": [7],
+    "flags": [7]
   },
   {
     "id": 8,
@@ -117,7 +124,8 @@
     },
     "status": "published",
     "comments": [8],
-    "likes": [8]
+    "likes": [8],
+    "flags": [8]
   },
   {
     "id": 9,
@@ -132,7 +140,8 @@
     },
     "status": "published",
     "comments": [9],
-    "likes": [9]
+    "likes": [9],
+    "flags": [9]
   },
   {
     "id": 10,
@@ -147,6 +156,7 @@
     },
     "status": "published",
     "comments": [10],
-    "likes": [10]
+    "likes": [10],
+    "flags": [10]
   }
 ]

@@ -8,26 +8,22 @@
 module.exports = {
 
     /**
-     * Main history action. This will render object specified comment GUI where user
-     * can view, reply and add new comments.
+     * Method returns the comments for a post.
      *
-     * @param   {Request}   request     Request object
-     * @param   {Response}  response    Response object
+     * @param   {Request}   req     Request object
+     * @param   {Response}  res     Response object
      */
-    index: function(request, response) {
-        var objectId = request.param("objectId");
-        var objectName = request.param("objectName");
-
-        // Fetch specified object and id comments
-        DataService.getComments(objectName, objectId, 0, function(error, comments) {
+    index: function(req, res) {
+        var postId = req.param("post");
+        if(!postId){
+            ErrorService.makeErrorResponse(400, 'You must provide a valid post id.', req, res);
+        }
+        // Fetch comments for a specific post id
+        DataService.getComments({post: postId}, 10, null, function(error, comments) {
             if (error) {
-                ResponseService.makeError(error, request, response);
+                ResponseService.makeError(error, req, res);
             } else {
-                response.view({
-                    objectId: objectId,
-                    objectName: objectName,
-                    comments: comments
-                });
+                ResponseService.makeResponse({comments: comments}, null, req, res);
             }
         });
     }

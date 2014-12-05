@@ -50,10 +50,10 @@ module.exports = {
       enum: ['active', 'unconfirmed', 'banned'],
       defaultsTo: 'active'
     },
-    roles: {
-      type: 'array',
+    role: {
+      type: 'string',
       enum: ['anonymous','admin','moderator'],
-      defaultsTo: ['anonymous']
+      defaultsTo: 'anonymous'
     },
 
     toJSON: function() {
@@ -63,7 +63,7 @@ module.exports = {
         delete obj.phoneConfirmationStatus;
         delete obj.customerId;
         delete obj.phone;
-        delete obj.roles;
+        delete obj.role;
         delete obj.status;
       }
       return obj;
