@@ -17,8 +17,39 @@ module.exports = {
   * @param res
   * @return 
   **/
-  
   index: function(req, res){
+    var skip = 0;
+    var limit = sails.config.site.posts_return_limit;
+
+    if( req.param('skip') ){
+       skip = req.param('skip');
+    }
+    if( req.param('limit') ){
+      limit = req.param('limit');
+    }
+
+    //Retreive the posts
+    DataService.getPosts({}, limit, skip, function(err, posts){
+      if(err){
+        ErrorService.makeErrorResponse(500, 'There was an error retrieving the posts.', req, res);
+      }
+      ResponseService.makeResponse({posts: posts}, null, req, res);
+    });
+
+  },
+
+
+  /**
+  *
+  * latest
+  * Returns the latest posts in the system. This presents users with the latest posts in the system.
+  * From this page a user can purchase a secret, like, and flag posts. 
+  *
+  * @param req
+  * @param res
+  * @return 
+  **/
+  latest: function(req, res){
     var skip = 0;
     var limit = sails.config.site.posts_return_limit;
 
