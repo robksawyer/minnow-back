@@ -2,14 +2,18 @@
   "name": "minnow-back",
   "private": true,
   "version": "0.0.1",
-  "author": "Rob Sawyer <robksawyer@gmail.com>",
+  "author": "Team Minnow <team@gominnow.com>",
   "description": "The backend that powers the minnow.",
   "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/)",
   "homepage": "http://gominnow.com/",
   "contributors": [
     {
       "name": "Jay Wallace",
-      "email": "jay@bubblr.co"
+      "email": "jay@gominnow.com"
+    },
+    {
+      "name": "Rob Sawyer",
+      "email": "rob@gominnow.com"
     }
   ],
   "bugs": {
@@ -18,7 +22,10 @@
   "keywords": [
     "secrets",
     "minnow",
-    "social networking"
+    "social networking",
+    "entertainment",
+    "service",
+    "news"
   ],
   "dependencies": {
     "bcrypt": "^0.8.0",
@@ -63,8 +70,8 @@
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
-    "start": "forever start app.js --prod",
-    "debug": "forever start app.js --debug",
+    "start": "forever start -c app.js --prod",
+    "debug": "forever start -c app.js --debug",
     "test": "make test",
     "watch-test": "node_modules/.bin/_mocha --watch --reporter spec"
   },
