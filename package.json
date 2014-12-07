@@ -72,8 +72,8 @@
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
-    "start": "forever -f --minUptime 1000ms --spinSleepTime 1000ms start app.js --prod",
-    "debug": "forever -fvd --minUptime 1000ms --spinSleepTime 1000ms start app.js --dev",
+    "start": "forever -wf --minUptime 1000ms --spinSleepTime 1000ms start app.js --prod",
+    "debug": "forever -wfvd --minUptime 1000ms --spinSleepTime 1000ms start app.js --dev",
     "test": "make test",
     "watch-test": "node_modules/.bin/_mocha --watch --reporter spec"
   },
