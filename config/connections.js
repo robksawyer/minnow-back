@@ -63,7 +63,8 @@ module.exports.connections = {
   ***************************************************************************/
   herokuMongodb: {
     adapter: 'sails-mongo',
-    url: process.env.MONGOHQ_URL
+    url: process.env.MONGOHQ_URL,
+    schema: true
   },
 
   /***************************************************************************
