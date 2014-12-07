@@ -73,10 +73,11 @@
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
-    "start": "forever start -fvd --minUptime 1000ms --spinSleepTime 1000ms app.js --prod && forever list",
-    "debug": "forever start -fvd --minUptime 1000ms --spinSleepTime 1000ms app.js --dev && forever list",
+    "start": "forever start -fvd --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
+    "debug": "forever start -fvd --minUptime 1000ms --spinSleepTime 1000ms app.js --dev",
     "test": "make test",
-    "watch-test": "node_modules/.bin/_mocha --watch --reporter spec"
+    "watch-test": "node_modules/.bin/_mocha --watch --reporter spec",
+    "postinstall": "forever list"
   },
   "main": "app.js",
   "repository": {
