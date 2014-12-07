@@ -61,7 +61,7 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  herokuMongodbServer: {
+  herokuMongodb: {
     adapter: 'sails-mongo',
     url: process.env.MONGOHQ_URL
   },
@@ -102,7 +102,7 @@ module.exports.connections = {
   *                                                                          *
   *                                                                          *
   ***************************************************************************/
-  herokuPostgresqlServer: {
+  herokuPostgres: {
     adapter: 'sails-postgresql',
     url: process.env.DATABASE_URL,
     ssl: true,
@@ -115,5 +115,23 @@ module.exports.connections = {
   * More adapters: https://github.com/balderdashy/sails                      *
   *                                                                          *
   ***************************************************************************/
+
+  // In-memory adapter for DEVELOPMENT ONLY
+  // (data is NOT preserved when the server shuts down)
+  memory: {
+    module: 'sails-dirty',
+    inMemory: true
+  },
+
+  // Persistent adapter for DEVELOPMENT ONLY
+  // (data IS preserved when the server shuts down)
+  // PLEASE NOTE: disk adapter not compatible with node v0.10.0 currently 
+  //        because of limitations in node-dirty
+  //        See https://github.com/felixge/node-dirty/issues/34
+  disk: {
+    module: 'sails-dirty',
+    filePath: './.tmp/dirty.db',
+    inMemory: false
+  },
 
 };
