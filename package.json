@@ -72,7 +72,7 @@
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
-    "start": "sails lift --prod",
+    "start": "forever start -f --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
     "start-forever": "forever start -fd --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
     "debug": "forever start -fd --minUptime 1000ms --spinSleepTime 1000ms app.js --debug",
     "test": "make test",
