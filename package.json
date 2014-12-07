@@ -70,7 +70,8 @@
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
-    "start": "forever start -fd --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
+    "start": "sails lift --prod",
+    "start-forever": "forever start -fd --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
     "debug": "forever start -fd --minUptime 1000ms --spinSleepTime 1000ms app.js --debug",
     "test": "make test",
     "watch-test": "node_modules/.bin/_mocha --watch --reporter spec"
