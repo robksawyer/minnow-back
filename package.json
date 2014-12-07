@@ -28,6 +28,7 @@
     "news"
   ],
   "dependencies": {
+    "async": "^0.9.0",
     "bcrypt": "^0.8.0",
     "coveralls": "^2.11.2",
     "cuid": "^1.2.4",
