@@ -72,8 +72,8 @@
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
-    "start": "forever start -fv -l /log/forever.log -o /log/out.log -e /log/err.log --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
-    "start-forever": "forever start -fdv -l /log/forever.log -o /log/out.log -e /log/err.log --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
+    "start": "forever start -fv -l /app/forever.log -o /app/forever-out.log -e /app/forever-err.log --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
+    "start-forever": "forever start -fdv -l /app/forever.log -o /app/forever-out.log -e /app/forever-err.log --minUptime 1000ms --spinSleepTime 1000ms app.js --prod",
     "debug": "forever start -fd --minUptime 1000ms --spinSleepTime 1000ms app.js --debug",
     "test": "make test",
     "watch-test": "node_modules/.bin/_mocha --watch --reporter spec"
