@@ -15,4 +15,12 @@ module.exports = require('waterlock').actions.user({
     }
   */
 
+  authorize: function(req, res){
+
+    //Grab the variables passed and then redirect to get the valid data.
+    //auth/login?type=facebook
+    req.url = req.url + "&type=facebook";
+    res.redirect(req.url);
+  }
+
 });
