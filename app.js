@@ -24,6 +24,19 @@ process.chdir(__dirname);
 
 // Ensure a "sails" can be located:
 (function() {
+  //
+  //Startup New Relic
+  //
+  var newrelic;
+  try {
+    newrelic = require('newrelic');
+  } catch (e) {
+    console.error('Could not find dependency: `newrelic`.');
+    console.error('You probably need to run `npm install`');
+    console.error('');
+  } 
+
+
   var sails;
   try {
     sails = require('sails');
@@ -52,18 +65,6 @@ process.chdir(__dirname);
       rc = function () { return {}; };
     }
   }
-
-  //
-  //Startup New Relic
-  //
-  var newrelic;
-  try {
-    newrelic = require('newrelic');
-  } catch (e) {
-    console.error('Could not find dependency: `newrelic`.');
-    console.error('You probably need to run `npm install`');
-    console.error('');
-  } 
 
   // Start server
   sails.lift(rc('sails'));
