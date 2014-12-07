@@ -18,7 +18,7 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'disk',
+    connection: 'localDiskDb',
     migrate: 'drop'
   }
 
