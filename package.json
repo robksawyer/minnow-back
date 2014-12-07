@@ -70,8 +70,8 @@
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
-    "start": "forever start -c app.js --prod",
-    "debug": "forever start -c app.js --debug",
+    "start": "forever start -c node app.js --prod",
+    "debug": "forever start -c node app.js --debug",
     "test": "make test",
     "watch-test": "node_modules/.bin/_mocha --watch --reporter spec"
   },
