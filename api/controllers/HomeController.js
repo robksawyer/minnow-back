@@ -10,7 +10,7 @@ module.exports = {
 	index: function(req,res){
 		return res.json({
 			name: 'minnow',
-			description: 'Welcome to the minnow.',
+			description: 'Welcome to minnow.',
 			version: '1.0'
 		});
 	},
