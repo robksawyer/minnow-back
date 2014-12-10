@@ -13,16 +13,6 @@ module.exports = {
     /* e.g.
     nickname: 'string'
     */
-    email: {
-      type: 'string',
-      unique: true,
-      require: false
-    },
-    phone: {
-      type: 'string',
-      unique: true,
-      require: true
-    },
 
     toJSON: function() {
       var obj = this.toObject();

@@ -24,6 +24,7 @@ module.exports.waterlock = {
   authMethod: [
     {
       name:'waterlock-local-auth',
+      scope:'phone',
       passwordReset:{
         tokens: false,
         mail: {
