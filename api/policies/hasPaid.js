@@ -18,9 +18,6 @@ module.exports = function(req, res, next) {
     return res.forbidden(err); 
   }
 
-  sails.log(req.session);
-  sails.log(req.session.user.id);
-
   var postId = parseInt(req.param('post'));
 
   //Check to ensure that the Post exists before adding the comment.

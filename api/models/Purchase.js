@@ -8,12 +8,11 @@
 module.exports = {
 
   attributes: {
-
     user: {
       model: 'user'
     },
     post: {
-      model: 'user'
+      model: 'post'
     }
 
   }
