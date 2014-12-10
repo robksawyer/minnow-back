@@ -69,7 +69,7 @@
     "uuid": "^2.0.1",
     "waterlock": "0.0.13",
     "waterlock-facebook-auth": "0.0.3",
-    "waterlock-local-auth": "0.0.5"
+    "waterlock-local-auth": "git://github.com/robksawyer/waterlock-local-auth.git#phoneVerification"
   },
   "scripts": {
     "start": "sails lift",

@@ -13,10 +13,23 @@ module.exports = {
     /* e.g.
     nickname: 'string'
     */
+    email: {
+      type: 'string',
+      unique: true,
+      require: false
+    },
+    phone: {
+      type: 'string',
+      unique: true,
+      require: true
+    },
+
     toJSON: function() {
       var obj = this.toObject();
       if(obj){
         delete obj.password;
+        delete obj.email;
+        delete obj.phone;
       }
       return obj;
     }

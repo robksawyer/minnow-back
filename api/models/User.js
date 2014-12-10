@@ -13,12 +13,8 @@ module.exports = {
   attributes: require('waterlock').models.user.attributes({
 
     // 
-    // email, password are managed by waterlock.
+    // email, password are managed by waterlock via Auth.js. 
     // 
-    phone: {
-      type: 'string',
-      unique: true
-    },
     emailConfirmationStatus: {
       type: 'boolean'
     },
@@ -62,7 +58,6 @@ module.exports = {
         delete obj.emailConfirmationStatus;
         delete obj.phoneConfirmationStatus;
         delete obj.customerId;
-        delete obj.phone;
         delete obj.role;
         delete obj.status;
       }
