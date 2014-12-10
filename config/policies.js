@@ -31,7 +31,7 @@ module.exports.policies = {
     '*': true
   },
   ServiceController: {
-    '*': true
+    '*': ['hasJsonWebToken']
   },
   AuthController: {
     'login': true,

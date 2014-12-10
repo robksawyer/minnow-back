@@ -39,8 +39,10 @@ module.exports = {
     * or
     * https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{o-secret}_o.(jpg|gif|png)
     */
-    searchPhotos: function(query, next) {
+    searchPhotos: function(query, limit, page, next) {
         if(!query) next();
+        if(!limit) limit = sails.config.flickr.imagesPerPage;
+        if(!page) page = 1;
         
         Flickr.tokenOnly(flickrOptions, function(error, flickr) {
           if(error) {
@@ -55,8 +57,8 @@ module.exports = {
               content_type: 1,
               media: 'photos',
               is_commons: true,
-              page: 1,
-              per_page: sails.config.flickr.imagesPerPage
+              page: page,
+              per_page: limit
             }, function(err, result) {
                 if(err) {
                     next(err);
