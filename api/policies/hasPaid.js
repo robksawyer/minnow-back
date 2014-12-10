@@ -28,17 +28,18 @@ module.exports = function(req, res, next) {
       if(!post) ErrorService.makeErrorResponse(404, 'This post does not exist.', req, res);
 
       //Look up the user's purchases to see if the Post ID exists in the stack
-      Purchase.find({user: req.session.user.id, post: }).exec(function(err, purchase){
+      Purchase.find({user: req.session.user.id, post: postId}).exec(function(err, purchase){
         if(err) next(err);
 
-        //Continue
-        next();
+        //Check to see if purchase exists
+        if(purchase.id){
+          //Continue
+          next();
+        }else{
+          return res.forbidden(err);
+        }
+        
       });
-
-  }); 
-
-
-  /*if(err){
-    return res.forbidden(err);  
-  }*/
+  });
+  
 };

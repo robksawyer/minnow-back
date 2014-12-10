@@ -41,6 +41,10 @@ module.exports = {
       collection: 'post',
       via: 'owner'
     },
+    purchases: {
+      collection: 'purchase',
+      via: 'user'
+    },
     status: {
       type: 'string',
       enum: ['active', 'unconfirmed', 'banned'],

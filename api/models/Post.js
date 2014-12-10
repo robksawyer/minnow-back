@@ -40,6 +40,10 @@ module.exports = {
       collection: 'flag',
       via: 'post'
     },
+    purchases: {
+      collection: 'purchase',
+      via: 'post'
+    }, 
     comments: {
       collection: 'comment',
       via: 'post'
