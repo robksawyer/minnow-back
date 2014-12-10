@@ -30,6 +30,9 @@ module.exports.policies = {
   HomeController: {
     '*': true
   },
+  ServiceController: {
+    '*': true
+  },
   AuthController: {
     'login': true,
     'logout': true,
