@@ -20,6 +20,8 @@
 coverage
 .env
 
+# Flickr API Data
+data/
 
 ################################################
 # Local Configuration
