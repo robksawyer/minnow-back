@@ -60,7 +60,8 @@ module.exports.policies = {
     '*': ['hasJsonWebToken']
   },
   CommentController: {
-    '*': ['hasJsonWebToken']
+    '*': ['hasJsonWebToken', 'hasPaid'],
+    'index': true
   }
 
   /***************************************************************************

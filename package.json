@@ -67,8 +67,8 @@
     "twilio": "^1.10.0",
     "url": "^0.10.1",
     "uuid": "^2.0.1",
-    "waterlock": "0.0.13",
-    "waterlock-facebook-auth": "0.0.3",
+    "waterlock": "~0.0.13",
+    "waterlock-facebook-auth": "~0.0.3",
     "waterlock-local-auth": "git://github.com/robksawyer/waterlock-local-auth.git#phoneVerification"
   },
   "scripts": {
