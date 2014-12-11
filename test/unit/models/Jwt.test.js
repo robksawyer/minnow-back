@@ -13,6 +13,8 @@ describe('JwtModel', function jwtModel(){
 
  describe('to have', function(){
 
+    var Jwt = require('../../../api/models/jwt');
+    
     it('attributes', function(done){
 
         var attributes = Jwt.attributes;
@@ -24,7 +26,7 @@ describe('JwtModel', function jwtModel(){
     });
 
 
-    it('attributes (public)', function(done){
+    /*it('attributes (public)', function(done){
 
       Jwt.findOne(1).exec(function(err, res){
         assert(!err, err);
@@ -40,7 +42,7 @@ describe('JwtModel', function jwtModel(){
 
         done();
       });
-    });
+    });*/
 
   });
 });

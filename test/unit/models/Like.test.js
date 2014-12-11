@@ -32,6 +32,7 @@ describe('LikeModel', function likeModel(){
           done(err);
         }
 
+        expect(res).to.be.ok;
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');
         expect(res).to.have.property('owner');

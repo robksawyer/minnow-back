@@ -27,5 +27,27 @@ describe('CommentModel', function commentModel(){
 
     });
 
+
+    it('attributes (public)', function(done){
+
+      Comment.findOne(1).exec(function(err, res){
+        assert(!err, err);
+        if(err){
+          done(err);
+        }
+
+        expect(res).to.be.ok;
+        expect(res).to.have.property('id');
+        expect(res).to.have.property('body');
+        expect(res).to.have.property('commentId');
+        expect(res).to.have.property('post');
+        expect(res).to.have.property('status');
+        expect(res).to.have.property('owner');
+        expect(res).to.have.property('createdAt');
+        expect(res).to.have.property('updatedAt');
+        
+      });
+    });
+
   });
 });

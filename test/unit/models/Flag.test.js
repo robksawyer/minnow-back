@@ -9,29 +9,18 @@ var request = require('supertest'),
     should = require('chai').should,
     assert = require('chai').assert;
 
-describe('FlagModel', function(){
- //var Flag = require('../../../api/models/flag');
+describe('FlagModel', function flagModel(){
+
  describe('to have', function(){
 
     describe('attributes', function(){
 
-      it('should be a object', function(done){
-        expect(Flag.attributes).to.be.an('object');
-        done();
-      });
+        var attributes = Flag.attributes;
 
-      describe('.post', function(){
-        it('should exist', function(done){
-          expect(Flag.attributes).to.have.property('post');
-          done();
-        });
-      });
-      describe('.owner', function(){
-        it('should exist', function(done){
-          expect(Flag.attributes).to.have.property('owner');
-          done();
-        });
-      });
+        expect(attributes).to.have.property('post');
+        expect(attributes).to.have.property('owner');
+
+        done();
 
     });
 
@@ -43,6 +32,7 @@ describe('FlagModel', function(){
           done(err);
         }
 
+        expect(res).to.be.ok;
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');
         expect(res).to.have.property('owner');

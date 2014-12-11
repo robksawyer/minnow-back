@@ -37,6 +37,7 @@ describe('PostModel', function postModel(){
           done(err);
         }
 
+        expect(res).to.be.ok;
         expect(res.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');

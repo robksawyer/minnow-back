@@ -34,7 +34,7 @@ describe('SecretModel', function secretModel(){
           done(err);
         }
         
-        sails.log(res);
+        expect(res).to.be.ok;
         
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');

@@ -20,6 +20,7 @@ describe('SecretController', function(){
     loginHelper.getToken(1, function(token){
       access_token = token;
       expect(access_token).to.be.ok;
+
       done();
     });
   });

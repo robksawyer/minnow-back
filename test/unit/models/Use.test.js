@@ -10,30 +10,38 @@ var request = require('supertest'),
     assert = require('chai').assert;
 
 describe('UseModel', function(){
- var Use = require('../../../api/models/use');
+
  describe('to have', function(){
 
-    describe('attributes', function(){
+    var Use = require('../../../api/models/use');
 
-      it('should be a object', function(done){
-        expect(Use.attributes).to.be.an('object');
+    it('attributes', function(done){
+
+        var attributes = Use.attributes;
+
+        expect(attributes).to.have.property('remoteAddress');
+        expect(attributes).to.have.property('jsonWebToken');
+
+        done();
+    });
+
+
+    /*it('attributes (public)', function(done){
+
+      Use.findOne(1).exec(function(err, res){
+        assert(!err, err);
+        if(err){
+          done(err);
+        }
+
+        expect(res).to.have.property('id');
+        expect(res).to.have.property('token');
+        expect(res).to.have.property('createdAt');
+        expect(res).to.have.property('updatedAt');
+
         done();
       });
-
-      describe('.remoteAddress', function(){
-        it('should exist', function(done){
-          expect(Use.attributes).to.have.property('remoteAddress');
-          done();
-        });
-      });
-      describe('.jsonWebToken', function(){
-        it('should exist', function(done){
-          expect(Use.attributes).to.have.property('jsonWebToken');
-          done();
-        });
-      });
-
-    });
+    });*/
 
   });
 });
