@@ -13,7 +13,7 @@ describe('FlagModel', function flagModel(){
 
  describe('to have', function(){
 
-    describe('attributes', function(){
+    it('attributes', function(done){
 
         var attributes = Flag.attributes;
 
@@ -39,6 +39,7 @@ describe('FlagModel', function flagModel(){
         expect(res).to.have.property('createdAt');
         expect(res).to.have.property('updatedAt');
         
+        done();
       });
     });
 

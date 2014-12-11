@@ -21,8 +21,8 @@ module.exports = {
             return undefined;
         }
         var cipher = crypto.createCipher(sails.config.encryption.type, key);
-        var crypted = cipher.update(text,'utf8','hex');
-        return cipher.final('hex');
+        var encrypted = cipher.update(message,'utf8','hex');
+        return encrypted += cipher.final('hex');
     },
 
     /**
@@ -37,8 +37,37 @@ module.exports = {
             return undefined;
         }
         var decipher = crypto.createDecipher(sails.config.encryption.type, key);
-        var dec = decipher.update(crypted,'hex','utf8');
-        return decipher.final('utf8');
+        var decrypted = decipher.update(encMessage,'hex','utf8');
+        return decrypted += decipher.final('utf8');
+    },
+
+    /**
+     * Method to generate a key
+     *
+     * @param   rounds   Number of rounds to process the data for. (default - 10)
+     *
+     * @returns {moment}
+     */
+    generateKeySync: function(rounds){
+        var bcrypt = require('bcrypt');
+        if(!rounds) rounds = 10;
+        return bcrypt.genSaltSync(rounds);
+    },
+
+
+    /**
+     * Method to generate a key
+     *
+     * @param   rounds   Number of rounds to process the data for. (default - 10)
+     *
+     * @returns {moment}
+     */
+    generateKey: function(rounds, next){
+        var bcrypt = require('bcrypt');
+        if(!rounds) rounds = 10;
+        bcrypt.genSaltSync(rounds, function(err, result){
+            next(err, result);
+        });
     }
 
     

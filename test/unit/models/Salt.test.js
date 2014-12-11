@@ -13,7 +13,7 @@ describe('SaltModel', function SaltModel(){
 
  describe('to have', function(){
 
-    describe('attributes', function(){
+    it('attributes', function(done){
 
         var attributes = Salt.attributes;
 
@@ -39,6 +39,7 @@ describe('SaltModel', function SaltModel(){
         expect(res).to.have.property('createdAt');
         expect(res).to.have.property('updatedAt');
         
+        done();
       });
     });
 

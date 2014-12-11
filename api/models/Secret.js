@@ -5,6 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+var EncryptionService = require('../services/EncryptionService');
+
 module.exports = {
 
   attributes: {
@@ -40,30 +42,7 @@ module.exports = {
     // Encrypt the secret
     if(typeof values.body !== 'undefined'){
       //Generate a key
-      var salt = bcrypt.genSaltSync(10);
-      
-      sails.log(salt);
-
-      //Create the salt object
-      values.salt = {
-        value: salt
-      };
-      values.body = EncryptionService.encrypt(values.body, salt);
-
-      sails.log(values.body);
-    }   
-
-    next();
-  },
-
-  beforeUpdate: function(values, next){
-    // Encrypt the secret
-    if(typeof values.body !== 'undefined'){
-      //TODO: Check to see if salt is passed along here. If it is, 
-      //      delete the old one and generate a new record.
-      sails.log(values.salt);
-
-      var salt = bcrypt.genSaltSync(10);
+      var salt = EncryptionService.generateKeySync();
       //Create the salt object
       values.salt = {
         value: salt
@@ -71,6 +50,22 @@ module.exports = {
       values.body = EncryptionService.encrypt(values.body, salt);
     }
 
+    next();
+  },
+
+  beforeUpdate: function(values, next){
+    sails.log(values);
+    // Encrypt the secret
+    if(typeof values.body !== 'undefined'){
+      
+      var salt = EncryptionService.generateKeySync();
+      //Create the salt object
+      values.salt = {
+        value: salt
+      };
+      values.body = EncryptionService.encrypt(values.body, salt);
+    }
+    
     next();
   }
 
