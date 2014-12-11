@@ -5,8 +5,7 @@
  */
 "use strict";
 
-var moment = require("moment-timezone"),
-    crypto = require('crypto');
+var crypto = require('crypto');
 
 module.exports = {
 
