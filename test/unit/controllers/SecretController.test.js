@@ -7,7 +7,6 @@
 var DataService = require('../../../api/services/DataService'),
     PostData = require('../../fixtures/Post.json'),
     loginHelper = require('../../helpers/login'),
-    _ = require('lodash'),
     request = require('supertest'),
     expect = require('chai').expect,
     should = require('chai').should, 
