@@ -21,6 +21,7 @@ describe('User', function userModel(){
         if(err){
           done(err);
         }
+        expect(res).to.have.property('id');
         expect(res).to.have.property('emailConfirmationStatus');
         expect(res).to.have.property('phoneConfirmationStatus');
         expect(res).to.have.property('customerId');
@@ -28,7 +29,9 @@ describe('User', function userModel(){
         expect(res).to.have.property('comments');
         expect(res).to.have.property('posts');
         expect(res).to.have.property('status');
-        expect(res).to.have.property('roles');
+        expect(res).to.have.property('role');
+        expect(res).to.have.property('createdAt');
+        expect(res).to.have.property('updatedAt');
 
         done();
       });
@@ -44,15 +47,17 @@ describe('User', function userModel(){
 
         var resJson = res.toJSON();
 
-        expect(resJson).to.not.have.property('phone');
+        expect(resJson).to.have.property('id');
         expect(resJson).to.not.have.property('emailConfirmationStatus');
         expect(resJson).to.not.have.property('phoneConfirmationStatus');
         expect(resJson).to.not.have.property('customerId');
-        //expect(resJson).to.have.property('likes');
-        //expect(resJson).to.have.property('comments');
-        //expect(resJson).to.have.property('posts');
+        expect(resJson).to.have.property('likes');
+        expect(resJson).to.have.property('comments');
+        expect(resJson).to.have.property('posts');
         expect(resJson).to.not.have.property('status');
-        expect(resJson).to.not.have.property('roles');
+        expect(resJson).to.not.have.property('role');
+        expect(resJson).to.have.property('createdAt');
+        expect(resJson).to.have.property('updatedAt');
 
         done();
       });
