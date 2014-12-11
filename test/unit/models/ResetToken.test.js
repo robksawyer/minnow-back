@@ -9,7 +9,7 @@ var request = require('supertest'),
     should = require('chai').should,
     assert = require('chai').assert;
 
-describe('ResetToken', function resetTokenModel(){
+describe('ResetTokenModel', function resetTokenModel(){
 
  describe('to have', function(){
 

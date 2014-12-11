@@ -9,7 +9,7 @@ var request = require('supertest'),
     should = require('chai').should,
     assert = require('chai').assert;
 
-describe('Jwt', function jwtModel(){
+describe('JwtModel', function jwtModel(){
 
  describe('to have', function(){
 

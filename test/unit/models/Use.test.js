@@ -9,45 +9,32 @@ var request = require('supertest'),
     should = require('chai').should,
     assert = require('chai').assert;
 
-describe('Use', function(){
-
+describe('UseModel', function(){
+ var Use = require('../../../api/models/use');
  describe('to have', function(){
 
-    it('attributes', function(done){
+    describe('attributes', function(){
 
-      Use.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+      var attributes = Use.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('remoteAddress');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
-
+      it('should be a object', function(done){
+        expect(attributes).to.be.an('object');
         done();
       });
-    });
 
-
-    it('attributes toJSON', function(done){
-
-      Use.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
-
-        var resJson = res.toJSON();
-
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('remoteAddress');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
-
-        done();
+      describe('.remoteAddress', function(){
+        it('should exist', function(done){
+          expect(attributes).to.have.property('remoteAddress');
+          done();
+        });
       });
+      describe('.jsonWebToken', function(){
+        it('should exist', function(done){
+          expect(attributes).to.have.property('jsonWebToken');
+          done();
+        });
+      });
+
     });
 
   });

@@ -9,7 +9,7 @@ var request = require('supertest'),
     should = require('chai').should,
     assert = require('chai').assert;
 
-describe('Attempt', function attemptModel(){
+describe('AttemptModel', function attemptModel(){
 
  describe('to have', function(){
 
