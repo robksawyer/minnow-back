@@ -1,7 +1,7 @@
 'use strict';
 /**
- * Test File: Testing Secret
- * File location: test/models/Secret.test.js
+ * Test File: Testing Like
+ * File location: test/models/Like.test.js
  */
  
 var request = require('supertest'),
@@ -9,13 +9,13 @@ var request = require('supertest'),
     should = require('chai').should,
     assert = require('chai').assert;
 
-describe('Secret', function secretModel(){
+describe('Like', function likeModel(){
 
  describe('to have', function(){
 
     it('attributes', function(done){
 
-      Secret.findOne({id: 1}).exec(function(err, res){
+      Like.findOne({id: 1}).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
@@ -23,9 +23,9 @@ describe('Secret', function secretModel(){
 
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');
-        expect(res).to.have.property('price');
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('status');
+        expect(res).to.have.property('owner');
+        expect(res).to.have.property('createdAt');
+        expect(res).to.have.property('updatedAt');
 
         done();
       });
@@ -34,7 +34,7 @@ describe('Secret', function secretModel(){
 
     it('attributes toJSON', function(done){
 
-      Secret.findOne({id: 1}).exec(function(err, res){
+      Like.findOne({id: 1}).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
@@ -46,9 +46,9 @@ describe('Secret', function secretModel(){
 
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');
-        expect(res).to.have.property('price');
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('status');
+        expect(res).to.have.property('owner');
+        expect(res).to.have.property('createdAt');
+        expect(res).to.have.property('updatedAt');
 
         done();
       });

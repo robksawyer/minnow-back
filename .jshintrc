@@ -36,6 +36,10 @@
     "Auth"       : false,
     "Like"       : false,
     "Use"        : false,
-    "Attempt"    : false
+    "Attempt"    : false,
+    "Flag"       : false,
+    "ResetToken" : false,
+    "Purchase"   : false,
+    "Jwt"        : false
   }
 }

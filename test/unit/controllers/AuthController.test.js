@@ -43,6 +43,7 @@ describe('AuthController', function AuthController() {
                       .expect(testCase.status)
                       .end(function(err, res) {
                           if (err) {
+                            sails.log.error(err);
                             done(err);
                           }
                           expect(res.res.body).to.be.a('object');

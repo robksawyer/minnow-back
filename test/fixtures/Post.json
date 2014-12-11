@@ -11,9 +11,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [1,11,12,13],
-    "likes": [1],
-    "flags": [1]
+    "comments": [10,11,12,13],
+    "likes": [10],
+    "flags": [9],
+    "purchases":[10]
   },
   {
     "id": 2,
@@ -27,9 +28,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [2],
-    "likes": [2],
-    "flags": [2]
+    "comments": [9],
+    "likes": [9],
+    "flags": [10],
+    "purchases":[9]
   },
   {
     "id": 3,
@@ -43,9 +45,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [3],
-    "likes": [3],
-    "flags": [3]
+    "comments": [8],
+    "likes": [8],
+    "flags": [1],
+    "purchases":[8]
   },
   {
     "id": 4,
@@ -59,9 +62,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [4,14],
-    "likes": [4],
-    "flags": [4]
+    "comments": [7,14],
+    "likes": [7],
+    "flags": [8],
+    "purchases":[7]
   },
   {
     "id": 5,
@@ -75,9 +79,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [5],
-    "likes": [5],
-    "flags": [5]
+    "comments": [4],
+    "likes": [4],
+    "flags": [6],
+    "purchases":[4]
   },
   {
     "id": 6,
@@ -91,9 +96,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [6],
-    "likes": [6],
-    "flags": [6]
+    "comments": [5],
+    "likes": [5],
+    "flags": [7],
+    "purchases":[5]
   },
   {
     "id": 7,
@@ -107,9 +113,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [7],
-    "likes": [7],
-    "flags": [7]
+    "comments": [4],
+    "likes": [4],
+    "flags": [5],
+    "purchases":[4]
   },
   {
     "id": 8,
@@ -123,9 +130,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [8],
-    "likes": [8],
-    "flags": [8]
+    "comments": [3],
+    "likes": [3],
+    "flags": [4],
+    "purchases":[3]
   },
   {
     "id": 9,
@@ -139,9 +147,10 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [9],
-    "likes": [9],
-    "flags": [9]
+    "comments": [2],
+    "likes": [3],
+    "flags": [2],
+    "purchases":[2]
   },
   {
     "id": 10,
@@ -155,8 +164,9 @@
       "ext": "jpg"
     },
     "status": "published",
-    "comments": [10],
-    "likes": [10],
-    "flags": [10]
+    "comments": [1],
+    "likes": [2],
+    "flags": [1],
+    "purchases":[1]
   }
 ]

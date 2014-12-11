@@ -10,6 +10,7 @@
     "customerId": "cus_5FjF3AuMmbh11S",
     "role": "admin",
     "comments": [1,11],
+    "purchases":[10],
     "posts": [1],
     "likes": [1],
     "flags": [1]
@@ -25,6 +26,7 @@
     "customerId": "cus_5FjF3AuMmbh21S",
     "role": "anonymous",
     "comments": [2,12],
+    "purchases":[9],
     "posts": [2],
     "likes": [2],
     "flags": [2]
@@ -40,6 +42,7 @@
     "customerId": "cus_5FjF3AuMmbh31S",
     "role": "anonymous",
     "comments": [3,13],
+    "purchases":[8],
     "posts": [3],
     "likes": [3],
     "flags": [3]
@@ -54,6 +57,7 @@
     "customerId": "cus_5FjF3AuMmbh41S",
     "role": "anonymous",
     "comments": [4,14],
+    "purchases":[7],
     "posts": [4],
     "likes": [4],
     "flags": [4]
@@ -68,6 +72,7 @@
     "customerId": "cus_5FjF3AuMmbh51S",
     "role": "anonymous",
     "comments": [5],
+    "purchases":[6],
     "posts": [5],
     "likes": [5],
     "flags": [5]
@@ -82,6 +87,7 @@
     "customerId": "cus_5FjF3AuMmbh61S",
     "role": "anonymous",
     "comments": [6],
+    "purchases":[5],
     "posts": [6],
     "likes": [6]
   },
@@ -95,6 +101,7 @@
     "customerId": "cus_5FjF3AuMmbh71S",
     "role": "anonymous",
     "comments": [7],
+    "purchases":[4],
     "posts": [7],
     "likes": [7],
     "flags": [7]
@@ -109,6 +116,7 @@
     "customerId": "cus_5FjF3AuMmbh81S",
     "role": "anonymous",
     "comments": [8],
+    "purchases":[3],
     "posts": [8],
     "likes": [8],
     "flags": [8]
@@ -123,6 +131,7 @@
     "customerId": "cus_5FjF3AuMmbh91S",
     "role": "anonymous",
     "comments": [9],
+    "purchases":[2],
     "posts": [9],
     "likes": [9],
     "flags": [9]
@@ -137,6 +146,7 @@
     "customerId": "cus_5FjF3AuMmbh01S",
     "role": "admin",
     "comments": [10],
+    "purchases":[1],
     "posts": [10],
     "likes": [10],
     "flags": [10]

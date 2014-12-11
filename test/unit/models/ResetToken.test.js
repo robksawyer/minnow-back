@@ -1,7 +1,7 @@
 'use strict';
 /**
- * Test File: Testing Secret
- * File location: test/models/Secret.test.js
+ * Test File: Testing ResetToken
+ * File location: test/models/ResetToken.test.js
  */
  
 var request = require('supertest'),
@@ -9,23 +9,22 @@ var request = require('supertest'),
     should = require('chai').should,
     assert = require('chai').assert;
 
-describe('Secret', function secretModel(){
+describe('ResetToken', function resetTokenModel(){
 
  describe('to have', function(){
 
     it('attributes', function(done){
 
-      Secret.findOne({id: 1}).exec(function(err, res){
+      ResetToken.findOne({id: 1}).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
 
         expect(res).to.have.property('id');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('price');
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('status');
+        expect(res).to.have.property('token');
+        expect(res).to.have.property('createdAt');
+        expect(res).to.have.property('updatedAt');
 
         done();
       });
@@ -34,7 +33,7 @@ describe('Secret', function secretModel(){
 
     it('attributes toJSON', function(done){
 
-      Secret.findOne({id: 1}).exec(function(err, res){
+      ResetToken.findOne({id: 1}).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
@@ -45,10 +44,9 @@ describe('Secret', function secretModel(){
         //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('price');
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('status');
+        expect(res).to.have.property('token');
+        expect(res).to.have.property('createdAt');
+        expect(res).to.have.property('updatedAt');
 
         done();
       });

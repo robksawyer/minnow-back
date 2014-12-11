@@ -21,7 +21,6 @@ describe('User', function userModel(){
         if(err){
           done(err);
         }
-        expect(res).to.have.property('phone');
         expect(res).to.have.property('emailConfirmationStatus');
         expect(res).to.have.property('phoneConfirmationStatus');
         expect(res).to.have.property('customerId');
