@@ -12,7 +12,8 @@ module.exports = {
       type: 'string'
     },
     price: {
-      type: 'float'
+      type: 'float',
+      defaultsTo: 0.00
     },
     status: {
       type: 'string',
