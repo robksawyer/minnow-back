@@ -11,24 +11,36 @@ var moment = require("moment-timezone"),
 module.exports = {
 
     /**
-     * Method converts given date object to real UTC date (actually moment) object.
+     * Method to encrypt a message
      *
-     * @param   {Date}  date    Date object convert
+     * @param   message   The message to encrypt
      *
      * @returns {moment}
      */
-    encrypt: function(data) {
-        var cipher = crypto.createCipher('aes-256-cbc','InmbuvP6Z8');
-        var text = "123|123123123123123";
-
+    encrypt: function(message, key) {
+        if(!message || !key){
+            return undefined;
+        }
+        var cipher = crypto.createCipher(sails.config.encryption.type, key);
         var crypted = cipher.update(text,'utf8','hex');
-        crypted += cipher.final('hex');
-        
-        var decipher = crypto.createDecipher('aes-256-cbc','InmbuvP6Z8');
-        
-        var dec = decipher.update(crypted,'hex','utf8');
-        dec += decipher.final('utf8');
+        return cipher.final('hex');
     },
+
+    /**
+     * Method to decrypt a message
+     *
+     * @param   encMessage   The message to decrypt
+     *
+     * @returns {moment}
+     */
+    decrypt: function(encMessage, key){
+        if(!encMessage || !key){
+            return undefined;
+        }
+        var decipher = crypto.createDecipher(sails.config.encryption.type, key);
+        var dec = decipher.update(crypted,'hex','utf8');
+        return decipher.final('utf8');
+    }
 
     
 }
