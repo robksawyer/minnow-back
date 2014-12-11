@@ -15,38 +15,26 @@ describe('AuthModel', function authModel(){
 
     it('attributes', function(done){
 
-      Auth.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+        var attributes = Auth.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('name');
-        expect(res).to.have.property('phone');
-        expect(res).to.have.property('email');
-        expect(res).to.have.property('facebookId');
-        expect(res).to.have.property('resetToken');
-        expect(res).to.have.property('password');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
+        expect(attributes).to.have.property('name');
+        expect(attributes).to.have.property('phone');
+        expect(attributes).to.have.property('email');
+        expect(attributes).to.have.property('facebookId');
+        expect(attributes).to.have.property('resetToken');
+        expect(attributes).to.have.property('password');
 
         done();
-      });
     });
 
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      Auth.findOne({id: 1}).exec(function(err, res){
+      Auth.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
-
-        var resJson = res.toJSON();
-
-        //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');
         expect(res).to.not.have.property('name');

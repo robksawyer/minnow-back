@@ -15,22 +15,20 @@ describe('UseModel', function(){
 
     describe('attributes', function(){
 
-      var attributes = Use.attributes;
-
       it('should be a object', function(done){
-        expect(attributes).to.be.an('object');
+        expect(Use.attributes).to.be.an('object');
         done();
       });
 
       describe('.remoteAddress', function(){
         it('should exist', function(done){
-          expect(attributes).to.have.property('remoteAddress');
+          expect(Use.attributes).to.have.property('remoteAddress');
           done();
         });
       });
       describe('.jsonWebToken', function(){
         it('should exist', function(done){
-          expect(attributes).to.have.property('jsonWebToken');
+          expect(Use.attributes).to.have.property('jsonWebToken');
           done();
         });
       });

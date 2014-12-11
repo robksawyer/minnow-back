@@ -15,35 +15,27 @@ describe('SecretModel', function secretModel(){
 
     it('attributes', function(done){
 
-      Secret.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+        var attributes = Secret.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('price');
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('status');
+        expect(attributes).to.have.property('post');
+        expect(attributes).to.have.property('price');
+        expect(attributes).to.have.property('body');
+        expect(attributes).to.have.property('status');
 
         done();
-      });
     });
 
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      Secret.findOne({id: 1}).exec(function(err, res){
+      Secret.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
-
-        var resJson = res.toJSON();
-
-        //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
-
+        
+        sails.log(res);
+        
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');
         expect(res).to.have.property('price');

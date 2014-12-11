@@ -15,34 +15,22 @@ describe('PurchaseModel', function purchaseModel(){
 
     it('attributes', function(done){
 
-      Purchase.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+        var attributes = Purchase.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('user');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
+        expect(attributes).to.have.property('post');
+        expect(attributes).to.have.property('user');
 
         done();
-      });
     });
 
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      Purchase.findOne({id: 1}).exec(function(err, res){
+      Purchase.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
-
-        var resJson = res.toJSON();
-
-        //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');

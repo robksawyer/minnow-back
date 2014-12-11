@@ -15,47 +15,38 @@ describe('PostModel', function postModel(){
 
     it('attributes', function(done){
 
-      Post.findOne({id: 1}).exec(function(err, res){
+        var attributes = Post.attributes;
+
+        expect(attributes).to.have.property('owner');
+        expect(attributes).to.have.property('secret');
+        expect(attributes).to.have.property('body');
+        expect(attributes).to.have.property('slug');
+        expect(attributes).to.have.property('category');
+        expect(attributes).to.have.property('img');
+        expect(attributes).to.have.property('status');
+
+        done();
+    });
+
+
+    it('attributes (public)', function(done){
+
+      Post.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
+
+        expect(res.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+
         expect(res).to.have.property('id');
         expect(res).to.have.property('owner');
-        expect(res).to.have.property('secret');
+        expect(res).to.not.have.property('secret'); //Secret should be hidden
         expect(res).to.have.property('body');
         expect(res).to.have.property('slug');
         expect(res).to.have.property('category');
         expect(res).to.have.property('img');
         expect(res).to.have.property('status');
-
-        expect(res.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
-
-        done();
-      });
-    });
-
-
-    it('attributes toJSON', function(done){
-
-      Post.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
-
-        var resJson = res.toJSON();
-
-        expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
-
-        expect(resJson).to.have.property('id');
-        expect(resJson).to.have.property('owner');
-        expect(resJson).to.not.have.property('secret'); //Secret should be hidden
-        expect(resJson).to.have.property('body');
-        expect(resJson).to.have.property('slug');
-        expect(resJson).to.have.property('category');
-        expect(resJson).to.have.property('img');
-        expect(resJson).to.have.property('status');
 
         done();
       });

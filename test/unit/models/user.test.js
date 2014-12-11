@@ -16,36 +16,23 @@ describe('UserModel', function userModel(){
 
     it('attributes', function(done){
 
-      User.findOne({id: 1})
-        .populate('likes')
-        .populate('comments')
-        .populate('posts')
-        .populate('purchases')
-        .exec(function(err, res){
-            assert(!err, err);
-            if(err){
-              done(err);
-            }
-            expect(res).to.have.property('id');
-            expect(res).to.have.property('emailConfirmationStatus');
-            expect(res).to.have.property('phoneConfirmationStatus');
-            expect(res).to.have.property('customerId');
-            expect(res).to.have.property('likes');
-            expect(res).to.have.property('comments');
-            expect(res).to.have.property('purchases');
-            expect(res).to.have.property('posts');
-            expect(res).to.have.property('status');
-            expect(res).to.have.property('role');
-            expect(res).to.have.property('createdAt');
-            expect(res).to.have.property('updatedAt');
+        var attributes = User.attributes;
+        expect(attributes).to.have.property('emailConfirmationStatus');
+        expect(attributes).to.have.property('phoneConfirmationStatus');
+        expect(attributes).to.have.property('customerId');
+        expect(attributes).to.have.property('likes');
+        expect(attributes).to.have.property('comments');
+        expect(attributes).to.have.property('purchases');
+        expect(attributes).to.have.property('posts');
+        expect(attributes).to.have.property('status');
+        expect(attributes).to.have.property('role');
 
-            done();
-          });
+        done();
     });
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      User.findOne({id: 1})
+      User.findOne(1)
         .populate('likes')
         .populate('comments')
         .populate('posts')
@@ -56,19 +43,19 @@ describe('UserModel', function userModel(){
               done(err);
             }
 
-            var resJson = res.toJSON();
+            res = res.toJSON();
 
-            expect(resJson).to.have.property('id');
-            expect(resJson).to.not.have.property('emailConfirmationStatus');
-            expect(resJson).to.not.have.property('phoneConfirmationStatus');
-            expect(resJson).to.not.have.property('customerId');
-            expect(resJson).to.have.property('likes');
-            expect(resJson).to.have.property('comments');
-            expect(resJson).to.have.property('posts');
-            expect(resJson).to.not.have.property('status');
-            expect(resJson).to.not.have.property('role');
-            expect(resJson).to.have.property('createdAt');
-            expect(resJson).to.have.property('updatedAt');
+            expect(res).to.have.property('id');
+            expect(res).to.not.have.property('emailConfirmationStatus');
+            expect(res).to.not.have.property('phoneConfirmationStatus');
+            expect(res).to.not.have.property('customerId');
+            expect(res).to.have.property('likes');
+            expect(res).to.have.property('comments');
+            expect(res).to.have.property('posts');
+            expect(res).to.not.have.property('status');
+            expect(res).to.not.have.property('role');
+            expect(res).to.have.property('createdAt');
+            expect(res).to.have.property('updatedAt');
 
             done();
           });

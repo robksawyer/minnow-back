@@ -15,36 +15,24 @@ describe('AttemptModel', function attemptModel(){
 
     it('attributes', function(done){
 
-      Attempt.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+        var attributes = Attempt.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('user');
-        expect(res).to.have.property('successful');
-        expect(res).to.have.property('ip');
-        expect(res).to.have.property('port');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
+        expect(attributes).to.have.property('user');
+        expect(attributes).to.have.property('successful');
+        expect(attributes).to.have.property('ip');
+        expect(attributes).to.have.property('port');
 
         done();
-      });
     });
 
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      Attempt.findOne({id: 1}).exec(function(err, res){
+      Attempt.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
-
-        var resJson = res.toJSON();
-
-        //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');
         expect(res).to.have.property('user');

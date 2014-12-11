@@ -15,34 +15,22 @@ describe('LikeModel', function likeModel(){
 
     it('attributes', function(done){
 
-      Like.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+        var attributes = Like.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('owner');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
+        expect(attributes).to.have.property('post');
+        expect(attributes).to.have.property('owner');
 
         done();
-      });
     });
 
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      Like.findOne({id: 1}).exec(function(err, res){
+      Like.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
-
-        var resJson = res.toJSON();
-
-        //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');
         expect(res).to.have.property('post');

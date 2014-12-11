@@ -15,34 +15,22 @@ describe('JwtModel', function jwtModel(){
 
     it('attributes', function(done){
 
-      Jwt.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+        var attributes = Jwt.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('uses');
-        expect(res).to.have.property('revoked');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
+        expect(attributes).to.have.property('uses');
+        expect(attributes).to.have.property('revoked');
 
         done();
-      });
     });
 
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      Jwt.findOne({id: 1}).exec(function(err, res){
+      Jwt.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
-
-        var resJson = res.toJSON();
-
-        //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');
         expect(res).to.have.property('uses');

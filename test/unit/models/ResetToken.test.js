@@ -15,33 +15,21 @@ describe('ResetTokenModel', function resetTokenModel(){
 
     it('attributes', function(done){
 
-      ResetToken.findOne({id: 1}).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+        var attributes = ResetToken.attributes;
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('token');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
+        expect(attributes).to.have.property('token');
 
         done();
-      });
     });
 
 
-    it('attributes toJSON', function(done){
+    it('attributes (public)', function(done){
 
-      ResetToken.findOne({id: 1}).exec(function(err, res){
+      ResetToken.findOne(1).exec(function(err, res){
         assert(!err, err);
         if(err){
           done(err);
         }
-
-        var resJson = res.toJSON();
-
-        //expect(resJson.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
         expect(res).to.have.property('id');
         expect(res).to.have.property('token');
