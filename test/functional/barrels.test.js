@@ -74,7 +74,8 @@ describe('Barrels', function() {
             if (err)
               return done(err);
 
-            async.each(secrets, function(post, nextPost) {
+            async.each(secrets, function(secret, nextPost) {
+              
               expect(secret.post.name).not.be.empty;
 
               nextPost();
