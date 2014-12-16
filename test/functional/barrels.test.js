@@ -6,7 +6,8 @@
 var chai = require('chai'),
     expect = chai.expect,
     should = chai.should(),
-    assert = chai.assert;
+    assert = chai.assert,
+    async = require('async');
 
 describe('Barrels', function() {
 
@@ -33,9 +34,9 @@ describe('Barrels', function() {
             if (err)
               return done(err);
 
-            var gotUsers = (global.fixtures['users'].length > 0);
-            var usersAreInTheDb = (users.length === global.fixtures['users'].length);
-            should(gotUsers && usersAreInTheDb).be.ok;
+            var gotUsers = (global.fixtures['user'].length > 0);
+            var usersAreInTheDb = (users.length === global.fixtures['user'].length);
+            expect(gotUsers && usersAreInTheDb).be.ok;
 
             done();
           });
@@ -46,9 +47,9 @@ describe('Barrels', function() {
           if (err)
             return done(err);
 
-          var gotPosts = (global.fixtures['posts'].length > 0);
-          var postsAreInTheDb = (posts.length === global.fixtures['posts'].length);
-          should(gotPosts && postsAreInTheDb).be.ok;
+          var gotPosts = (global.fixtures['post'].length > 0);
+          var postsAreInTheDb = (posts.length === global.fixtures['post'].length);
+          expect(gotPosts && postsAreInTheDb).be.ok;
 
           Comment
             .find()
@@ -65,18 +66,21 @@ describe('Barrels', function() {
           });
       });
 
-      /*it('should assign a category to each product', function(done) {
-        Comment.find().populate('category').exec(function(err, comments) {
-          if (err)
-            return done(err);
+      it('should assign a secret to each post', function(done) {
+        Secret
+          .find()
+          .populate('post')
+          .exec(function(err, secrets) {
+            if (err)
+              return done(err);
 
-          async.each(comments, function(product, nextProduct) {
-            should(product.category.name).not.be.empty;
+            async.each(secrets, function(post, nextPost) {
+              expect(secret.post.name).not.be.empty;
 
-            nextProduct();
-          }, done);
-        });
-      });*/
+              nextPost();
+            }, done);
+          });
+      });
 
       /*it('should assign at least two tags to each product', function(done) {
         Comment.find().populate('tags').exec(function(err, comments) {
