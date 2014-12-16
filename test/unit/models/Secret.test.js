@@ -29,22 +29,26 @@ describe('SecretModel', function secretModel(){
 
     it('attributes (public)', function(done){
 
-      Secret.findOne(1).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
-        
-        expect(res).to.be.ok;
-        
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('price');
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('status');
+      Secret
+        .findOne()
+        .where({id: 1})
+        .populate('post')
+        .exec(function(err, res){
+            assert(!err, err);
+            if(err){
+              done(err);
+            }
+            
+            expect(res).to.be.ok;
+            
+            expect(res).to.have.property('id');
+            expect(res).to.have.property('post');
+            expect(res).to.have.property('price');
+            expect(res).to.have.property('body');
+            expect(res).to.have.property('status');
 
-        done();
-      });
+            done();
+          });
     });
 
   });

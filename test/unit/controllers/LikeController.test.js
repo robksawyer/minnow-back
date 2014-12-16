@@ -6,9 +6,10 @@
 
 var request = require('supertest'),
     https = require('follow-redirects').https,
-    expect = require('chai').expect,
-    assert = require('chai').assert,
-    should = require('chai').should,
+    chai = require('chai'),
+    expect = chai.expect,
+    should = chai.should(),
+    assert = chai.assert,
     login = require('./../../helpers/login');
 
 

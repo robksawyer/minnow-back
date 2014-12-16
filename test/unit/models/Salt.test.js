@@ -27,21 +27,24 @@ describe('SaltModel', function SaltModel(){
 
     it('attributes (public)', function(done){
 
-      Salt.findOne(1).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+      Salt
+        .findOne()
+        .where({id: 1})
+        .exec(function(err, res){
+            assert(!err, err);
+            if(err){
+              done(err);
+            }
 
-        expect(res).to.be.ok;
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('value');
-        expect(res).to.have.property('secret');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
-        
-        done();
-      });
+            expect(res).to.be.ok;
+            expect(res).to.have.property('id');
+            expect(res).to.have.property('value');
+            expect(res).to.have.property('secret');
+            expect(res).to.have.property('createdAt');
+            expect(res).to.have.property('updatedAt');
+            
+            done();
+          });
     });
 
   });

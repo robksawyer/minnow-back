@@ -5,7 +5,6 @@
 'use strict';
 
 var DataService = require('../../../api/services/DataService'),
-    PostData = require('../../fixtures/Post.json'),
     loginHelper = require('../../helpers/login'),
     _ = require('lodash'),
     request = require('supertest'),
@@ -85,7 +84,7 @@ describe('PostController', function(){
   describe('action create', function(){
 
       it('should create a post', function(done){        
-        var postData = PostData[0];
+        var postData = global.fixtures.Post[0];
         var tokenData = { access_token: access_token };
         var submissionData = _.merge(postData, tokenData);
 
@@ -112,7 +111,7 @@ describe('PostController', function(){
 
 
       it('should FAIL to create a post', function(done){
-        var postData = PostData[0];
+        var postData = global.fixtures.Post[0];
         var submissionData = postData;
       
         //Check the results before sending
@@ -137,7 +136,7 @@ describe('PostController', function(){
 
 
       it('should FAIL to create a post', function(done){
-        var postData = PostData[0];
+        var postData = global.fixtures.Post[0];
         var tokenData = { access_token: access_token };
         var submissionData = _.merge(postData, tokenData);
       

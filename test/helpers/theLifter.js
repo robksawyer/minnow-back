@@ -12,6 +12,8 @@ var SailsApp = require('sails').Sails,
     sailsprocess,
     clear = require('cli-clear');
 
+global.fixtures = undefined;
+
 var theLifter = {
  
   /* Starts the Sails server, or if already started, stops and then starts it
@@ -42,20 +44,20 @@ var theLifter = {
         function (next) {
           sailsprocess = new SailsApp();
           sailsprocess.log.warn('Lifting sails...');
+          sailsprocess.log('Loading models from ' +  require('path').join(process.cwd(), 'test/fixtures/models') );
           sailsprocess.lift({
             log: {
               level: 'error'
             },
-            paths: {
-              models: require('path').join(process.cwd(),
-                '../fixtures/models')
-            },
+            /*paths: {
+              models: require('path').join(process.cwd(), 'api/models')
+            },*/
             connections: {
               test: {
                 adapter: 'sails-memory'
               }
             },
-            /*loadHooks: [
+            loadHooks: [
               'blueprints',
               'controllers',
               'http',
@@ -67,7 +69,7 @@ var theLifter = {
               'session',
               'userconfig',
               'views'
-            ],*/
+            ],
             models: {
               // Use in-memory database for tests
               connection: 'test',
@@ -98,9 +100,9 @@ var theLifter = {
             sailsprocess = app;
 
             // Save original objects in `fixtures` variable and return it to the callback
-            var fixtures = barrels.data;
+            global.fixtures = barrels.data;
             if(cb){
-              cb(fixtures);
+              cb(global.fixtures);
             }
             next();
           });

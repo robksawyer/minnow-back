@@ -6,12 +6,12 @@
 
 var DataService = require('../../../api/services/DataService'),
     EncryptionService = require('../../../api/services/EncryptionService'),
-    PostData = require('../../fixtures/Post.json'),
     loginHelper = require('../../helpers/login'),
     request = require('supertest'),
-    expect = require('chai').expect,
-    should = require('chai').should, 
-    assert = require('chai').assert;
+    chai = require('chai'),
+    expect = chai.expect,
+    should = chai.should(),
+    assert = chai.assert;
 
 describe('SecretController', function(){
 

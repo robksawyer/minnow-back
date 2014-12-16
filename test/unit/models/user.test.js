@@ -31,35 +31,5 @@ describe('UserModel', function userModel(){
         done();
     });
 
-    it('attributes (public)', function(done){
-
-      User.findOne()
-        .where({id: 1})
-        .populate('likes')
-        .populate('comments')
-        .populate('posts')
-        .populate('purchases')
-        .then(function(res){
-            
-            res = res.toJSON();
-
-            expect(res).to.have.property('id');
-            expect(res).to.not.have.property('emailConfirmationStatus');
-            expect(res).to.not.have.property('phoneConfirmationStatus');
-            expect(res).to.not.have.property('customerId');
-            expect(res).to.have.property('likes');
-            expect(res).to.have.property('comments');
-            expect(res).to.have.property('posts');
-            expect(res).to.not.have.property('status');
-            expect(res).to.not.have.property('role');
-            expect(res).to.have.property('createdAt');
-            expect(res).to.have.property('updatedAt');
-
-            done();
-        })
-        .catch(done);
-
-    });
-
   });
 });

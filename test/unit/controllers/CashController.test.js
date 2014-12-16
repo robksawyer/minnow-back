@@ -8,7 +8,7 @@ var request = require('supertest'),
     stripeCards = require('../../helpers/stripeTestAccounts'),
     loginHelper = require('../../helpers/login'),
     expect = require('chai').expect,
-    should = require('chai').should,
+    should = require('chai').should(),
     assert = require('chai').assert;
 
 
