@@ -13,8 +13,8 @@ var theLifter = require('./helpers/theLifter');
  *
  * @param   {Function}  next    Callback function
  */
-before(function before(next) {
-  theLifter.lift(next);
+before(function (done) {
+  theLifter.lift(done);
 });
 
 /**
@@ -23,6 +23,7 @@ before(function before(next) {
  *
  * @param   {Function}  next    Callback function
  */
-after(function after(next) {
-  theLifter.lower(next);
+after(function (done) {
+  console.log(); // Skip a line before displaying Sails lowering logs
+  theLifter.lower(done);
 });

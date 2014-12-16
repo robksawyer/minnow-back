@@ -6,9 +6,10 @@
 
 
 var request = require('supertest'),
-    expect = require('chai').expect,
-    should = require('chai').should,
-    assert = require('chai').assert;
+    chai = require('chai'),
+    expect = chai.expect,
+    should = chai.should(),
+    assert = chai.assert;
 
 describe('UserModel', function userModel(){
 
@@ -32,17 +33,14 @@ describe('UserModel', function userModel(){
 
     it('attributes (public)', function(done){
 
-      User.findOne(1)
+      User.findOne()
+        .where({id: 1})
         .populate('likes')
         .populate('comments')
         .populate('posts')
         .populate('purchases')
-        .exec(function(err, res){
-            assert(!err, err);
-            if(err){
-              done(err);
-            }
-
+        .then(function(res){
+            
             res = res.toJSON();
 
             expect(res).to.have.property('id');
@@ -58,7 +56,9 @@ describe('UserModel', function userModel(){
             expect(res).to.have.property('updatedAt');
 
             done();
-          });
+        })
+        .catch(done);
+
     });
 
   });

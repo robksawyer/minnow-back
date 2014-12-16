@@ -9,9 +9,10 @@ var DataService = require('../../../api/services/DataService'),
     loginHelper = require('../../helpers/login'),
     _ = require('lodash'),
     request = require('supertest'),
-    expect = require('chai').expect,
-    should = require('chai').should, 
-    assert = require('chai').assert;
+    chai = require('chai'),
+    expect = chai.expect,
+    should = chai.should(),
+    assert = chai.assert;
 
 describe('PostController', function(){
 

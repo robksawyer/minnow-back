@@ -5,9 +5,10 @@
  */
 
 var request = require('supertest'),
-    expect = require('chai').expect,
-    should = require('chai').should,
-    assert = require('chai').assert;
+    chai = require('chai'),
+    expect = chai.expect,
+    should = chai.should(),
+    assert = chai.assert;
 
 describe('CommentModel', function commentModel(){
 
@@ -27,27 +28,30 @@ describe('CommentModel', function commentModel(){
 
     });
 
-
     it('attributes (public)', function(done){
 
-      Comment.findOne(1).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+      Comment
+        .findOne()
+        .where({id: 1})
+        .populate('post')
+        .populate('owner')
+        .then(function(comment){
 
-        expect(res).to.be.ok;
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('commentId');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('status');
-        expect(res).to.have.property('owner');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
-        
-      });
+            sails.log(comment);
+            /*expect(comment).to.be.ok;
+            expect(comment).to.have.property('id');
+            expect(comment).to.have.property('body');
+            expect(comment).to.have.property('commentId');
+            expect(comment).to.have.property('status');
+            expect(comment).to.have.property('post');
+            expect(comment).to.have.property('owner');
+            expect(comment).to.have.property('createdAt');
+            expect(comment).to.have.property('updatedAt');*/
+
+            done();
+        })
+        .catch(done);
+
     });
-
   });
 });

@@ -32,7 +32,8 @@ module.exports = {
         noExistsCheck = noExistsCheck || false;
 
         Post
-            .findOne(where)
+            .findOne()
+            .where(where)
             .exec(function(error, /** sails.model.post */ post) {
                 if (error) {
                     sails.log.error("[Failed to fetch post data]");
@@ -64,7 +65,8 @@ module.exports = {
             limit = sails.config.site.posts_return_max;
         }
         Post
-            .find(where)
+            .find()
+            .where(where)
             .populate('owner')
             .sort("createdAt ASC")
             .limit(limit)
@@ -89,7 +91,8 @@ module.exports = {
         noExistsCheck = noExistsCheck || false;
 
         Post
-            .findOne(where)
+            .findOne()
+            .where(where)
             .populate('owner')
             .exec(function(error, /** sails.model.postUser */ postUser) {
                 if (error) {
@@ -116,16 +119,21 @@ module.exports = {
      */
     getComment: function(where, next, noExistsCheck) {
         noExistsCheck = noExistsCheck || false;
-
+        if(typeof where != "object") {
+            error = new Error();
+            error.message = "Find query must be an object.";
+            error.status = 403;
+            next(error, comment);
+        }
         Comment
-            .findOne(where)
+            .findOne()
+            .where(where)
             .exec(function(error, /** sails.model.comment */ comment) {
                 if (error) {
                     sails.log.error("[Failed to fetch comment data]");
                     sails.log.error(error);
                 } else if (!comment && !noExistsCheck) {
                     error = new Error();
-
                     error.message = "Comment not found.";
                     error.status = 404;
                 }
@@ -150,8 +158,15 @@ module.exports = {
         if(limit > sails.config.site.comments_return_max){
             limit = sails.config.site.comments_return_max;
         }
+        if(typeof where != "object") {
+            error = new Error();
+            error.message = "Find query must be an object.";
+            error.status = 403;
+            next(error, comment);
+        }
         Comment
-            .find(where)
+            .find()
+            .where(where)
             .populate('owner')
             .sort("commentId ASC")
             .exec(function(error, /** sails.model.comment[] */ comments) {
@@ -174,7 +189,8 @@ module.exports = {
         noExistsCheck = noExistsCheck || false;
 
         User
-            .findOne(where)
+            .findOne()
+            .where(where)
             .exec(function(error, /** sails.model.user */ user) {
                 if (error) {
                     sails.log.error("[Failed to fetch user data]");
@@ -197,7 +213,8 @@ module.exports = {
      */
     getUserSignInData: function(userId, next) {
         User
-            .find({id: userId})
+            .find()
+            .where({id: userId})
             .sort("createdAt DESC")
             .exec(function(error, /** sails.model.userLogin[] */ userLogin) {
                 if (error) {
@@ -217,7 +234,8 @@ module.exports = {
      */
     getUsers: function(where, next) {
         User
-            .find(where)
+            .find()
+            .where(where)
             .sort("email ASC")
             .sort("createdAt ASC")
             .exec(function(error, users) {

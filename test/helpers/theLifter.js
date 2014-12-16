@@ -44,14 +44,18 @@ var theLifter = {
           sailsprocess.log.warn('Lifting sails...');
           sailsprocess.lift({
             log: {
-              level: 'debug'
+              level: 'error'
+            },
+            paths: {
+              models: require('path').join(process.cwd(),
+                '../fixtures/models')
             },
             connections: {
-              testConnection: {
-                adapter: 'sails-disk'
+              test: {
+                adapter: 'sails-memory'
               }
             },
-            loadHooks: [
+            /*loadHooks: [
               'blueprints',
               'controllers',
               'http',
@@ -63,29 +67,31 @@ var theLifter = {
               'session',
               'userconfig',
               'views'
-            ],
+            ],*/
             models: {
               // Use in-memory database for tests
-              connection: 'testConnection',
+              connection: 'test',
               migrate: 'drop'
+            },
+            hooks: {
+              grunt: false
             },
             liftTimeout: 100000
           }, function (err, app) {
             if (err) {
               sails.log.error(err);
-              next(err);
+              return next(err);
             }
             // Load fixtures
             var barrels = new Barrels();
 
             // Populate the DB
-            barrels.populate(['user'],function(err) {
+            barrels.populate(function(err) {
               if(err){
                 sails.log.error(err);
-                next(err);
+                return next(err);
               }
               console.log('Populating the database.');
-              next(err, app);
             }, false);
             
             lifted = true;
@@ -113,9 +119,6 @@ var theLifter = {
   lower: function (next) {
     sailsprocess.log.warn('Lowering sails...');
     sailsprocess.lower(function (err) {
-      if(err) {
-        throw err;
-      }
       lifted = false;
       next(err);
     });

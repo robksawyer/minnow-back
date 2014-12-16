@@ -5,10 +5,11 @@
  */
 
 var request = require('supertest'),
-    expect = require('chai').expect,
-    assert = require('chai').assert,
     stripeCards = require('../../helpers/stripeTestAccounts'),
-    should = require('chai').should;
+    chai = require('chai'),
+    expect = chai.expect,
+    should = chai.should(),
+    assert = chai.assert;
 
 
 describe('StripeHelper', function(){
