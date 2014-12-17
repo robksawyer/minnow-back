@@ -75,26 +75,28 @@ describe('Barrels', function() {
               return done(err);
 
             async.each(secrets, function(secret, nextPost) {
-              
-              expect(secret.post.name).not.be.empty;
+              expect(secret.post.body).not.be.empty;
 
               nextPost();
             }, done);
           });
       });
 
-      /*it('should assign at least two tags to each product', function(done) {
-        Comment.find().populate('tags').exec(function(err, comments) {
-          if (err)
-            return done(err);
+      it('should assign two comments to the first post', function(done) {
+        Post
+          .findOne()
+          .where({id: 1})
+          .populate('comments')
+          .exec(function(err, post) {
+            if (err)
+              return done(err);
 
-          async.each(comments, function(product, nextProduct) {
-            should(product.tags.length).be.greaterThan(1);
+            expect(post.body).not.be.empty;
+            expect(post.comments.length).be.greaterThan(3);
 
-            nextProduct();
-          }, done);
-        });
-      });*/
+            done();
+          });
+      });
     });
 
    /*describe('populate(cb, false)', function() {

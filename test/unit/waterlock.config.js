@@ -57,11 +57,11 @@ module.exports.waterlock = {
     // CHANGE THIS SECRET
     secret: 'this is my secret',
     expiry:{
-      unit: 'days',
-      length: '7'
+      unit: 'day',
+      length: '1'
     },
-    audience: 'app name',
-    subject: 'subject'
+    audience: 'minnow',
+    subject: 'make money with your secrets'
   },
 
   // Lets waterlock know how to handle different login/logout

@@ -21,7 +21,9 @@ module.exports = function(req, res, next) {
   var postId = parseInt(req.param('post'));
 
   //Check to ensure that the Post exists before adding the comment.
-  Post.findById( postId ).exec(function(err, post){
+  Post
+    .findById( postId )
+    .exec(function(err, post){
       if(err) {
         next(err);
       }
@@ -30,20 +32,22 @@ module.exports = function(req, res, next) {
       }
 
       //Look up the user's purchases to see if the Post ID exists in the stack
-      Purchase.find({user: req.session.user.id, post: postId}).exec(function(err, purchase){
-        if(err) {
-          next(err);
-        }
+      Purchase
+        .find()
+        .where({user: req.session.user.id, post: postId})
+        .exec(function(err, purchase){
+          if(err) {
+            next(err);
+          }
 
-        //Check to see if purchase exists
-        if(purchase.id){
-          //Continue
-          next();
-        }else{
-          return res.forbidden(err);
-        }
-        
-      });
+          //Check to see if purchase exists
+          if(purchase.id){
+            //Continue
+            next();
+          }else{
+            return res.forbidden(err);
+          }
+        });
   });
 
 };

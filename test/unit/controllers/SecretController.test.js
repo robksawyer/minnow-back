@@ -54,24 +54,50 @@ describe('SecretController', function(){
     });
 
 
-    it('update secret', function(done){
+    it('update secrets', function(done){
         var message =  'This is a new secret.';
-        Secret.update({ post: 1, salt: 1 },
-        {
-          body: message,
-          price: 110.00,
-          post: 2
-        }).exec(function(err, secrets){
-          assert(!err, err);
-          
-          sails.log.warn(secrets);
+        Secret
+          .update(
+            {id: 1},
+            {
+              body: message,
+              price: 110.00,
+              post: 2
+            }
+          )
+          .exec(function(err, updated){
+            assert(!err, err);
+      
+            expect(message).to.be.ok;
+            expect(updated.length).to.be.above(0);
+            //Ensure the secret was hashed
+            expect(updated[0].body).to.not.equal(message);
+            expect(updated[0].salt.value).to.be.ok;
 
-          expect(message).to.be.ok;
-          expect(secrets).to.not.equal(message);
-          expect(secrets.salt.value).to.be.ok;
+            done();
+          });
 
-          done();
-        });
+    });
+
+
+    it('update encrypt secret when updating', function(done){
+        var message =  'This is a new secret.';
+        Secret
+          .update(
+            {id: 1},
+            {
+              body: message,
+            }
+          )
+          .exec(function(err, updated){
+            assert(!err, err);
+      
+            //Ensure the secret was hashed
+            expect(updated[0].body).to.not.equal(message);
+            expect(updated[0].salt.value).to.be.ok;
+
+            done();
+          });
 
     });
 

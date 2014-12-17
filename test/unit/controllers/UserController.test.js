@@ -15,7 +15,6 @@ describe('UserController', function(){
 
   describe('Model', function(){
     it('should have attributes', function(done){
-      sails.log.warn(User);
       User.findOne()
         .where({id: 1})
         .populate('likes')
@@ -41,7 +40,7 @@ describe('UserController', function(){
             done();
         })
         .catch(done);
-        
+
     });
   });
 

@@ -100,11 +100,9 @@ module.exports = {
                     sails.log.error(error);
                 } else if (!postUser && !noExistsCheck) {
                     error = new Error();
-
                     error.message = "Post user not found.";
                     error.status = 404;
                 }
-
                 next(error, postUser);
             });
     },
@@ -168,6 +166,8 @@ module.exports = {
             .find()
             .where(where)
             .populate('owner')
+            .populate('post')
+            .limit(limit)
             .sort("commentId ASC")
             .exec(function(error, /** sails.model.comment[] */ comments) {
                 if (error) {

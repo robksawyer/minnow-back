@@ -27,22 +27,25 @@ describe('LikeModel', function likeModel(){
 
     it('attributes (public)', function(done){
 
-      Like.findOne(1).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+      Like
+        .findOne(1)
+        .populate('post')
+        .exec(function(err, res){
+            assert(!err, err);
+            if(err){
+              done(err);
+            }
 
-        expect(res).to.be.ok;
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('post');
-        expect(res).to.have.property('owner');
-        expect(res).to.have.property('createdAt');
-        expect(res).to.have.property('updatedAt');
+            expect(res).to.be.ok;
+            expect(res).to.have.property('id');
+            expect(res).to.have.property('post');
+            expect(res).to.have.property('owner');
+            expect(res).to.have.property('createdAt');
+            expect(res).to.have.property('updatedAt');
 
-        done();
-      });
-    });
+            done();
+          });
+        });
 
   });
 });

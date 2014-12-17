@@ -23,8 +23,8 @@ module.exports = {
       var obj = this.toObject();
       if(obj){
         delete obj.password;
-        /*delete obj.email;
-        delete obj.phone;*/
+        delete obj.email;
+        delete obj.phone;
       }
       return obj;
     }

@@ -1,7 +1,7 @@
 'use strict';
 
 var request = require('supertest'),
-    config = require('../unit/waterlock.config').waterlock,
+    config = require('../../config/waterlock').waterlock,
     jwt = require('../../node_modules/waterlock/lib/controllers/actions/jwt');
 
 /**
@@ -72,7 +72,8 @@ module.exports.getToken = function getToken(userId, next){
         };
       }
     };
-    global.waterlock = {config: config};
-
+    global.waterlock = {
+        config: config
+    };
     jwt.apply(this, [req, res]);
 };

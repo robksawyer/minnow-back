@@ -32,26 +32,30 @@ describe('PostModel', function postModel(){
 
     it('attributes (public)', function(done){
 
-      Post.findOne(1).exec(function(err, res){
-        assert(!err, err);
-        if(err){
-          done(err);
-        }
+      Post
+        .findOne(1)
+        .exec(function(err, res){
+            assert(!err, err);
+            if(err){
+              done(err);
+            }
 
-        expect(res).to.be.ok;
-        expect(res.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+            res = res.toJSON();
+            
+            expect(res).to.be.ok;
+            expect(res.body).to.have.string('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
 
-        expect(res).to.have.property('id');
-        expect(res).to.have.property('owner');
-        expect(res).to.not.have.property('secret'); //Secret should be hidden
-        expect(res).to.have.property('body');
-        expect(res).to.have.property('slug');
-        expect(res).to.have.property('category');
-        expect(res).to.have.property('img');
-        expect(res).to.have.property('status');
+            expect(res).to.have.property('id');
+            expect(res).to.have.property('owner');
+            expect(res).to.not.have.property('secret'); //Secret should be hidden
+            expect(res).to.have.property('body');
+            expect(res).to.have.property('slug');
+            expect(res).to.have.property('category');
+            expect(res).to.have.property('img');
+            expect(res).to.have.property('status');
 
-        done();
-      });
+            done();
+          });
     });
 
   });

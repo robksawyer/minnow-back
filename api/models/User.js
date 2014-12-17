@@ -59,11 +59,11 @@ module.exports = {
     toJSON: function() {
       var obj = this.toObject();
       if(obj){
-        /*delete obj.emailConfirmationStatus;
+        delete obj.emailConfirmationStatus;
         delete obj.phoneConfirmationStatus;
         delete obj.customerId;
         delete obj.role;
-        delete obj.status;*/
+        delete obj.status;
       }
       return obj;
     }
