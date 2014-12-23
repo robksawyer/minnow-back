@@ -13,15 +13,35 @@ var DataService = require('../../../api/services/DataService'),
     should = chai.should(),
     assert = chai.assert;
 
+var access_token = '';
+
 describe('PostController', function(){
 
-  var access_token = ''; //The test token
-  it('should generate a token', function(done){
-    loginHelper.getToken(1, function(token){
-      access_token = token;
-      expect(access_token).to.be.ok;
-      done();
+  describe('should', function(){
+
+    it('authenticate user', function(done){
+      loginHelper.authenticate('demo', function(err, res){
+        if(err){
+          sails.log.error(err);
+        }
+        sails.log.warn(res);
+        loginHelper.getToken(1, function(token){
+          access_token = token;
+          expect(access_token).to.be.ok;
+          done();
+        });
+        done(err);
+      });
     });
+
+    it('generate a token', function(done){
+      loginHelper.getToken(1, function(token){
+        access_token = token;
+        expect(access_token).to.be.ok;
+        done();
+      });
+    });
+
   });
 
   describe('DataService requests', function(){

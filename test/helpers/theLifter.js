@@ -47,7 +47,7 @@ var theLifter = {
           sailsprocess.log('Loading models from ' +  require('path').join(process.cwd(), 'test/fixtures/models') );
           sailsprocess.lift({
             log: {
-              level: 'warn'
+              level: 'debug'
             },
             /*paths: {
               models: require('path').join(process.cwd(), 'api/models')
