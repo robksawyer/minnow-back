@@ -19,14 +19,14 @@ describe('SecretController', function(){
   
   describe('should', function(){
 
-    it('generate a token', function(done){
+    /*it('generate a token', function(done){
       loginHelper.getToken(1, function(token){
         access_token = token;
         expect(access_token).to.be.ok;
 
         done();
       });
-    });
+    });*/
 
     it('generate a key', function(done){
       var salt = EncryptionService.generateKeySync();

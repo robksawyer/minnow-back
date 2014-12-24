@@ -5,7 +5,7 @@
  */
 
 var request = require('supertest'),
-    //loginHelper = require('../../helpers/login'),
+    loginHelper = require('../../helpers/login'),
     //FlickrService = require('../../services/FlickrService'),
     chai = require('chai'),
     expect = chai.expect,

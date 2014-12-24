@@ -98,11 +98,11 @@ describe('AuthController', function AuthController() {
 
     });
 
-    /*describe('action login (some data)', function loginTest(validationError) {
+    /*describe('action login (empty)', function loginTest(validationError) {
       [
           {
               payload: { 
-                  email: '',
+                  phone: '',
                   password: '',
                   type: 'local'
               },
@@ -117,12 +117,13 @@ describe('AuthController', function AuthController() {
                       //.expect.to.throw(validationError)
                       .end(
                           function(err, result) {
-                              //should.exist(err);
-                              sails.log.warn(err);
-                              //expect(result.res.body).to.be.a('object');
-                              //expect.to.throw(Error);
+                            assert(!err, err);
+                            //should.exist(err);
+                            sails.log.warn(err);
+                            //expect(result.res.body).to.be.a('object');
+                            //expect.to.throw(Error);
 
-                              done();
+                            done();
                           }
                       );
               });

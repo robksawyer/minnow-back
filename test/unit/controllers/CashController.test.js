@@ -15,13 +15,13 @@ var request = require('supertest'),
 describe('CashController', function(){
 
   var access_token = ''; //The test token
-  it('should generate a token', function(done){
+  /*it('should generate a token', function(done){
     loginHelper.getToken(1, function(token){
       access_token = token;
     });
     expect(access_token).to.be.ok;
     done();
-  });
+  });*/
 
   describe('action transfer', function(){
 

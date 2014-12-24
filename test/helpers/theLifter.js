@@ -88,7 +88,20 @@ var theLifter = {
             var barrels = new Barrels();
 
             // Populate the DB
-            barrels.populate(function(err) {
+            barrels.populate([
+                'user',
+                'auth',
+                'resetToken',
+                'jwt',
+                'use',
+                'attempt',
+                'post',
+                'comment',
+                'like',
+                'secret',
+                'purchase',
+                'flag'
+              ],function(err) {
               if(err){
                 sails.log.error(err);
                 return next(err);

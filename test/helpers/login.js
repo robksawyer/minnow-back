@@ -1,12 +1,9 @@
 'use strict';
 
 var request = require('supertest'),
-    config = require('../../config/waterlock').waterlock,
-    jwt = require('../../node_modules/waterlock/lib/controllers/actions/jwt'),
-    chai = require('chai'),
-    expect = chai.expect,
-    should = chai.should(),
-    assert = chai.assert;
+    config = require('../waterlock').waterlock,
+    proxyquire = require('proxyquire'),
+    jwt = require('../../node_modules/waterlock/lib/controllers/actions/jwt');
 
 /**
  * Generic helper function to authenticate specified user with current sails testing instance. Function
@@ -17,6 +14,7 @@ var request = require('supertest'),
  * @param   {Function}  next    Callback function which is called after login attempt
  */
 module.exports.authenticate = function (user, next) {
+
     // Static credential information, which are used within tests.
     var credentials = {
         demo: {
@@ -38,12 +36,50 @@ module.exports.authenticate = function (user, next) {
     sails.log.warn('Authenticating user with the following details:');
     sails.log.warn(credentials[user]);
 
-    assert(credentials[user], 'object');
+    request(sails.hooks.http.app)
+        .post('/auth/login')
+        .send(credentials[user])
+        .set('Content-Type', 'application/json')
+        .expect(200)
+        .end(
+            function(err, result) {
+                if (err) {
+                    sails.log.error(err);
+                    next(err);
+                } else {
+                    sails.log(result.res);
+                    next(null, result.res.body);
+                }
+            }
+        );
+};
+
+module.exports.getToken = function (user, next){
+    if(typeof user !== 'string') {
+        user = 'demo';
+    }
+
+    var credentials = {
+        demo: {
+            phone: '1113332222',
+            password: 'demodemodemo',
+            type: 'local'
+        },
+        facebook_user: {
+            facebookId: '32234234234234234',
+            type: 'facebook'
+        },
+        admin: {
+            email: 'me@me.com',
+            password: 'adminadminadmin',
+            type: 'local'
+        }
+    };
 
     request(sails.hooks.http.app)
         .post('/auth/login')
-        .set('Content-Type', 'application/json')
         .send(credentials[user])
+        .set('Content-Type', 'application/json')
         .expect(200)
         .end(
             function(error, result) {
@@ -51,30 +87,12 @@ module.exports.authenticate = function (user, next) {
                     sails.log.error(error);
                     next(error);
                 } else {
-                    sails.log.warn(result.res);
+                    sails.log(result.res.body);
                     next(null, result.res.body);
                 }
             }
         );
 };
-
-/*module.exports.getToken = function (next){
-    request(sails.hooks.http.app)
-            .get('/user/jwt')
-            .set('Content-Type', 'application/json')
-            .expect(200)
-            .end(
-                function(error, token) {
-                    if (error) {
-                        sails.log.error(error);
-                        next(error);
-                    } else {
-                        sails.log.warn(token);
-                        next(null, token.res.body);
-                    }
-                }
-            );
-};*/
 
 module.exports.getToken = function (userId, next){
     if(!userId) {
